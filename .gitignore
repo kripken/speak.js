@@ -1,0 +1,9 @@
+*.o
+*.raw.js
+*.so
+*.so.*
+*.a
+*.ll
+src/speak
+src/espeak
+
