@@ -9,8 +9,21 @@
 
   FS.root.write = true;
 
-  function speak(text) {
-    Module.arguments.push(text);
+  function speak(text, args) {
+    args = args || {};
+    Module.arguments = [
+      '-w', 'wav.wav',
+      // options
+      '-a', args.amplitude ? String(args.amplitude) : '100',
+      '-g', args.wordgap ? String(args.wordgap) : '0', // XXX
+      '-p', args.pitch ? String(args.pitch) : '50',
+      '-s', args.speed ? String(args.speed) : '175',
+      '-v', args.voice ? String(args.voice) : 'en/en-us',
+      // end options
+      '--path=/espeak',
+      text
+    ];
+
     run();
     Module.arguments.pop();
 

@@ -6,7 +6,6 @@ var speak = (function() {
   var print = console.log;
 
   var Module = {
-    arguments: ['-w', 'wav.wav', '-v', 'en/en-us', '--path=/espeak'],
     noInitialRun: true
   };
 

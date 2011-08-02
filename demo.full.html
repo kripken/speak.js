@@ -1,5 +1,5 @@
 <html>
-<title>Text-to-Speech on the Web</title>
+<title>speak.js: Text-to-Speech on the Web</title>
 <head>
   <script>
     // This demo is licensed under the GNU GPL.
@@ -7,16 +7,21 @@
   <script src="speak.full.js"></script>
 </head>
 <body>
-  <h1>Text-To-Speech on the Web</h1>
-
-  <form onsubmit="speak(text.value); return false">
-    Text: <input type="text" name="text" size=50 value="Never gonna give, you, up."><input type="submit" value="Go!">
+  <h1>speak.js</h1>
+  <h2>Text-To-Speech on the Web</h2>
+  <form onsubmit="speak(text.value, { amplitude: amplitude.value, wordgap: workdgap.value, pitch: pitch.value, speed: speed.value }); return false">
+    Text: <input type="text" name="text" size=50 value="Never gonna give, you, up.">
+    Amplitude: <input type="text" name="amplitude" size=5 value="100">
+    Pitch: <input type="text" name="pitch" size=5 value="50">
+    Speed: <input type="text" name="speed" size=5 value="175">
+    Word gap: <input type="text" name="workdgap" size=5 value="0">
+    <input type="submit" value="Go!">
   </form>
   <hr>
   <p>
     This demo is 100% clientside JavaScript. It uses <a href="http://espeak.sourceforge.net/">eSpeak</a>, an open source
     speech synthesizer, which was compiled from C++ to JavaScript using <a href="http://emscripten.org">Emscripten</a>.
-    Source code for this demo can be found <a href="espeak_src.tar.bz2">here</a>.
+    Source code for this demo can be found <a href="https://github.com/kripken/speak.js">here</a>.
   </p>
 
   <p>
