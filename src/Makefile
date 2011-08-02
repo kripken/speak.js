@@ -25,8 +25,8 @@ INSTALL = install
 LN_SF = /bin/ln -sf
 MKDIR = mkdir -p
 
-AUDIO = portaudio
-#AUDIO = pulseaudio
+#AUDIO = portaudio
+AUDIO = pulseaudio
 #AUDIO = sada
 
 ifeq ($(AUDIO),pulseaudio)
@@ -51,13 +51,13 @@ endif
 speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
 	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp mbrowrap.cpp \
-	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp klatt.cpp sonic.cpp
+	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp klatt.cpp sonic.cpp getopt.cpp strtok.cpp
 
 libespeak_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp \
 	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp mbrowrap.cpp \
 	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp \
-	espeak_command.cpp event.cpp fifo.cpp $(WAVE) debug.cpp klatt.cpp sonic.cpp
+	espeak_command.cpp event.cpp fifo.cpp $(WAVE) debug.cpp klatt.cpp sonic.cpp getopt.cpp strtok.cpp
 
 SRCS1=$(speak_SOURCES)
 OBJS1=$(patsubst %.cpp,%.o,$(SRCS1))
@@ -71,7 +71,7 @@ SRCS3 = espeak.cpp
 OBJS3=$(patsubst %.cpp,%.o,$(SRCS3))
 LIBS3=-lstdc++ -L . -lespeak
 
-CXXFLAGS=-O2
+CXXFLAGS=-g -DNEED_WCHAR_FUNCTIONS
 
 
 all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)

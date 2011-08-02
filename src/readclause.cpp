@@ -24,7 +24,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <wctype.h>
-#include <wchar.h>
+//#include <wchar.h>
 #include <math.h>
 
 #include "speak_lib.h"
@@ -204,6 +204,8 @@ const int param_defaults[N_SPEECH_PARAM] = {
 
 #ifdef NEED_WCHAR_FUNCTIONS
 
+extern "C" {
+
 // additional Latin characters beyond the Latin1 character set
 #define MAX_WALPHA  0x233
 // indexed by character - 0x100
@@ -232,7 +234,7 @@ static unsigned char walpha_tab[MAX_WALPHA-0xff] = {
       1,0xff,   1,0xff };    // 230
 
 // use ctype.h functions for Latin1 (character < 0x100)
-int iswalpha(int c)
+int iswalpha(wint_t c)
 {
 	if(c < 0x100)
 		return(isalpha(c));
@@ -243,21 +245,21 @@ int iswalpha(int c)
 	return(walpha_tab[c-0x100]);
 }
 
-int iswdigit(int c)
+int iswdigit(wint_t c)
 {
 	if(c < 0x100)
 		return(isdigit(c));
 	return(0);
 }
 
-int iswalnum(int c)
+int iswalnum(wint_t c)
 {
 	if(iswdigit(c))
 		return(1);
 	return(iswalpha(c));
 }
 
-int towlower(int c)
+wint_t towlower(wint_t c)
 {
 	int x;
 	if(c < 0x100)
@@ -273,7 +275,7 @@ int towlower(int c)
 	return(c + x);  // convert to lower case
 }
 
-int towupper(int c)
+wint_t towupper(wint_t c)
 {
 	// check whether the previous character code is the upper-case equivalent of this character
 	if(tolower(c-1) == c)
@@ -281,7 +283,7 @@ int towupper(int c)
 	return(c);  // no
 }
 
-int iswupper(int c)
+int iswupper(wint_t c)
 {
 	int x;
 	if(c < 0x100)
@@ -291,7 +293,7 @@ int iswupper(int c)
 	return(1);
 }
 
-int iswlower(int c)
+int iswlower(wint_t c)
 {
 	if(c < 0x100)
 		return(islower(c));
@@ -300,14 +302,14 @@ int iswlower(int c)
 	return(1);
 }
 
-int iswspace(int c)
+int iswspace(wint_t c)
 {
 	if(c < 0x100)
 		return(isspace(c));
 	return(0);
 }
 
-int iswpunct(int c)
+int iswpunct(wint_t c)
 {
 	if(c < 0x100)
 		return(ispunct(c));
@@ -353,7 +355,10 @@ float wcstod(const wchar_t *str, wchar_t **tailptr)
    *tailptr = (wchar_t *)&str[ix];
    return(atof(buf));
 }
-#endif
+
+}
+
+#endif // NEED_WCHAR_FUNCTIONS
 
 int towlower2(unsigned int c)
 {
