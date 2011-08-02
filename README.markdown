@@ -15,15 +15,15 @@ Very simple! Do this:
 
  * Include the script in your html header,
 
-      <script src="speak.js"></script>
+      `<script src="speak.js"></script>`
 
-  * Add a div with an audio element called 'audio' in your html body,
+ * Add a div with an audio element called 'audio' in your html body,
 
-      <div id="audio"></div>
+      `<div id="audio"></div>`
 
-  * Call speak() to say stuff in JavaScript
+ * Call speak() to say stuff in JavaScript
 
-      speak('hello world!')
+      `speak('hello world!')`
 
 See demo.html for an example use.
 
