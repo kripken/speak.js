@@ -1,0 +1,40 @@
+<html>
+<title>Text-to-Speech on the Web</title>
+<head>
+  <script>
+    // This demo is licensed under the GNU GPL.
+  </script>
+  <script src="speak.full.js"></script>
+</head>
+<body>
+  <h1>Text-To-Speech on the Web</h1>
+
+  <form onsubmit="speak(text.value); return false">
+    Text: <input type="text" name="text" size=50 value="Never gonna give, you, up."><input type="submit" value="Go!">
+  </form>
+  <hr>
+  <p>
+    This demo is 100% clientside JavaScript. It uses <a href="http://espeak.sourceforge.net/">eSpeak</a>, an open source
+    speech synthesizer, which was compiled from C++ to JavaScript using <a href="http://emscripten.org">Emscripten</a>.
+    Source code for this demo can be found <a href="espeak_src.tar.bz2">here</a>.
+  </p>
+
+  <p>
+    Browser requirements:
+    <ul>
+      <li><b>Typed arrays</b>. The eSpeak code is not portable to the extent that would be necessary to avoid using typed arrays.
+          (It should however be possible to rewrite small bits of eSpeak to fix that.)
+          This is present in Firefox and Chrome, but not IE, Safari or Opera.</li>
+      <li><b>Support for WAV audio in data URIs</b>. eSpeak's simplest form of output is a WAV file, and the easiest way to use
+          that is via a data URI. (It should however be possible to extract the raw audio directly by hacking eSpeak.)
+          This is present in Firefox, Safari and Opera, but not IE or Chrome.</li>
+    </ul>
+    So currently this demo will only work in Firefox. Help is welcome regarding the workarounds mentioned above
+    that will let it work elsewhere, we would like to develop this demo into a useful project for people to use around the web.
+    If you want that too, get in touch with us by any of the methods listed at the bottom of <a href="http://emscripten.org">this page</a>.
+  </p>
+
+  <div id="audio"></div>
+</body>
+</html>
+

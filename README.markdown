@@ -17,6 +17,8 @@ Very simple! Do this:
 
       `<script src="speak.js"></script>`
 
+   (and make sure you have speak.js where it will be found)
+
  * Add a div with an audio element called 'audio' in your html body,
 
       `<div id="audio"></div>`
@@ -27,11 +29,16 @@ Very simple! Do this:
 
 See demo.html for an example use.
 
-speak.js is the unminified version, speak.min.js is after being run through the Closure Compiler. You should probably use that one.
-
 
 Building
 --------
 
 Run emscripten.sh inside src/. Note that you need to change the paths there.
+
+That will generate speak.full.js, which is the unminified version. It is
+recommended to minify that (for example, using the closure compiler). speak.js
+in this repo is minified.
+
+demo.full.html is the same as demo.html but uses speak.full.js. It is useful
+for testing.
 
