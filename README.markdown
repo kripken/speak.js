@@ -27,7 +27,7 @@ Very simple! Do this:
 
       `speak('hello world!')`
 
-See demo.min.html for a simple 'hello world', and demo.full.html for
+See helloworld.html for a simple 'hello world', and demo.html for
 a more detailed example.
 
 
@@ -66,6 +66,6 @@ That will generate speak.full.js, which is the unminified version. It is
 recommended to minify that (for example, using the closure compiler). speak.js
 in this repo is minified.
 
-demo.full.html uses speak.full.js (the unminified version) while demo.min.js
-uses speak.js (the minified version).
+demo.html uses speak.js (the minified version) while helloworld.js
+uses speak.full.js (the unminified version - useful during development).
 
