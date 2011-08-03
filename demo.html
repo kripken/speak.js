@@ -9,12 +9,16 @@
 <body>
   <h1>speak.js</h1>
   <h2>Text-To-Speech on the Web</h2>
-  <form onsubmit="speak(text.value, { amplitude: amplitude.value, wordgap: workdgap.value, pitch: pitch.value, speed: speed.value }); return false">
-    Text: <input type="text" name="text" size=50 value="Never gonna give, you, up.">
-    Amplitude: <input type="text" name="amplitude" size=5 value="100">
-    Pitch: <input type="text" name="pitch" size=5 value="50">
-    Speed: <input type="text" name="speed" size=5 value="175">
-    Word gap: <input type="text" name="workdgap" size=5 value="0">
+  <form onsubmit="speak(text.value, { amplitude: amplitude.value, wordgap: workdgap.value, pitch: pitch.value, speed: speed.value /*, voice: language.value */ }); return false">
+    Text: <input type="text" name="text" size=50 value="Never gonna give, you, up."><br>
+    <!--Language: <select name="language">
+                <option value="en/en-us">English (US)</option>
+                <option value="fr">French</option>
+              </select><br>-->
+    Amplitude: <input type="text" name="amplitude" size=5 value="100"><br>
+    Pitch: <input type="text" name="pitch" size=5 value="50"><br>
+    Speed: <input type="text" name="speed" size=5 value="175"><br>
+    Word gap: <input type="text" name="workdgap" size=5 value="0"><br>
     <input type="submit" value="Go!">
   </form>
   <hr>
