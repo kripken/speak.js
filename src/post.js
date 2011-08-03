@@ -1,7 +1,9 @@
 
   FS.createPath('/', 'espeak/espeak-data', true, false);
-  ['phontab', 'phonindex', 'phondata', 'intonations', 'en_dict'].forEach(function(datafile) {
-    eval("FS.createDataFile('/espeak/espeak-data', datafile, " + datafile + ", true, false);");
+  [['phontab', phontab], ['phonindex', phonindex], ['phondata', phondata], ['intonations', intonations], ['en_dict', en_dict]].forEach(function(pair) {
+    var id = pair[0];
+    var data = pair[1];
+    FS.createDataFile('/espeak/espeak-data', id, data, true, false);
   });
 
   FS.createPath('/', 'espeak/espeak-data/voices/en', true, false);
