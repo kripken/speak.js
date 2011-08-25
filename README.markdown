@@ -35,9 +35,9 @@ Custom callback
 
 You can also call the speak() function, with a custom callback, and process the Base64 encoded Data yourself, like so
 
-      ```speak('hello world!', {} , function (data) {
+      `speak('hello world!', {} , function (data) {
          // Do something with the returned "data"
-      } )```
+      } )`
 
 
 Options
