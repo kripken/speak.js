@@ -30,6 +30,15 @@ Very simple! Do this:
 See helloworld.html for a simple 'hello world', and demo.html for
 a more detailed example.
 
+Custom callback
+---------------
+
+You can also call the speak() function, with a custom callback, and process the Base64 encoded Data yourself, like so
+
+      `speak('hello world!', {} , function (data) {
+         // Do something with the returned "data"
+      } )`
+
 
 Options
 -------
