@@ -52,9 +52,8 @@ available options are:
  * amplitude: How loud the voice will be (default: 100)
  * pitch: The voice pitch (default: 50)
  * speed: The speed at which to talk (words per minute) (default: 175)
- * voice: Which voice to use (for a non-default voice, requires you to
-          build speak.js to include the proper data. See Language Support
-          below) (default: en/en-us)
+ * voice: Which voice to use (requires you to bundle it - currently you
+          wil need to build speak.js yourself for that) (default: en/en-us)
  * wordgap: Additional gap between words in 10 ms units (default: 0)
 
 For example
@@ -78,22 +77,4 @@ in this repo is minified.
 
 demo.html uses speak.js (the minified version) while helloworld.js
 uses speak.full.js (the unminified version - useful during development).
-
-
-Language Support
-----------------
-
-eSpeak supports multiple languages so speak.js can too. To do this, you
-need to build a custom version of speak.js:
-
- * Bundle the proper language files. For french, you need fr_dict and voices/fr.
-   See commented-out code in emscripten.sh.
- * Expose those files to the emulated filesystem, in post.js. See commented-out
-   code in there as well.
- * Run emscripten.sh to build.
-
-You then need to call speak() with the `voice` option that tells it to use the
-right voice for your language. For example, for French this should work:
-
-      `speak('boulanger', { voice: 'fr' })`
 

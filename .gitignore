@@ -6,5 +6,4 @@
 *.ll
 src/speak
 src/espeak
-*.diff
 

@@ -1,13 +1,10 @@
 
   FS.createPath('/', 'espeak/espeak-data', true, false);
-  [['phontab', phontab], ['phonindex', phonindex], ['phondata', phondata], ['intonations', intonations], ['en_dict', en_dict] /*, ['fr_dict', fr_dict] */].forEach(function(pair) { // commented-out code here is needed for French
+  [['phontab', phontab], ['phonindex', phonindex], ['phondata', phondata], ['intonations', intonations], ['en_dict', en_dict]].forEach(function(pair) {
     var id = pair[0];
     var data = pair[1];
     FS.createDataFile('/espeak/espeak-data', id, data, true, false);
   });
-
-  //FS.createPath('/', 'espeak/espeak-data/voices', true, false); // Needed for French
-  //FS.createDataFile('/espeak/espeak-data/voices', 'fr', fr, true, false); // Needed for French
 
   FS.createPath('/', 'espeak/espeak-data/voices/en', true, false);
   FS.createDataFile('/espeak/espeak-data/voices/en', 'en-us', en_us, true, false);

@@ -6,12 +6,11 @@ echo "emscripten"
 python /home/alon/Dev/emscripten/emscripten.py -O -s USE_TYPED_ARRAYS=2 -s ASSERTIONS=0 -s OPTIMIZE=1 -s RELOOP=1 speak.ll > espeak.raw.js
 echo "bundling"
 cat pre.js > ../speak.full.js
-for filey in phontab phonindex phondata intonations en_dict # fr_dict # Needed for French
+for filey in phontab phonindex phondata intonations en_dict
 do
   python ~/Dev/emscripten/tools/file2json.py ../espeak-data/$filey $filey >> ../speak.full.js
 done
 python ~/Dev/emscripten/tools/file2json.py ../espeak-data/voices/en/en-us en_us >> ../speak.full.js
-#python ~/Dev/emscripten/tools/file2json.py ../espeak-data/voices/fr fr >> ../speak.full.js # Needed for French
 cat espeak.raw.js >> ../speak.full.js
 cat post.js >> ../speak.full.js
 #~/Dev/mozilla-central/js/src/js -m speak.full.js -w wav.wav --path="/home/alon/Dev/espeak-1.45.04-source" "hello world"
