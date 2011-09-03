@@ -47,12 +47,23 @@ available options are:
           build speak.js to include the proper data. See Language Support
           below) (default: en/en-us)
  * wordgap: Additional gap between words in 10 ms units (default: 0)
+ * callback: You can define a custom callback that will get passed the outputted base64 encoded audio data uri, see **Custom Callbacks** below.
 
 For example
 
       `speak('hello world', { pitch: 100 })`
 
 will talk in a very high-pitched voice.
+
+**Custom Callbacks**
+
+if you would like to define youŕe own response to the generated audio data, you can define a custom callback, by setting the `callback` in the options, like so:
+
+      `speak('hello world', { callback: function (src) {
+         // do whatever you want with the returned data: "src" 
+      }})`
+
+
 
 
 Building
