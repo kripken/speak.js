@@ -57,7 +57,7 @@ will talk in a very high-pitched voice.
 
 **Custom Callbacks**
 
-if you would like to define youŕe own response to the generated audio data, you can define a custom callback, by setting the `callback` in the options, like so:
+if you would like to define your own response to the generated audio data, you can define a custom callback, by setting the `callback` in the options, like so:
 
       `speak('hello world', { callback: function (src) {
          // do whatever you want with the returned data: "src" 
