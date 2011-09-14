@@ -1,0 +1,19 @@
+{
+  "author": "Christopher de Beer",
+  "name": "node-speak",
+  "description": "TTS in js for node using eSpeak",
+  "version": "0.0.1",
+  "homepage": "http://github.com:christopher/speak.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/christopherdebeer/speak.js.git"
+  },
+  "main": "node-speak-test.js",
+  "engines": {
+    "node": "~v0.4.9"
+  },
+  "dependencies": {
+    "typed-array": "0.0.2",
+  },
+  "devDependencies": {}
+}
