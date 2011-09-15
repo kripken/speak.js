@@ -3,7 +3,7 @@ speak.js
 
 A port of the eSpeak speech synthesizer from C++ to JavaScript using Emscripten.
 
-Enables text-to-speech on the web using only JavaScript and HTML5.
+Enables text-to-speech on the web using only JavaScript and HTML5. or within Node.js as a module.
 
 **Online demo**: http://syntensity.com/static/espeak.html
 
@@ -37,13 +37,14 @@ Node.js Installation
 ---------------------
 
 **This package is not yet published to NPM**
+
 To install speak.js from NPM, do the following
-   `npm install node-speak` 
+      `npm install node-speak` 
 
 Then require it in your app like so
-   `var speak = require("node-speak");`
+      `var speak = require("node-speak");`
 
-Using speak,js in Node, will *Require you to use a callback, see below for more info.
+Using speak,js in Node, will **Require** you to use a callback, see below for more info.
 
 
 
