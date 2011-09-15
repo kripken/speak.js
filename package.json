@@ -1,19 +1,27 @@
 {
-  "author": "Christopher de Beer",
-  "name": "node-speak",
-  "description": "TTS in js for node using eSpeak",
-  "version": "0.0.1",
-  "homepage": "http://github.com:christopher/speak.js",
+  "name"            : "node-speak",
+  "description"     : "Text-To-Speech for Javascript / Node.js",
+  "kewords"         : ["TTS", "eSpeak", "Text-To-Speech", "Audio", "Speak"],
+  "author": {
+    "name"          : "Christopher de Beer ",
+    "email"         : "christopherdebeer@gmail.com",
+    "url"           : "http://empirecollective.co.uk"
+  },
+  "contributors"    : [
+                      "Christopher de Beer <christopherdebeer@gmail.com>",
+                      "Alon Zakai <alonzakai@gmail.com>"
+  ],
+  "license"         : "GNUv3",
+  "homepage"        : "https://github.com/christopherdebeer/speak.js/tree/npm",
   "repository": {
-    "type": "git",
-    "url": "git://github.com/christopherdebeer/speak.js.git"
+    "type"          : "git",
+    "url"           : "git://github.com/christopherdebeer/speak.js.git#npm"
   },
-  "main": "node-speak-test.js",
+  "main"            : "node-speak.js",
   "engines": {
-    "node": "~v0.4.9"
+    "node"          : ">=v0.5.5"
   },
-  "dependencies": {
-    "typed-array": "0.0.2",
-  },
-  "devDependencies": {}
+  "dependencies"    : {},
+  "devDependencies" : {}
+  "version"         : "0.0.1",
 }

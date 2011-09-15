@@ -8,6 +8,8 @@ Enables text-to-speech on the web using only JavaScript and HTML5.
 **Online demo**: http://syntensity.com/static/espeak.html
 
 
+
+
 Usage
 -----
 
@@ -29,6 +31,21 @@ Very simple! Do this:
 
 See helloworld.html for a simple 'hello world', and demo.html for
 a more detailed example.
+
+
+Node.js Installation
+---------------------
+
+
+** This package is not yet published to NPM **
+To install speak.js from NPM, do the following
+   `npm install node-speak` 
+
+Then require it in your app like so
+   `var speak = require("node-speak");`
+
+Using speak,js in Node, will *Require you to use a callback, see below for more info.
+
 
 
 Options

@@ -1,10 +1,1 @@
-*.o
-*.raw.js
-*.so
-*.so.*
-*.a
-*.ll
-src/speak
-src/espeak
-*.diff
-
+node-0.5.6.exe
