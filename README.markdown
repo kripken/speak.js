@@ -36,8 +36,7 @@ a more detailed example.
 Node.js Installation
 ---------------------
 
-
-** This package is not yet published to NPM **
+**This package is not yet published to NPM**
 To install speak.js from NPM, do the following
    `npm install node-speak` 
 
