@@ -1,6 +1,6 @@
 
   FS.createPath('/', 'espeak/espeak-data', true, false);
-  [['phontab', phontab], ['phonindex', phonindex], ['phondata', phondata], ['intonations', intonations], ['en_dict', en_dict] /*, ['fr_dict', fr_dict] */].forEach(function(pair) { // commented-out code here is needed for French
+  [['config', config], ['phontab', phontab], ['phonindex', phonindex], ['phondata', phondata], ['intonations', intonations], ['en_dict', en_dict] /*, ['fr_dict', fr_dict] */].forEach(function(pair) { // commented-out code here is needed for French
     var id = pair[0];
     var data = pair[1];
     FS.createDataFile('/espeak/espeak-data', id, data, true, false);
@@ -30,7 +30,6 @@
     ];
 
     run();
-    Module.arguments.pop();
 
     var wav = FS.root.contents['wav.wav'].contents;
 
