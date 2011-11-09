@@ -1,3 +1,6 @@
+# Note: emmaken.py and other scripts mentioned here are part of Emscripten,
+# available at https://github.com/kripken/emscripten
+# (change the paths here to match where you set that up in your system).
 echo "make"
 make distclean
 make clean
