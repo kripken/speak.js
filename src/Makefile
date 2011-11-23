@@ -26,8 +26,9 @@ LN_SF = /bin/ln -sf
 MKDIR = mkdir -p
 
 #AUDIO = portaudio
-AUDIO = pulseaudio
+#AUDIO = pulseaudio
 #AUDIO = sada
+AUDIO = none
 
 ifeq ($(AUDIO),pulseaudio)
 WAVE=wave_pulse.cpp

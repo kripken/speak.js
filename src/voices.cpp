@@ -720,7 +720,7 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		case V_GENDER:
 			{
-				int age;
+				int age = 0; // XXX Emscripten fix for native code (uninitialized value)
 				char vgender[80];
 				sscanf(p,"%s %d",vgender,&age);
 				voice_selected.gender = LookupMnem(genders,vgender);

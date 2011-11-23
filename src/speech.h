@@ -20,6 +20,11 @@
 #ifndef SPEECH_H
 #define SPEECH_H
 
+// XXX Emscripten
+#define _STRUCT_TIMESPEC
+#undef __need_timeval
+// XXX end Emscripten
+
 #include <sys/types.h>
 
 // conditional compilation options

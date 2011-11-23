@@ -1,6 +1,6 @@
 
   FS.createPath('/', 'espeak/espeak-data', true, false);
-  [['phontab', phontab], ['phonindex', phonindex], ['phondata', phondata], ['intonations', intonations], ['en_dict', en_dict] /*, ['fr_dict', fr_dict] */].forEach(function(pair) { // commented-out code here is needed for French
+  [['config', config], ['phontab', phontab], ['phonindex', phonindex], ['phondata', phondata], ['intonations', intonations], ['en_dict', en_dict] /*, ['fr_dict', fr_dict] */].forEach(function(pair) { // commented-out code here is needed for French
     var id = pair[0];
     var data = pair[1];
     FS.createDataFile('/espeak/espeak-data', id, data, true, false);
@@ -16,16 +16,6 @@
 
   function speak(text, args) {
     args = args || {};
-
-
-    // assign callback either the default action, or a custom callback if specified by the user
-    // e.g. speak("hello world", {callback: function(src){ console.log("Custom handling of returned 'src'", src ); }})
-    
-    callback = args.callback || function (src) {
-      document.getElementById("audio").innerHTML=("<audio id=\"player\" src=\""+src+"\">");
-      document.getElementById("player").play();
-    }
-
     Module.arguments = [
       '-w', 'wav.wav',
       // options
@@ -40,7 +30,6 @@
     ];
 
     run();
-    Module.arguments.pop();
 
     var wav = FS.root.contents['wav.wav'].contents;
 
@@ -72,8 +61,8 @@
     for (var i = 0; i < wav.length; i++)
       wav[i] = unSign(wav[i], 8);
 
-    // call either the original actions or a custom callback if defined by user
-    callback("data:audio/x-wav;base64,"+encode64(wav));
+    document.getElementById("audio").innerHTML=("<audio id=\"player\" src=\"data:audio/x-wav;base64,"+encode64(wav)+"\">");
+    document.getElementById("player").play();
   }
 
   return speak;
