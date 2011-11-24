@@ -1,7 +1,12 @@
 {
   "author": "Christopher de Beer <christopherdebeer@gmail.com> (https://github.com/christopherdebeer)",
+  "contributors": [
+     {"name": "Alon Zakai", "email": "alonzakai@gmail.com"},
+     {"name": "Christopher de Beer", "email": "christopherdebeer@gmail.com"}
+  ],
   "name": "node-speak",
   "description": "TTS (Text to Speech) in Javascript for Node and the client",
+  "keywords": ["TTS", "speech", "audio", "voice"],
   "version": "0.0.2",
   "homepage": "https://github.com/christopherdebeer/speak.js/tree/npm",
   "repository": {
