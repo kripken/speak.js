@@ -1,5 +1,9 @@
 {
   "author": "Christopher de Beer <christopherdebeer@gmail.com> (https://github.com/christopherdebeer)",
+  "contributors": [
+    "Alon Zakai <alonzakai@gmail.com>",
+    "Christopher de Beer <christopherdebeer@gmail.com>"
+  ],
   "name": "node-speak",
   "description": "TTS (Text to Speech) for Node and the browser",
   "version": "0.0.3",
