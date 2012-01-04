@@ -32,6 +32,18 @@ cat post.js >> ../speak.full.js
 #~/Dev/v8/d8 header.js speak.full.js footer.js
 #gnome-sound-recorder wav.wav
 #java -jar /home/alon/Dev/closure-compiler-read-only/build/compiler.jar --compilation_level SIMPLE_OPTIMIZATIONS --variable_map_output_file speak.vars --js speak.full.js --js_output_file speak.js
+# Test:
+#
+# ./speak-native --path=/home/alon/Dev/speak.js -v 'en/en-us' -w wav.wav "4 world"
+# OR
+# ~/Dev/llvm/cbuild/bin/lli speak.bc -v 'en/en-us' -w wav.wav --path="/home/alon/Dev/speak.js" "4 world"
+#
+# gnome-sound-recorder wav.wav
+#
+#                                       # --path="/home/alon/Dev/speak.js" ?
+# ~/Dev/mozilla-central/js/src/fast/js -m -n speak.full.js -w wav.wav --path="/espeak" "4 world" | grep -vi "bad voice" > wav.new.js
+# python ~/Dev/emscripten/tools/make_file.py wav.new.js wav
+# gnome-sound-recorder wav.new.js.wav
 
 
 
