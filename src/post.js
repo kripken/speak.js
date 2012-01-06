@@ -1,20 +1,23 @@
 
-  FS.createPath('/', 'espeak/espeak-data', true, false);
-  [['config', config], ['phontab', phontab], ['phonindex', phonindex], ['phondata', phondata], ['intonations', intonations], ['en_dict', en_dict] /*, ['fr_dict', fr_dict] */].forEach(function(pair) { // commented-out code here is needed for French
-    var id = pair[0];
-    var data = pair[1];
-    FS.createDataFile('/espeak/espeak-data', id, data, true, false);
-  });
+    FS.ignorePermissions = true;
 
-  //FS.createPath('/', 'espeak/espeak-data/voices', true, false); // Needed for French
-  //FS.createDataFile('/espeak/espeak-data/voices', 'fr', fr, true, false); // Needed for French
+    FS.createPath('/', 'espeak/espeak-data', true, false);
+    [['config', config], ['phontab', phontab], ['phonindex', phonindex], ['phondata', phondata], ['intonations', intonations], ['en_dict', en_dict] /*, ['fr_dict', fr_dict] */].forEach(function(pair) { // commented-out code here is needed for French
+      var id = pair[0];
+      var data = pair[1];
+      FS.createDataFile('/espeak/espeak-data', id, data, true, false);
+    });
 
-  FS.createPath('/', 'espeak/espeak-data/voices/en', true, false);
-  FS.createDataFile('/espeak/espeak-data/voices/en', 'en-us', en_us, true, false);
+    //FS.createPath('/', 'espeak/espeak-data/voices', true, false); // Needed for French
+    //FS.createDataFile('/espeak/espeak-data/voices', 'fr', fr, true, false); // Needed for French
 
-  FS.root.write = true;
+    FS.createPath('/', 'espeak/espeak-data/voices/en', true, false);
+    FS.createDataFile('/espeak/espeak-data/voices/en', 'en-us', en_us, true, false);
 
-  function speak(text, args) {
+    FS.root.write = true;
+
+    FS.ignorePermissions = false;
+
     args = args || {};
     Module.arguments = [
       '-w', 'wav.wav',
@@ -58,13 +61,13 @@
       return ret;
     }
 
-    for (var i = 0; i < wav.length; i++)
+    for (var i = 0; i < wav.length; i++) {
       wav[i] = unSign(wav[i], 8);
+    }
 
     document.getElementById("audio").innerHTML=("<audio id=\"player\" src=\"data:audio/x-wav;base64,"+encode64(wav)+"\">");
     document.getElementById("player").play();
   }
 
-  return speak;
-})();
+  this['speak'] = speak; // for closure compiler
 

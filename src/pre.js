@@ -1,13 +1,9 @@
 
-var speak = (function() {
+  {{{ FILES }}}
 
-  // eSpeak and other code here are under the GNU GPL.
+  function speak(text, args) {
 
-  if (!this['print']) {
-    print = console.log;
-  }
-
-  var Module = {
-    noInitialRun: true
-  };
+    var Module = {
+      noInitialRun: true
+    };
 

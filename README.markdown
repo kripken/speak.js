@@ -63,13 +63,6 @@ to tinker with the source code though, you might want to build it yourself.
 To do so, run emscripten.sh inside src/. Note that you need to change the paths
 there.
 
-That will generate speak.full.js, which is the unminified version. It is
-recommended to minify that (for example, using the closure compiler). speak.js
-in this repo is minified.
-
-demo.html uses speak.js (the minified version) while helloworld.js
-uses speak.full.js (the unminified version - useful during development).
-
 
 Language Support
 ----------------
@@ -78,7 +71,7 @@ eSpeak supports multiple languages so speak.js can too. To do this, you
 need to build a custom version of speak.js:
 
  * Bundle the proper language files. For french, you need fr_dict and voices/fr.
-   See commented-out code in emscripten.sh.
+   See commented-out code in emscripten.sh and bundle.py
  * Expose those files to the emulated filesystem, in post.js. See commented-out
    code in there as well.
  * Run emscripten.sh to build.
