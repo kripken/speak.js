@@ -1,3 +1,10 @@
+var speakWorker;
+try {
+  speakWorker = new Worker('speakWorker.js');
+} catch(e) {
+  console.log('speak.js warning: no worker support');
+}
+
 function speak(text, args) {
   function parseWav(wav) {
     function readInt(i, bytes) {
@@ -76,16 +83,15 @@ function speak(text, args) {
     playHTMLAudioElement(wav);
   }
 
-  if (!(args && args.worker)) {
+  if (args && args.noWorker) {
     // Do everything right now. speakGenerator.js must have been loaded.
     handleWav(generateSpeech(text, args));
   } else {
-    // Call a worker, which will return a wav that we then play
-    var worker = new Worker('speakWorker.js');
-    worker.onmessage = function(event) {
+    // Call the worker, which will return a wav that we then play
+    speakWorker.onmessage = function(event) {
       handleWav(event.data);
     };
-    worker.postMessage({ text: text, args: args });
+    speakWorker.postMessage({ text: text, args: args });
   }
 }
 
