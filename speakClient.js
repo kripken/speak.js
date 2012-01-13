@@ -69,15 +69,23 @@ function speak(text, args) {
     }
   }
 
-  var startTime = Date.now();
+  function handleWav(wav) {
+    var data = parseWav(wav); // validate the data and parse it
 
-  var wav = generateSpeech(text, args);
-  var data = parseWav(wav); // validate the data and parse it
+    // TODO: try playAudioDataAPI(data), and fallback if failed
+    playHTMLAudioElement(wav);
+  }
 
-  // TODO: try playAudioDataAPI(data), and fallback if failed
-  playHTMLAudioElement(wav);
-
-  var endTime = Date.now();
-  if (args && args.debug) console.log('speak.js: took ' + (endTime - startTime) + ' ms.');
+  if (!(args && args.worker)) {
+    // Do everything right now. speakGenerator.js must have been loaded.
+    handleWav(generateSpeech(text, args));
+  } else {
+    // Call a worker, which will return a wav that we then play
+    var worker = new Worker('speakWorker.js');
+    worker.onmessage = function(event) {
+      handleWav(event.data);
+    };
+    worker.postMessage({ text: text, args: args });
+  }
 }
 
