@@ -15,9 +15,10 @@ Very simple! Do this:
 
  * Include the script in your html header,
 
-      `<script src="speak.js"></script>`
+      `<script src="speakClient.js"></script>`
 
-   (and make sure you have speak.js where it will be found)
+   (and make sure you have speakClient.js available, as well as
+   speakWorker.js and speakGenerator.js)
 
  * Add a div with an audio element called 'audio' in your html body,
 
@@ -47,6 +48,7 @@ available options are:
           build speak.js to include the proper data. See Language Support
           below) (default: en/en-us)
  * wordgap: Additional gap between words in 10 ms units (default: 0)
+ * noWorker: Do not use a web worker (see below in 'Architecture')
 
 For example
 
@@ -55,13 +57,29 @@ For example
 will talk in a very high-pitched voice.
 
 
+Architecture
+------------
+
+speakClient.js is the file that you interact with. It defines speak(), and
+will load speakWorker.js in a web worker. speakWorker wraps around
+speakGenerator.js, which does the actual work of converting a string into
+a WAV file. The WAV data is returned to speak(), which then plays it in
+an HTML Audio element.
+
+You can also use speak.js without a web worker. In that case, you don't
+need speakWorker.js, but you do need to load speakGenerator.js along
+with speakClient.js in your HTML page. speak(), if called with noWorker
+set to true in the options object, will directly call the WAV generation
+code in speakGenerator.js instead of forwarding the call to a worker
+which would have done the same.
+
+
 Building
 --------
 
-A prebuilt version is already included, in the file speak.js. But if you want
-to tinker with the source code though, you might want to build it yourself.
-To do so, run emscripten.sh inside src/. Note that you need to change the paths
-there.
+A prebuilt version is already included. But if you want to tinker with the
+source code though, you might want to build it yourself. To do so, run
+emscripten.sh inside src/. Note that you need to change the paths there.
 
 
 Language Support
