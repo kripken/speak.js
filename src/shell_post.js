@@ -1,3 +1,4 @@
-  }).call({ text: text, args: args });
+  }).call(self);
+  return self.ret;
 }
 

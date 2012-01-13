@@ -20,9 +20,9 @@ echo "dis"
 
 echo "emscripten"
 $EMSCRIPTEN/emcc -O2 --js-transform "python bundle.py" speak.ll -o speak.raw.js
-cat shell_pre.js > ../speak.js
-cat speak.raw.js >> ../speak.js
-cat shell_post.js >> ../speak.js
+cat shell_pre.js > ../speakGenerator.js
+cat speak.raw.js >> ../speakGenerator.js
+cat shell_post.js >> ../speakGenerator.js
 
 
 
