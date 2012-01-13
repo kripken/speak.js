@@ -69,10 +69,15 @@ function speak(text, args) {
     }
   }
 
+  var startTime = Date.now();
+
   var wav = generateSpeech(text, args);
   var data = parseWav(wav); // validate the data and parse it
 
   // TODO: try playAudioDataAPI(data), and fallback if failed
   playHTMLAudioElement(wav);
+
+  var endTime = Date.now();
+  if (args && args.debug) console.log('speak.js: took ' + (endTime - startTime) + ' ms.');
 }
 
