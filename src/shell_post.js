@@ -1,3 +1,3 @@
-  return this.speak;
-}).call({});
+  }).call({ text: text, args: args });
+}
 
