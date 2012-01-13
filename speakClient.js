@@ -58,7 +58,9 @@ function speak(text, args) {
       var buffer = data.samples;
       var f32Buffer = new Float32Array(num);
       for (var i = 0; i < num; i++) {
-        f32Buffer[i] = ((buffer[i<<1] + (buffer[(i<<1)+1]<<8))/65535)-1;
+        var value = buffer[i<<1] + (buffer[(i<<1)+1]<<8);
+        if (value >= 0x8000) value |= ~0x7FFF;
+        f32Buffer[i] = value / 0x8000;
       }
       output.mozWriteAudio(f32Buffer);
       return true;
@@ -70,8 +72,7 @@ function speak(text, args) {
   var wav = generateSpeech(text, args);
   var data = parseWav(wav); // validate the data and parse it
 
-  if (1) { // !playAudioDataAPI(data)) {
-    playHTMLAudioElement(wav);
-  }
+  // TODO: try playAudioDataAPI(data), and fallback if failed
+  playHTMLAudioElement(wav);
 }
 
