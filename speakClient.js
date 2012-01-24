@@ -1,12 +1,20 @@
 (function(window, undefined) {
   var speakWorker;
   try {
-    speakWorker = new Worker('speakWorker.js');
+    speakWorker = new Worker('/phoenix/js/tts/speakWorker.js');
   } catch(e) {
     console.log('speak.js warning: no worker support');
   }
+  
+  window.pause = function() {
+    document.getElementById("player").pause();
+  }
+  
+  window.resume = function() {
+    document.getElementById("player").play();
+  }
 
-  window.speak = function(text, args) {
+  window.speak = function(text, args, onended) {
     function parseWav(wav) {
       function readInt(i, bytes) {
         var ret = 0;
@@ -55,7 +63,10 @@
       }
 
       document.getElementById("audio").innerHTML=("<audio id=\"player\" src=\"data:audio/x-wav;base64,"+encode64(wav)+"\">");
-      document.getElementById("player").play();
+      if (onended) {
+        document.getElementById("player").addEventListener('ended', onended);
+      }
+      document.getElementById("player").play();      
     }
 
     function playAudioDataAPI(data) {
