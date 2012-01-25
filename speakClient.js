@@ -1,7 +1,7 @@
 (function(window, undefined) {
   var speakWorker;
   try {
-    speakWorker = new Worker('/phoenix/js/tts/speakWorker.js');
+    speakWorker = new Worker('speakWorker.js');
   } catch(e) {
     console.log('speak.js warning: no worker support');
   }
