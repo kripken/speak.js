@@ -6,6 +6,8 @@ try {
 }
 
 function speak(text, args) {
+  var PROFILE = 1;
+
   function parseWav(wav) {
     function readInt(i, bytes) {
       var ret = 0;
@@ -88,8 +90,12 @@ function speak(text, args) {
     handleWav(generateSpeech(text, args));
   } else {
     // Call the worker, which will return a wav that we then play
+    var startTime = Date.now();
     speakWorker.onmessage = function(event) {
+      if (PROFILE) console.log('speak.js: worker processing took ' + ((Date.now()-startTime)/1000).toFixed(2) + ' ms');
+      startTime = Date.now();
       handleWav(event.data);
+      if (PROFILE) console.log('speak.js: wav processing took ' + ((Date.now()-startTime)/1000).toFixed(2) + ' ms');
     };
     speakWorker.postMessage({ text: text, args: args });
   }
