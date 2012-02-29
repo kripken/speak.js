@@ -9,7 +9,7 @@ make distclean
 make clean
 rm libespeak.*
 rm speak speak.bc speak.o
-CXXFLAGS="-DNEED_WCHAR_FUNCTIONS" $EMSCRIPTEN/emmake make -j 4
+CXXFLAGS="-DNEED_WCHAR_FUNCTIONS" $EMSCRIPTEN/emmake make -j 2 speak
 mv speak speak.bc
 
 #echo "dis"
