@@ -50,7 +50,7 @@ available options are:
  * wordgap: Additional gap between words in 10 ms units (default: 0)
  * noWorker: Do not use a web worker (see below in 'Architecture')
 
-In addition, you can pass callback function which will be called at the end of speech.
+In addition, you can pass a callback function which will be called at the end of speech.
 
 For example
 
