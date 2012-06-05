@@ -26,7 +26,7 @@ Very simple! Do this:
 
  * Call speak.play() to say stuff in JavaScript
 
-      `speak.play('hello world!')`
+      `speak.play('hello world!');`
 
 See helloworld.html for a simple 'hello world', and demo.html for
 a more detailed example.
@@ -54,15 +54,15 @@ In addition, you can pass a callback function which will be called at the end of
 
 For example
 
-      `speak.play('hello world', { pitch: 100 }, function(){console.log('completed!');})`
+      `speak.play('hello world', { pitch: 100 }, function(){console.log('completed!');});`
 
-will talk in a very high-pitched voice.
+will talk in a very high-pitched voice and output 'completed!' on the console at the completion.
 
 Audio Control
 -------------
 Once speech has started, you can pause it by
 
-      `speak.pause()`
+      `speak.pause();`
 
 You can resume paused speech by
 
@@ -108,5 +108,5 @@ need to build a custom version of speak.js:
 You then need to call speak() with the `voice` option that tells it to use the
 right voice for your language. For example, for French this should work:
 
-      `speak('boulanger', { voice: 'fr' })`
+      `speak.play('boulanger', { voice: 'fr' });`
 
