@@ -24,9 +24,9 @@ Very simple! Do this:
 
       `<div id="audio"></div>`
 
- * Call speak() to say stuff in JavaScript
+ * Call speak.play() to say stuff in JavaScript
 
-      `speak('hello world!')`
+      `speak.play('hello world!')`
 
 See helloworld.html for a simple 'hello world', and demo.html for
 a more detailed example.
@@ -37,7 +37,7 @@ Options
 
 You can also specify some options with calling speak(), by doing
 
-      `speak('hello world', { option1: value1, option2: value2 .. })`
+      `speak.play('hello world', { option1: value1, option2: value2 .. }, onended)`
 
 available options are:
 
@@ -50,12 +50,23 @@ available options are:
  * wordgap: Additional gap between words in 10 ms units (default: 0)
  * noWorker: Do not use a web worker (see below in 'Architecture')
 
+In addition, you can pass callback function which will be called at the end of speech.
+
 For example
 
-      `speak('hello world', { pitch: 100 })`
+      `speak.play('hello world', { pitch: 100 }, function(){console.log('completed!');})`
 
 will talk in a very high-pitched voice.
 
+Audio Control
+-------------
+Once speech has started, you can pause it by
+
+      `speak.pause()`
+
+You can resume paused speech by
+
+      `speak.resume();`
 
 Architecture
 ------------
