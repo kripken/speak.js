@@ -7,6 +7,9 @@ Enables text-to-speech on the web using only JavaScript and HTML5.
 
 **Online demo**: http://syntensity.com/static/espeak.html
 
+Note: This is an official active fork of following original project
+
+  https://github.com/kripken/speak.js
 
 Usage
 -----
