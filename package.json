@@ -12,7 +12,7 @@
       , "url": "https://github.com/katsuyan/speak.js"
     }
   , "licenses": [{
-        "type": "GNU3"
+        "type": "GPL3"
       , "url": "https://github.com/katsuyan/speak.js/blob/master/License.txt"
     }]
   , "dependencies": {}
