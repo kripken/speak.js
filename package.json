@@ -4,7 +4,9 @@
   , "description": "Browser based Text-to-Speech JavaScript library"
   , "version": "1.0.0"
   , "homepage": "http://speak-demo.herokuapp.com"
-  , "author": { "Alon Zakai" }
+  , "author": { 
+        "name": "Alon Zakai"
+    }
   , "repository": {
         "type": "git"
       , "url": "https://github.com/katsuyan/speak.js"
