@@ -5,8 +5,13 @@ A port of the eSpeak speech synthesizer from C++ to JavaScript using Emscripten.
 
 Enables text-to-speech on the web using only JavaScript and HTML5.
 
-**Online demo**: http://syntensity.com/static/espeak.html
+Note: This is an official active fork of a following original project
 
+  https://github.com/kripken/speak.js
+
+Demo
+----
+http://speak-demo.herokuapp.com/
 
 Usage
 -----
