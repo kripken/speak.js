@@ -5,14 +5,9 @@ A port of the eSpeak speech synthesizer from C++ to JavaScript using Emscripten.
 
 Enables text-to-speech on the web using only JavaScript and HTML5. or within Node.js as a module.
 
-**Online demo**: http://syntensity.com/static/espeak.html
+Note: This is an official active fork of a following original project
 
-Note: An active fork of this project is at
-
-  https://github.com/katsuyan/speak.js
-  
-  Check it out!
-
+  https://github.com/kripken/speak.js
 
 
 Usage
@@ -31,9 +26,9 @@ Very simple! Do this:
 
       `<div id="audio"></div>`
 
- * Call speak() to say stuff in JavaScript
+ * Call speak.play() to say stuff in JavaScript
 
-      `speak('hello world!')`
+      `speak.play('hello world!');`
 
 See helloworld.html for a simple 'hello world', and demo.html for
 a more detailed example.
@@ -58,7 +53,7 @@ Options
 
 You can also specify some options with calling speak(), by doing
 
-      `speak('hello world', { option1: value1, option2: value2 .. })`
+      `speak.play('hello world', { option1: value1, option2: value2 .. }, onended)`
 
 available options are:
 
@@ -69,28 +64,25 @@ available options are:
           build speak.js to include the proper data. See Language Support
           below) (default: en/en-us)
  * wordgap: Additional gap between words in 10 ms units (default: 0)
-<<<<<<< HEAD
- * callback: You can define a custom callback that will get passed the outputted base64 encoded audio data uri, see **Custom Callbacks** below.
-=======
  * noWorker: Do not use a web worker (see below in 'Architecture')
->>>>>>> kripken/master
+
+In addition, you can pass a callback function which will be called at the end of speech.
 
 For example
 
-      `speak('hello world', { pitch: 100 })`
+      `speak.play('hello world', { pitch: 100 }, function(){console.log('completed!');});`
 
-will talk in a very high-pitched voice.
+will talk in a very high-pitched voice and output 'completed!' on the console at the completion.
 
-**Custom Callbacks**
+Audio Control
+-------------
+Once speech has started, you can pause it by
 
-if you would like to define your own response to the generated audio data, you can define a custom callback, by setting the `callback` in the options, like so:
+      `speak.pause();`
 
-      `speak('hello world', { callback: function (src) {
-         // do whatever you want with the returned data: "src" 
-      }})`
+You can resume paused speech by
 
-
-
+      `speak.resume();`
 
 Architecture
 ------------
@@ -132,5 +124,5 @@ need to build a custom version of speak.js:
 You then need to call speak() with the `voice` option that tells it to use the
 right voice for your language. For example, for French this should work:
 
-      `speak('boulanger', { voice: 'fr' })`
+      `speak.play('boulanger', { voice: 'fr' });`
 
