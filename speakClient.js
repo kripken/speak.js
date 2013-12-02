@@ -55,8 +55,13 @@ function speak(text, args) {
       return ret;
     }
 
-    document.getElementById("audio").innerHTML=("<audio id=\"player\" src=\"data:audio/x-wav;base64,"+encode64(wav)+"\">");
-    document.getElementById("player").play();
+    var audio, _audio = new Audio()
+    if (_audio.canPlayType("audio/wav") == 'maybe') {
+      audio = new Audio( 'data:audio/wav;base64,'+encode64(wav));
+      audio.play();
+    }else{
+      alert('Your browser seems not supported to .wav format audio.');
+    }
   }
 
   function playAudioDataAPI(data) {
