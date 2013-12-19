@@ -41,7 +41,7 @@ _5X	p;Vd;d;Is;'jat
 _6X	SE2z;d;d;Is;'jat
 _7X	s;'emd;E2s;Vt
 _8X	v'os;E2md;E2s;Vt
-_9X	d;evIn'ostO
+_9X	d;E2v;In'ostO
 _0C	st'o
 _2C	dv;'es;t;I
 _3C	tr;'ista
@@ -50,7 +50,7 @@ _5C	p;,It;s'ot
 _6C	S,E#s;t;s'ot
 _7C	s;,Ims'ot
 _8C	vOs;Ims'ot
-_9C	devits'ot
+_9C	dev;Vts'ot
 _1MA1	t'ys;ItS;V     // no '1' before thousand
 _0MA1	t'ys;ItS;i
 _0M1	t'ys;VtS;
@@ -59,12 +59,49 @@ _0MA2	m;,IlI;'ona
 _0M2	m;,IlI;'onof
 _1MA3	m;,IlI;'art
 _0MA3	m;,IlI;'arda
-_0M3	m;,IlI;'artof
+_0M3	m;,IlI;'ardof
 _dpt	_:'i_:        // start of decimal fraction
 _dpt2	_d;Is;'atYx   // end of decimal fraction
 
-// characters
-№	 номер	$text
+
+// symbols
+@ sob'aka
+# reS'Etka  $max3
+$ d'ollar
+% prVts'Ent  $max3
+^ kr'ySka
+& ampers'and
+* zvezd'a  $max3
++ pl'jus  $max3
+= ravn'o  $max3
+/ sl'ES  $max3
+\ bEksl'ES  $max3
+_- def'is
+_ podtS;'8rk  $max3
+~ t'ilda
+№ n'omer
+
+
+_( 'otkrkrug
+_) z'akrkrug
+_| v'ert
+_{ 'otkrfigur
+_} z'akrfigur
+_[ 'otkrkvadrat
+_] z'akrkvadrat
+_> b'ol;SE
+_< m'en;SE
+_« 'otkr uglof
+_» z'akr uglof
+_! v'oskl;
+_? vopr'os
+_. t'otS;ka
+_, zVpit'aja
+_` akts'Ent
+_" kVv'ytS;ka
+_' ap'ostrVf
+_; t'otS;kzap
+_: dvVet'otS;ie
 
 
 // prepositions
@@ -170,3 +207,4 @@ _с	Es
 
 // exceptions
 радио         r'ad;Io
+

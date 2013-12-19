@@ -2,8 +2,10 @@
 //  (consonants are changed for Armenian-West in the voice file "hy-west")
 // This file is UTF-8 encoded
 
+// ?1  West Armenian
+
 .L01 բ գ թ կ պ տ ք
-.L02 ու այ իւ իյ ոյ               // other vowel sounds
+.L02 ու այ իւ իյ ոյ    ա ե ը ի ո օ  ույ   //  vowel sounds
 
 // ligature
 .replace
@@ -13,7 +15,7 @@
 .group ա
         ա        a
         այ       aI
-        այ (_    a
+?1      այ (_    a
 
 .group բ
         բ        b
@@ -57,7 +59,7 @@
         ի        i
         իւ       y
         իւ (_    iv
-        իյ       i@
+        իյ (K    i@
 
 .group լ
         լ        l
@@ -87,8 +89,8 @@
      _) ղ (C     r"@
 
 .group ճ
-        ճ        c
-     _) ճ (C     c@
+        ճ        tS
+     _) ճ (C     tS@
 
 .group մ
         մ        m
@@ -97,8 +99,10 @@
    L02) մ (_     m
 
 .group յ
-        յ        h       // ?? [j]
-     _) յ (C     h@
+        յ        j
+     _) յ (C     j@
+?1   _) յ        h
+?1   _) յ (C     h@
 
 .group ն
         ն        n
@@ -118,11 +122,11 @@
         ու (A    v
         ոյ       uj   // ?? uj or uy
      A) ոյ       oj   // ?? oj or oy
-        ոյ (_    o
+?1      ոյ (_    o
 
 .group չ
-        չ        tS
-     _) չ (C     tS@
+        չ        tS#
+     _) չ (C     tS#@
 
 .group պ
         պ        p
@@ -133,8 +137,9 @@
      _) ջ (C     dZ@
 
 .group ռ
-        ռ        **
-     _) ռ (C     **@
+        ռ        R2
+     _) ռ (C     R2@
+?1 L02) ռ (L02   *
 
 .group ս
         ս        s
@@ -151,6 +156,7 @@
 
 .group ր
         ր        r
+?1 L02) ր (L02   r
      _) ր (C     r@
      C) ր (_     @r
    L02) ր (_     r
@@ -178,7 +184,5 @@
         ֆ        f
      _) ֆ (C     f@
 
-.group
-        $	dol@
 
 

@@ -60,7 +60,7 @@ static void* say_thread(void*);
 
 static espeak_ERROR push(t_espeak_command* the_command);
 static t_espeak_command* pop();
-static void init();
+static void init(int process_parameters);
 static int node_counter=0;
 enum {MAX_NODE_COUNTER=400,
       INACTIVITY_TIMEOUT=50, // in ms, check that the stream is inactive
@@ -75,7 +75,7 @@ void fifo_init()
 
   // security
   pthread_mutex_init( &my_mutex, (const pthread_mutexattr_t *)NULL);
-  init();
+  init(0);
 
   assert(-1 != sem_init(&my_sem_start_is_required, 0, 0));
   assert(-1 != sem_init(&my_sem_stop_is_acknowledged, 0, 0));
@@ -281,48 +281,52 @@ static int sleep_until_start_request_or_inactivity()
   // for filtering underflow.
   //
   int i=0;
-  while((i<= MAX_INACTIVITY_CHECK) && !a_start_is_required)
-    {
-      if (wave_is_busy( NULL) )
+	while((i<= MAX_INACTIVITY_CHECK) && !a_start_is_required)
 	{
-	  i = 0;
-	}
+		if (wave_is_busy( NULL) )
+		{
+			i = 0;
+		}
       else
-	{
-	  i++;
-	}
+		{
+			i++;
+		}
 
-      int err=0;
-      struct timespec ts, to;
-      struct timeval tv;
-      
-      clock_gettime2( &ts);
-      to.tv_sec = ts.tv_sec;
-      to.tv_nsec = ts.tv_nsec;
-      
-      add_time_in_ms( &ts, INACTIVITY_TIMEOUT);
-      
-      SHOW("fifo > sleep_until_start_request_or_inactivity > start sem_timedwait (start_is_required) from %d.%09lu to %d.%09lu \n", 
-	   to.tv_sec, to.tv_nsec,
-	   ts.tv_sec, ts.tv_nsec);
-      
-      while ((err = sem_timedwait(&my_sem_start_is_required, &ts)) == -1 
-	     && errno == EINTR)
-	{
-	      continue;
+		int err=0;
+		struct timespec ts;
+		struct timeval tv;
+
+		clock_gettime2( &ts);
+
+#ifdef DEBUG_ENABLED
+		struct timespec to;
+		to.tv_sec = ts.tv_sec;
+		to.tv_nsec = ts.tv_nsec;
+#endif
+
+		add_time_in_ms( &ts, INACTIVITY_TIMEOUT);
+
+		SHOW("fifo > sleep_until_start_request_or_inactivity > start sem_timedwait (start_is_required) from %d.%09lu to %d.%09lu \n", 
+			to.tv_sec, to.tv_nsec,
+			ts.tv_sec, ts.tv_nsec);
+
+		while ((err = sem_timedwait(&my_sem_start_is_required, &ts)) == -1 
+			&& errno == EINTR)
+		{
+			continue;
+		}
+
+		assert (gettimeofday(&tv, NULL) != -1);
+		SHOW("fifo > sleep_until_start_request_or_inactivity > stop sem_timedwait (start_is_required, err=%d) %d.%09lu \n", err, 
+			tv.tv_sec, tv.tv_usec*1000);
+
+		if (err==0)
+		{
+			a_start_is_required = 1;
+		}
 	}
-      
-      assert (gettimeofday(&tv, NULL) != -1);
-      SHOW("fifo > sleep_until_start_request_or_inactivity > stop sem_timedwait (start_is_required, err=%d) %d.%09lu \n", err, 
-	   tv.tv_sec, tv.tv_usec*1000);
-      
-      if (err==0)
-	{
-	  a_start_is_required = 1;
-	}
-    }
-  SHOW_TIME("fifo > sleep_until_start_request_or_inactivity > LEAVE");
-  return a_start_is_required;
+	SHOW_TIME("fifo > sleep_until_start_request_or_inactivity > LEAVE");
+	return a_start_is_required;
 }
 
 //>
@@ -453,7 +457,7 @@ static void* say_thread(void*)
 	{ 
 	  // no mutex required since the stop command is synchronous
 	  // and waiting for my_sem_stop_is_acknowledged
-	  init();
+	  init(1);
 
 	  // purge start semaphore
 	  SHOW_TIME("say_thread > purge my_sem_start_is_required\n");
@@ -565,13 +569,23 @@ static t_espeak_command* pop()
 }
 
 
-static void init()
+static void init(int process_parameters)
 {
-  ENTER("fifo > init");
-  while (delete_espeak_command( pop() ))
-    {}
-  node_counter = 0;
+	// Changed by Tyler Spivey 30.Nov.2011
+	t_espeak_command *c = NULL;
+	ENTER("fifo > init");
+	c = pop();
+	while (c != NULL) {
+		if (process_parameters && (c->type == ET_PARAMETER || c->type == ET_VOICE_NAME || c->type == ET_VOICE_SPEC))
+		{
+			process_espeak_command(c);
+		}
+		delete_espeak_command(c);
+		c = pop();
+	}
+	node_counter = 0;
 }
+
 
 //>
 //<fifo_init
@@ -585,7 +599,7 @@ void fifo_terminate()
   sem_destroy(&my_sem_start_is_required);
   sem_destroy(&my_sem_stop_is_acknowledged);
 
-  init(); // purge fifo
+  init(0); // purge fifo
 }
 
 #endif

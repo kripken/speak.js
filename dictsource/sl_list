@@ -1,0 +1,162 @@
+
+// translation rules for Slovenian
+// This file is UTF-8 encoded
+ 
+// $alt1  open vowel [E] or [O] in the stressed syllable
+// $alt2  open vowel [o] or [o] in the stressed syllable
+// $alt3  short stress on final syllable
+
+ 
+// letter names
+b	b@
+c	ts@
+č	tS@
+d	d@
+e	e:
+f	f@
+g	g@
+_h	h@
+j	j@
+_k	k@
+l	l@
+m	m@
+n	n@
+_o	o:
+p	p@
+r	R@
+_s	s@
+š	S@
+t	t@
+_v	v@
+_z	z@
+ž	Z@
+
+q	ku
+w	dv#'ojniv,@
+x	iks
+y	'ipsilon
+ć	m'ehki||tS,@
+đ	dZ@
+
+ä	$accent
+ë	$accent
+ö	$accent
+ü	$accent
+
+// accent names  (please fix)
+_dia	prEgl'asa
+
+
+// numbers
+_0	n'i:tS
+_1	'E:na
+_2	dv#'a:
+_3	tR'i:
+_4	St'i:Ri
+_5	p'e:t
+_6	S'e:st
+_7	s'e:d@m
+_8	'o:s@m
+_9	dEv'e:t
+_10	dEs'e:t
+_11	En'a:jst
+_12	dv#'a:najst
+_13	tR'i:najst
+_14	St'i:Rinajst
+_15	p'e:tnajst
+_16	S'e:stnajst
+_17	s'e:d@mnajst
+_18	'o@s@mnajst
+_19	d'Ev'e:tnajst
+_2X	dv#'a:jsEt
+_3X	tR'i:dEsEt
+_4X	St'i:RidEsEt
+_5X	p'e:tdEsEt
+_6X	S'e:stdEsEt
+_7X	s'e:d@mdEsEt
+_8X	'o:s@mdEsEt
+_9X	dEv'e:tdEsEt
+
+_1C	st'o:
+_2C	dv'e:stO
+_0C	stO
+
+_0M1	t'i:sOtS
+_1M1	t'i:sOtS
+
+_1M2	'Enmilij'o:n
+_2M2	dv#'a:milij'o:na
+_3M2	tR'i:jEmilij'o:ni
+_4M2	St'i:Rijemilij'o:ni
+_0M2	milij'o:now
+
+_1M3	'E:namilij'a:Rda
+_2M3	dv#'emilij'a:Rdi
+_3M3	tR'i:milij'a:Rde
+_4M3	St'i:Rimilij'a:Rde
+_0M3	milij'a:Rd
+
+_1M4	'Enbilij'o:n
+_2M4	dv#'a:bilij'o:na
+_3M4	tR'i:jebilij'o:ni
+_4M4	St'i:Rijebilij'o:ni
+_0M4	bilij'o:now
+
+_0and	in
+_dpt	_ts,e:lih_
+
+// Single letter words (speak as letter name if at end-of-clause)
+
+a	$u
+o	$u
+k	k
+s	s
+v	w	$combine
+z	z	$combine
+
+a	a:	$atend
+k	k@	$atend    // letter-k
+o	o:	$atend    // letter-o
+s	s@	$atend
+v	v@	$atend
+z	z@	$atend
+
+// Function words (unstressed)
+
+bom	bo+m $u   // example of unstressed [o]
+
+//pronouns
+
+
+// prepositions
+skozi	sko+zi $u+
+za	$u+
+
+
+// verb: to be
+sem	s@m $u
+si	$u
+je	$u
+sva	$u
+sta	$u
+smo	$u
+ste	$u
+so	$u
+
+bil	$u
+bila	$u
+bili	$u
+
+
+// exceptions
+// (these are just a few example exceptions)
+
+deset	$2
+devet	$2
+dim	$alt3
+ena	$alt1
+oba	$2
+šel	S@w
+tisoč	$1
+žena	$alt1
+

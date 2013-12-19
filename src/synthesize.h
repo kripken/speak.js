@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -16,6 +16,8 @@
  *   along with this program; if not, write see:                           *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
+
+#define espeakINITIALIZE_PHONEME_IPA   0x0002   // move this to speak_lib.h, after eSpeak version 1.46.02
 
 
 #define N_PHONEME_LIST  1000    // enough for source[N_TR_SOURCE] full of text, else it will truncate
@@ -54,7 +56,7 @@
 #define EMBED_A     3   // amplitude/volume
 #define EMBED_R     4   // pitch range/expression
 #define EMBED_H     5   // echo/reverberation
-#define EMBED_T     6   // different tone for announcing punctuation
+#define EMBED_T     6   // different tone for announcing punctuation (not used)
 #define EMBED_I     7   // sound icon
 #define EMBED_S2    8   // speed (used in synthesize)
 #define EMBED_Y     9   // say-as commands
@@ -190,23 +192,23 @@ typedef struct {
 
 // a clause translated into phoneme codes (first stage)
 typedef struct {
+	unsigned short synthflags;  // NOTE Put shorts on 32bit boundaries, because of RISC OS compiler bug?
 	unsigned char phcode;
 	unsigned char stresslevel;
-	unsigned char wordstress;
-	unsigned char tone_ph;    // tone phoneme to use with this vowel
-	unsigned short synthflags;
 	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
+	unsigned char wordstress;  // the highest level stress in this word
+	unsigned char tone_ph;    // tone phoneme to use with this vowel
 } PHONEME_LIST2;
 
 
 typedef struct {
 // The first section is a copy of PHONEME_LIST2
+	unsigned short synthflags;
 	unsigned char phcode;
 	unsigned char stresslevel;
+	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
 	unsigned char wordstress;  // the highest level stress in this word
 	unsigned char tone_ph;    // tone phoneme to use with this vowel
-	unsigned short synthflags;
-	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
 
 	PHONEME_TAB *ph;
 	short length;  // length_mod
@@ -218,6 +220,11 @@ typedef struct {
 	unsigned char newword;   // bit 0=start of word, bit 1=end of clause, bit 2=start of sentence
 	unsigned char pitch1;
 	unsigned char pitch2;
+#ifdef _ESPEAKEDIT
+	unsigned char std_length;
+	unsigned int phontab_addr;
+	int sound_param;
+#endif
 } PHONEME_LIST;
 
 
@@ -263,11 +270,15 @@ typedef struct {
 	int std_length;
 } FMT_PARAMS;
 
+typedef struct {
+    PHONEME_LIST prev_vowel;
+} WORD_PH_DATA;
 
 // instructions
 
 #define i_RETURN        0x0001
 #define i_CONTINUE      0x0002
+#define i_NOT           0x0003
 
 // Group 0 instrcutions with 8 bit operand.  These values go into bits 8-15 of the instruction
 #define i_CHANGE_PHONEME 0x01
@@ -327,6 +338,10 @@ typedef struct {
 #define i_isFinalVowel 0x8b
 #define i_isVoiced     0x8c
 #define i_isFirstVowel 0x8d
+#define i_isSecondVowel 0x8e
+#define i_isSeqFlag1   0x8f
+#define i_IsTranslationGiven 0x90
+
 
 // place of articulation
 #define i_isVel      0x28
@@ -411,7 +426,7 @@ typedef struct {
 	unsigned char split_tail_start;
 	unsigned char split_tail_end;
 	unsigned char split_tune;
-	
+
 	unsigned char spare[8];
 	int spare2;       // the struct length should be a multiple of 4 bytes
 } TUNE;
@@ -424,7 +439,7 @@ extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 
 // list of phonemes in a clause
 extern int n_phoneme_list;
-extern PHONEME_LIST phoneme_list[N_PHONEME_LIST];
+extern PHONEME_LIST phoneme_list[N_PHONEME_LIST+1];
 extern unsigned int embedded_list[];
 
 extern unsigned char env_fall[128];
@@ -453,10 +468,10 @@ extern unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1];
 
 
 
-#define N_WCMDQ   160
-#define MIN_WCMDQ  22   // need this many free entries before adding new phoneme
+#define N_WCMDQ   170
+#define MIN_WCMDQ  25   // need this many free entries before adding new phoneme
 
-extern long wcmdq[N_WCMDQ][4];
+extern long64 wcmdq[N_WCMDQ][4];
 extern int wcmdq_head;
 extern int wcmdq_tail;
 
@@ -471,7 +486,7 @@ int  WavegenInitSound();
 void WavegenInit(int rate, int wavemult_fact);
 float polint(float xa[],float ya[],int n,float x);
 int WavegenFill(int fill_zeros);
-void MarkerEvent(int type, unsigned int char_position, int value, unsigned char *out_ptr);
+void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr);
 
 
 extern unsigned char *wavefile_data;
@@ -499,7 +514,7 @@ unsigned int LookupSound(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *mat
 frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  int *n_frames, PHONEME_LIST *plist);
 
 unsigned char *LookupEnvelope(int ix);
-int LoadPhData();
+int LoadPhData(int *srate);
 
 void SynthesizeInit(void);
 int  Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume);
@@ -551,16 +566,17 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 void SetParameter(int parameter, int value, int relative);
 int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbrola);
 int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume);
-int MbrolaFill(int length, int resume);
+int MbrolaFill(int length, int resume, int amplitude);
 void MbrolaReset(void);
 void DoEmbedded(int *embix, int sourceix);
 void DoMarker(int type, int char_posn, int length, int value);
-//int DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int amp);
+void DoPhonemeMarker(int type, int char_posn, int length, char *name);
 int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp);
 int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation);
 int PauseLength(int pause, int control);
 int LookupPhonemeTable(const char *name);
 unsigned char *GetEnvelope(int index);
+int NumInstnWords(USHORT *prog);
 
 void InitBreath(void);
 

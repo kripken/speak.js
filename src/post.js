@@ -2,7 +2,7 @@
   FS.ignorePermissions = true;
 
   FS.createPath('/', 'espeak/espeak-data', true, false);
-  [['config', config], ['phontab', phontab], ['phonindex', phonindex], ['phondata', phondata], ['intonations', intonations], ['en_dict', en_dict] /*, ['fr_dict', fr_dict] */].forEach(function(pair) { // commented-out code here is needed for French
+  [['phontab', phontab], ['phonindex', phonindex], ['phondata', phondata], ['intonations', intonations], ['en_dict', en_dict] /*, ['fr_dict', fr_dict] */].forEach(function(pair) { // commented-out code here is needed for French
     var id = pair[0];
     var data = pair[1];
     FS.createDataFile('/espeak/espeak-data', id, data, true, false);
@@ -26,7 +26,7 @@
     '-g', args['wordgap'] ? String(args['wordgap']) : '0', // XXX
     '-p', args['pitch'] ? String(args['pitch']) : '50',
     '-s', args['speed'] ? String(args['speed']) : '175',
-    '-v', args['voice'] ? String(args['voice']) : 'en/en-us',
+    '-v', args['voice'] ? String(args['voice']) : 'en-us',
     // end options
     '--path=/espeak',
     this['text']

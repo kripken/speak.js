@@ -49,6 +49,10 @@ _[	'EkIg@kl'am3||_|'aUf
 _]	'EkIg@kl'am3||ts'u:
 _<	klaIn3
 _>	grY:s3
+_«	'anfy:RUNsts,aIC@n
+_»	'anfy:RUNsts,aIC@n||ts'u:
+_„	l'INk@s_!,anfy:RUNsts,aIC@n
+_”	@-r'ECt@s_!,anfy:RUNsts,aIC@n
 _`	grA:v
 _^	tsIrkUmflEks
 _—	g@d'aNk@nStr,IC
@@ -59,6 +63,8 @@ _#32	l'e:rts'aIC@n
 _??	zymb'o:l
 _?A	b'u:xstA:b@
 _cap	gr'o:s
+_sub	'Unt@R|3_!,IndEks||
+_sup	'o:b@R|3_!,IndEks||
 
 
 // accent names
@@ -88,6 +94,13 @@ _tld	t'Ild@
 // Not Roman numbers
 v	faU
 x	Iks
+
+// Alphabets
+_ar	aR'AbIS
+_cyr	ky:R'IlIS
+_he	hEbr'E:IS
+_zh	Ci:n'e:zIS
+
 
 // Numbers
 //========
@@ -188,7 +201,7 @@ oder		o:d3	$u+ $pause
 sondern			$pause
 denn		dEn	$u+ $pause
 weil			$pause
-als			$u+ $brk
+als		als	$u+ $brk
 bevor		b@fo:r	$2 $pause
 also			$pause
 wenn		,vEn	$pause $strend
@@ -210,6 +223,7 @@ bis		bIs	$u+ $pause
 da			$u+
 durch			$u+ $pause
 für		fy:r	$u+ $pause $only
+fuer		fy:r	$u+ $pause $only
 gegen		ge:g@n	$u+ $pause
 hin		hIn
 in		In        $u+ $brk
@@ -248,27 +262,12 @@ noch			$pause
 (nicht nur)	n'ICt||n'u:r	$pause
 (gar nicht)	g,A:rn'ICt
 
-// should these be in the Rules because they can be a prefix in a
+// should these be in the Rules if they can be a prefix in a
 // compound verb ?
-daran		dA:r'an
-darauf		$2
-daraus		$2
-dabei		$2
 dadurch		dA:d'UrC
-dafür		$2
 dagegen		$2
-daher		dA:h'Er
-dahin		dA:h'In
 damit		dA:m'It
 danach		$2
-daneben		$2
-darein		$2
-darin		dA:r'In
-darüber		$2
-darum		$2
-darunter	$2
-davon		dA:f'On
-dazu		dA:ts'u:
 umher		Umh'Er
 umhin		Umh'In
 woran		vo:r'an
@@ -376,7 +375,7 @@ hätten		h,Et@n  $only
 war		%vA:r   $only
 warst		%vA:rst $only
 wart		%vA:rt  $only
-waren		'vA:r@n
+waren		%vA:r@n
 
 will		%vIl   $only
 willst		%vIlst $only
@@ -420,7 +419,7 @@ apple		_^_EN
 association	_^_EN
 baseball	_^_EN
 bbc		_^_EN
-beat		_^_EN
+beat		_^_EN  $only
 browser         _^_EN
 byte		_^_EN
 camcorder	_^_EN
@@ -435,6 +434,7 @@ couch		_^_EN
 cursor		_^_EN
 debugger	_^_EN
 dj		_^_EN
+download	_^_EN
 email		_^_EN
 enterprise	_^_EN
 event		_^_EN
@@ -484,6 +484,7 @@ run             _^_EN
 scanner		_^_EN
 science		_^_EN
 server		_^_EN
+seven		_^_EN
 sex		_^_EN
 sexy		_^_EN
 shirt		_^_EN
@@ -494,6 +495,7 @@ slum		_^_EN
 small		_^_EN
 snob		_^_EN
 song		_^_EN
+sorry		_^_EN
 source		_^_EN
 spam		_^_EN
 spirit          _^_EN
@@ -507,7 +509,9 @@ terminal	_^_EN
 trip		_^_EN
 tuner		_^_EN
 unix		_^_EN
+update		_^_EN
 venture		_^_EN
+website		_^_EN
 window		_^_EN
 word		_^_EN
 
@@ -550,6 +554,7 @@ bronchie         $alt
 
 changier        SaNZ'i:r
 ciao            tSaU
+clique          klIk@
 coup            ku:
 
 dahlie           $alt
@@ -582,6 +587,7 @@ erde            e:rd@
 erst            e:rst
 ersten          e:rst@n
 erstmal         e:rstma:l
+erzgebirg       e:rtsg@bIrg
 extravagant      $1
 extrem          Ekstr'e:m
 
@@ -608,6 +614,7 @@ häuschen        hOYsC@n
 hausier         haUz'i:r
 heimat           $1
 herberg         hErbErg
+hi              haI
 historie         $alt
 hm              h@m
 horsam          hO3zA:m
@@ -659,6 +666,7 @@ minut            $2
 mikrofiche	mi:kro:fi:S
 miteinander      $1
 modell          mo:d'El
+modem		mo:dEm
 monoton          $3
 monsun           $2
 montag          mo:ntA:k
@@ -675,6 +683,7 @@ numero           $1
 oboe            o:b'o:@
 orgie            $alt
 ok              o:k'e:
+ödem		Y:d'e:m
 
 paradies         $3
 passage         pas'aZ@
@@ -686,8 +695,8 @@ pochier         pOS'i:r
 pochs           pOxs
 präsident        $3
 prämie           $alt
-privatisier     pri:vati:z'i:r
-problematisier  pro:ble:m'a:tIzi:r
+privatisier     $4
+problematisier  $3 //pro:ble:m'a:tIzi:r
 
 reliquie         $alt
 risik           $1

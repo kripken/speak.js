@@ -1,0 +1,10 @@
+name Japanese-mb-jp1
+language ja
+gender male
+pitch 80 118
+intonation 2
+
+voicing 150
+tunes q1 q1 q1 q1
+mbrola jp1 jp1_phtrans
+

@@ -1,6 +1,6 @@
 /
 // ***************************************************************************
-// *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+// *   Copyright (C) 2005 to 2012 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2011-04-15 Michel Such  <michel.such@free.fr>
+// Updated 2012-04-15 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -149,6 +149,8 @@ _’	apostr'Of
 _‘	apostr'Of
 _µ	mikr'o
 _§	sEksj'O~
+_∞	infini
+
 
 // symbols that are normally spoken when reading text
 @	_::arobaz
@@ -350,6 +352,7 @@ tva	$abbrev
 uk	$abbrev
 ups	ypeEs
 url		y:ErEl
+USA	$abbrev
 usb		y:Esbe
 utc     $abbrev
 utf		$abbrev
@@ -372,10 +375,10 @@ le	$nounf $u+
 le  $verb $verbextend $u
 el	$u+
 los	los $u+
-la $nounf $u+
-la	$verb $verbextend $u
-les	lez2 $nounf $u+
-les	lez2 $verb $verbextend $u
+la la- $nounf $u+
+la	la- $verb $verbextend $u
+les	le-z2 $nounf $u+
+les	le-z2 $verb $verbextend $u
 un $nounf $u+
 une	$nounf $u+
 
@@ -465,33 +468,33 @@ voici	$u+
 voilà	$u+
 
 // possessives
-ma	$u $nounf
+ma	ma- $u $nounf
 mon	$u $nounf
-mes	mez2 $u $nounf
-ta	$u $nounf
+mes	me-z2 $u $nounf
+ta	ta- $u $nounf
 ton	$u $nounf
-tes	tez2 $u $nounf
-sa	$u $nounf
+tes	te-z2 $u $nounf
+sa	sa- $u $nounf
 son	$u+ $nounf
 son	sO~ $noun
-ses	sez2 $u $nounf
+ses	se-z2 $u $nounf
 notre	$u $nounf
 votre	$u $nounf
 leur	$u $nounf
 leur	$u $verb $verbextend
-(la leur)	la||lYr $u+ $verbf
-(le leur)	l@||lYr $u+ $verbf
+(la leur)	la-||lYr $u+ $verbf
+(le leur)	l@-||lYr $u+ $verbf
 nos	$u $nounf
 vos	$u $nounf
 leurs	$u+ $nounf
 leurs	$u $verb $verbextend
-(les leur)	le||lYr $u+ $verbf
-(les leurs)	le||lYr $u+ $verbf
+(les leur)	le-||lYr $u+ $verbf
+(les leurs)	le-||lYr $u+ $verbf
 
 // prepositions
 de $u $nounf
-du	$u $nounf
-des	dez2 $u $nounf
+du	dy- $u $nounf
+des	de-z2 $u $nounf
 
 
 à	a $u+
@@ -679,6 +682,8 @@ bis	      bis
 bissus    bisys
 blues	_^_en
 blum	blum
+bootable	boutable $text
+brian	_^_en
 broglie	breuil $text
 browglie	breuil $text
 buffer	bYfWr
@@ -692,6 +697,7 @@ charles	Sarl
 (chef d'oeuvres)	chédeuvres $text
 chienlit	SjA~li
 choeur        kWr
+cindy	sindi
 cinema	sinema
 cocus     kOky
 couscous	kuskus
@@ -708,6 +714,7 @@ faut	fot2 $u+
 feldspath	fEldspat
 fier	      fjer $verb
 for	$u+
+francesco	frA~nSEsko
 francis	frA~sis
 fred	frEd
 free	_^_en
@@ -725,12 +732,15 @@ gus	gys
 gym	Zim
 han	_|A~
 hélas 		elas $u+
+here	_^_en
 hermes _|ErmEs
+his	_^_en
 input	_^_en
 island	_^_en
 jackpot	dZakpOt
 jacques	Zak
 james	_^_en
+jennifer	ZenifEr
 karaoke	karaoke
 kevin	kevin
 laetitia	letisja
@@ -748,9 +758,12 @@ matthias	matjas
 merguez	mErgEz
 messieurs         mesjYz2
 mieux	miY $u+
+miloud	milud
+mouloud	mulud
 monsieur         m@sjY
 mrs	_^_en
 oasis	oazis
+oliver	_^_en
 ours	urs
 output	_^_en
 pataquès	patakEs
@@ -758,6 +771,7 @@ peter	_^_en
 phallus    falys
 pokémon	pokemOn
 polder    pOldEr
+pouls	pu
 premier    pr@mjer2
 program	_^_en
 query	_^_en
@@ -781,7 +795,9 @@ stocker	stoker2
 sus       sys
 sus       sy $verb
 sushi	suSi
+there	_^_en
 thierry	tjEri
+those	_^_en
 to	tu $u+
 tramway	tramwE:
 tuttiquanti       tutikw'anti
@@ -942,7 +958,7 @@ votions		vOotjO~z2
 évitions	evitjO~z2
 
 // no liaison
-(quelqu'un)	kElkW~ $U+
+(quelqu'un)	kElkW~ $u+
 pourcent	pursA~
 vincent		vE~sA~
 

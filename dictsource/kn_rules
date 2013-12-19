@@ -24,16 +24,16 @@
 	ಕ (B	k
 
 .group ಖ
-	ಖ	kha
-	ಖ (B	kh
+	ಖ	k#a
+	ಖ (B	k#
 
 .group ಗ
 	ಗ	ga
 	ಗ (B	g
 
 .group ಘ
-	ಘ	gha
-	ಘ (B	gh
+	ಘ	g#a
+	ಘ (B	g#
 
 .group ಙ
 	ಙ	Na
@@ -44,16 +44,18 @@
 	ಚ (B	c
 
 .group ಛ
-	ಛ	cha
-	ಛ (B	ch
+	ಛ	c#a
+	ಛ (B	c#
 
 .group ಜ
 	ಜ	Ja
 	ಜ (B	J
+	ಜ಼	za   // nukta
+	ಜ಼ (B	z
 
 .group ಝ
-	ಝ	Jha
-	ಝ (B	Jh
+	ಝ	J#a
+	ಝ (B	J#
 
 .group ಞ
 	ಞ	n^a
@@ -64,16 +66,16 @@
 	ಟ (B	t.
 
 .group ಠ
-	ಠ	th.a
-	ಠ (B	th.
+	ಠ	t.#a
+	ಠ (B	t.#
 
 .group ಡ
 	ಡ	d.a
 	ಡ (B	d.
 
 .group ಢ
-	ಢ	dh.a
-	ಢ (B	dh.
+	ಢ	d.#a
+	ಢ (B	d.#
 
 .group ಣ
 	ಣ	n.a
@@ -84,16 +86,16 @@
 	ತ (B	t
 
 .group ಥ
-	ಥ	tha
-	ಥ (B	th
+	ಥ	t#a
+	ಥ (B	t#
 
 .group ದ
 	ದ	da
 	ದ (B	d
 
 .group ಧ
-	ಧ	dha
-	ಧ (B	dh
+	ಧ	d#a
+	ಧ (B	d#
 
 .group ನ
 	ನ	na
@@ -104,16 +106,18 @@
 	ಪ (B	p
 
 .group ಫ
-	ಫ	pha
-	ಫ (B	ph
+	ಫ	p#a
+	ಫ (B	p#
+	ಫ಼	fa    // nukta
+	ಫ಼ (B	f
 
 .group ಬ
 	ಬ	ba
 	ಬ (B	b
 
 .group ಭ
-	ಭ	bha
-	ಭ (B	bh
+	ಭ	b#a
+	ಭ (B	b#
 
 .group ಮ
 	ಮ	ma
@@ -254,9 +258,9 @@
 
 
 .group 0xe0a4  // devanagari
-	\340\244  _^_HI  // switch to hindi voice for devanagari characters
+	0xe0a4  _^_HI  // switch to hindi voice for devanagari characters
 .group 0xe0a5  // devanagari
-	\340\245  _^_HI
+	0xe0a5  _^_HI
 
 
 .group

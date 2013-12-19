@@ -1,5 +1,8 @@
-
+﻿
 // This file in UTF8 encoded
+
+// $alt2, remove s from plural, remove en from plural
+// Use $alt3  where 'ng' and 'nk' is 'n+g' not [N]
 
 // Letters
 // If a letter has a "word" pronunciation which is different from its
@@ -33,6 +36,8 @@ _s	Es
 _t	te:
 
 _cap	h'o:fdlEt@r
+_sub	s'8pskrIpt||
+_sup	s'yp@rskrIpt||
 _?A	l'Et@r
 _??	s'imbo:l
 
@@ -55,12 +60,12 @@ _tld	t'Ild@
 
 
 // punctuation
-.	p8nt		$max3
+.	p8nt
 _,	k'Oma:
 _:	d'8b@l@p,8nt
 _;	p'8ntkOm,a:
-/	sl'As
-\	b'AkkslAs
+/	sl'ES
+\	b'EkslES
 _?	v@-*'a:xte:k@n
 _!	'Wyt@-*upt,e:k@n
 _"	'a:nha:lInxste:k@n
@@ -72,10 +77,12 @@ _)	h'a:kj@sl'Wyt@n
 _{	v'irkAnt@h,a:k
 _}	v'irkAnt@h,a:ksl'Wyt@n
 _-	k'OpElt,e:k@n
-+	pl'8s		$max3
-*	st'E*rEt;@	$max3
++	pl'8s
+*	st'E*rEt;@
+=	Q@l'EIkte:k@n
 __	l'IgEntst@-*'e:pj@
 €	'Y:*o:t,e:k@n
+°	Qra:d@n
 
 
 // numbers
@@ -83,31 +90,31 @@ _0	n'8l
 _1	'e:n
 _2	tv#'e:
 _3	dr'i
-_4	f'ir
-_5	f'EIf
+_4	v'ir
+_5	v'EIf
 _6	z'Es
-_7	z'e:f@n
+_7	z'e:v@n
 _8	'Axt
-_9	n'e:x@n
+_9	n'e:Q@n
 _10	t'in
 _11	'Elf
-_12	tw'a:lf
+_12	tv#'a:lf
 _13	d'Ertin
-_14	f'e:rtin
-_15	f'EIftin
+_14	f'I:rtin
+_15	v'EIftin
 _16	z'Estin
-_17	z'e:f@ntin
+_17	z'e:v@ntin
 _18	'Axtin
-_19	n'e:x@ntin
+_19	n'e:Q@ntin
 _2X	tv#'Int@x
 _3X	d'Ert@x
-_4X	f'e:rt@x
-_5X	f'EIft@x
+_4X	f'I:rt@x
+_5X	v'EIft@x
 _6X	z'Est@x
-_7X	z'e:f@nt@x
+_7X	z'e:v@nt@x
 _8X	t'Axt@x
 _9X	n'e:g@nt@x
-_0C	h'OndErt
+_0C	h'Ond@rt
 _0M1	d'WyzEnt
 _0M2	m'iljun
 _0M3	m'iljArt
@@ -121,7 +128,7 @@ _1o	'I:rst@
 _2o	tv#'e:d@
 _3o	d'Erd@
 _4o	v'ird@
-_5o	v'EIfd@
+_5o	v'EIvd@
 _6o	z'Esd@
 _7o	z'e:v@nd@
 _8o	'Axtst@
@@ -129,6 +136,10 @@ _0Co	h'OndErtst@
 
 
 // abbreviations
+be	$abbrev   // used as domain abbrev for Belgium and in a lot of other names
+ca	ka: $hasdot
+enz	Enzo:vo:rt
+bvb	bEIv'o:rbe:lt
 eu	e:_y: $abbrev
 kmo     $abbrev
 KMI	$abbrev
@@ -142,26 +153,26 @@ VMMa    $abbrev
 de	d@
 het	h@t	$only
 een	@n	$only
-ən	@n   // char.replacement for 'n
-ət	@t   // char.replacement for 't
+ən	@-n   // char.replacement for 'n
+ət	t   // char.replacement for 't
 
-// pronouns
-ik		$u
-me		$u
-jij		$u
-je		$u
-gij		$u
-ge		$u
-u		$u
-hij		$u
-zij		$u
-ze		$u
-het		h@t //otherwise pronounced as het
-wij		$u
-we		$u
+// pronouns  (may have -zelf suffix)
+ik		%Ik
+me		m@
+jij		j%EI
+je		j@
+gij		Q%EI
+ge		g@
+u		%y
+hij		h%EI
+zij		z%EI
+ze		z@
+wij		v#%EI
+we		v#@
 jullie		$u
-hen		$u
-zich		$u
+hen		h%En
+zich		z%Ix
+onszelf		Ons'Elf
 
 // possessives
 mijn		$u
@@ -225,7 +236,7 @@ dat	$u $pause	// that
 hoewel	$pause		// although
 of	$u $pause	// whether
 omdat	$pause		// because
-nadat	$u $pause	// after
+nadat	$u2 $pause	// after
 nudat	$pause		// now that
 sinds	$pause		// since
 tenzij	$pause		// unless
@@ -234,10 +245,25 @@ totdat	$pause		// until
 toen	$pause		// when (in past)
 voordat	$pause		// before
 wanneer	$pause		// when
-zoals	$pause		// just
-zolang	$pause		// as long as
-zover	$pause		// as far as
 
+zoal	$2 $only
+zoals	$2 $pause	// just
+zodanig	$2
+zodat	$2
+zodoende	$2
+zodra	$2
+zogoed	$2
+zoiets	$2
+zojuist	$2
+zolang	$2 $pause	// as long as
+zopas	zo:p'As
+zoveel	$2
+zover	$pause		// as far as
+zowaar	zo:v#'a:r
+zowat	$2
+zowel	$2
+zozeer	$2
+zozo	$2
 
 
 // negative
@@ -249,12 +275,12 @@ niet	n,it	$strend
 
 // auxillary verbs  (be, have, can, etc)
 zijn	$u	// to be
-ben	$u
-bent	$u
-is	$u
-was	$u
-waren	$u
-geweest	$u
+ben	$u $only
+bent	$u $only
+is	$u $only
+was	$u $only
+waren	$u $only
+geweest	$u $only
 
 hebben  $u          // to have
 heb	$u
@@ -315,6 +341,7 @@ game	_^_EN
 hardware        _^_EN
 homepage	_^_EN
 items	_^_EN
+jaws    _^_EN
 laptop	_^_EN
 malware _^_EN
 medical _^_EN
@@ -343,21 +370,26 @@ websites _^_EN
 weekend _^_EN
 
 
-// verbs where -ent is not a stressed ending
-bakent		$alt
-effent		$alt
-jegent		$alt
-kerstent	$alt
-ketent		$alt
-loochent	$alt
-oefent		$alt
-opent		$alt
-regent		$alt
-rekent		$alt
-stevent		$alt
-tekent		$alt
-wapent		$alt
-zegent		$alt
+// verbs where -ent, -ene, -enen is not a stressed ending
+baken		$alt
+effen		$alt
+jegen		$alt
+kersten		$alt
+keten		$alt
+loochen		$alt
+oefen		$alt
+open		$alt
+reden		$alt
+regen		$alt
+reken		$alt
+schepen		$alt
+steven		$alt
+teken		$alt
+volwassen	$alt
+wapen		$alt
+zegen		$alt
+trokken		$alt
+zeten		$alt
 
 
 // words where -er is not a stressed verb ending
@@ -374,6 +406,7 @@ baster		$alt
 beender		$alt
 belemmer	$alt
 beter		$alt
+beirer		$alt
 bibber		$alt
 bitter		$alt
 bladder		$alt
@@ -657,6 +690,7 @@ wapper		$alt
 water		$alt
 wedijver	$alt
 wegwijzer	$alt
+weiger		$alt
 wester		$alt
 wijder		$alt
 wilder		$alt
@@ -675,7 +709,30 @@ zuiver		$alt
 zwabber		$alt
 zwakker		$alt
 zwanger		$alt
+Vlaander	$alt
 
+
+// -s is not a suffix
+as		$alt
+bres		$alt
+chaos		$alt $1
+es		$alt
+fles		$alt
+fris		$alt
+glas		$alt
+mes		$alt
+moeras		$alt
+was		$alt // gewas
+
+// -s, just remove 's' from the plural
+charges		$alt2
+curves		$alt2
+droogtes	$alt2
+groeves		$alt2
+hoeves		$alt2
+reserves	$alt2
+marges		$alt2
+marge		mArZ@
 
 // words where -age  is [a:Q@] not French ['a:Z@]
 drage		$alt
@@ -695,7 +752,7 @@ camouflage	ka:mufl'a:Z@
 courtage	kurt'a:Z@
 curettage	kyr@t'a:Z@
 drainage	drEn'a:Z@
-equipage	e:kwip'a:Z@
+equipage	e:kip'a:Z@
 jumelage	Zym@l'a:Z@
 metrage		me:tr'a:Z@
 outillage	utij'a:Z@
@@ -713,7 +770,7 @@ cadet		$2
 kadet		$2
 biljet		$2
 sajet		$2
-sujet		syZ'Et
+sujet		syZ'E
 banket		$2
 boeket		$2
 briket		$2
@@ -730,18 +787,18 @@ raket		$2
 winket		$2
 amulet		$3
 ballet		$2
-cabriolet	ka:briol'Et
+cabriolet	ka:briol'E
 corselet	$3
 couplet		kupl'Et
 doublet		dubl'Et
 epaulet		e:po:l'Et
 filet		fil'e:
-gilet		Zil'Et
+gilet		Zil'E
 kotelet		$3
 omelet		$3
 palet		$2
 pamflet		$2
-pistolet	pisto:l'Et
+pistolet	pisto:l'E
 poulet		pul'Et
 reglet		re:Ql'Et
 skelet		sk@l'Et
@@ -765,7 +822,7 @@ pipet		$2
 toupet		tup'Et
 trompet		$2
 baret		$2
-cabaret		ka:ba:r'Et
+cabaret		ka:ba:r'E
 floret		$2
 lazaret		$3
 minaret		$3
@@ -824,12 +881,6 @@ vedette		v@d'Et@
 violette	$3
 wasserette	$3
 
-// ending -el is stressed
-isabel		$3
-libel		$2
-mirabel		$3
-tabel		$2
-
 // ending -eum is stressed  ['e:8m]
 atheneum	$alt
 colosseum	$alt
@@ -851,11 +902,19 @@ poliglot	$3
 marmot		$2
 schavot		$2
 
+// ending -el is stressed (default ?)
+bretel		br@tEl
+jarretel	Zar@t'El
+carrousel	ka:rus'El
+decibel		de:sibEl
+isabel		$3
+libel		$2
+mirabel		$3
+tabel		$2
+
 // words ending in el, elt, elde, elden, elend, elende, eld, ele, elen
 // with stress on the previous syllable,
 // also words ending in er. etc.
-
-beter		$alt
 
 	// adjectives
 edel		$alt
@@ -870,37 +929,106 @@ luttel		$alt
 nobel		$alt
 nozel		$alt
 schamel		$alt
-sensibel	$alt
 simpel		$alt
 sjofel		$alt
 soepel		$alt
 troebel		$alt
-vermetel	$alt
+metel		$alt  // vermetel
+
 	// nouns
 amandel		$alt
+apostel		$alt 
 appel		$alt
 artikel		$alt
-ginsel		$alt   // beginsel
+belhamel	b'Elha:m@l
+boedel		$alt
+buidel		$alt
+cenakel		s@na:k@l
 discipel	dIs'ip@l $alt
+distel		$alt
+dongel		$alt
+dorpel		$alt
+drempel 	$alt
+drommel		$alt
+duffel		$alt
 engel		$alt
+epistel		$alt
 fabel		$alt
+fistel		$alt
+gepeupel	$alt
+gevel		Qe:v@l
+gondel		$alt
+gordel		$alt
+gravel		QrEv@l
+grondel		$alt
 gruwel		$alt
+hendel		$alt
 heuvel		$alt
 hommel		$alt
-letsel		$alt
+horzel		$alt
+hostel		$alt
+hummel		$alt
+kazuifel	$alt
+kennel		$alt
+keppel		$alt
+kervel		$alt
+kiezel		$alt
+knekel		$alt
+knokkel		$alt
+kokkel		$alt
+krekel		$alt
+kummel		$alt
+lavendel	$alt
+luifel		$alt
+mantel		$alt
 mazel		$alt
 meubel		$alt
 middel		$alt
 mirakel		$alt
-mossel		$alt
+mokkel		$alt
+mormel		$alt
+mortel		$alt
+morzel		$alt
+navel		$alt
+obstakel	$alt
 parabel		$alt
-perikel		pe:r'ik@l $alt
-raadsel		$alt
-roersel		$alt
-schepsel	$alt
-schijnsel	$alt
+partikel	$alt
+peppel		$alt
+perikel		$alt
+pukkel		$alt
+pummel		$alt
+reuzel		$alt
+roebel		$alt
+roedel		$alt
+schedel		$alt
+sintel		$alt
+snavel		$alt
+sokkel		$alt
+spatel		$alt
+spektakel	$alt
+stekel		$alt
+stengel		$alt
+stoffel		$alt
 stoppel		$alt
+teckel		$alt
+tekkel		$alt
+tengel		$alt
+tentakel	$alt
+testikel	$alt
+triangel	$alt
+tripel		$alt
+truffel		$alt
+vaandel		$alt
+vehikel		$alt
+venkel		$alt
+warempel	$alt
+wokkel		$alt
+wrevel		$alt
+wrongel		$alt
 zemel		$alt
+zuivel		$alt
+zwatel		$alt
+
 	// verbs
 aarzel		$alt
 adel		$alt
@@ -908,7 +1036,7 @@ angel		$alt
 babbel		$alt
 barrel		$alt
 bazel		$alt
-bedel		be:d@l $alt
+bedel		$alt
 beitel		$alt
 bengel		$alt
 beugel		$alt
@@ -966,13 +1094,14 @@ frummel		$alt
 frutsel		$alt
 futsel		$alt
 gaffel		$alt
-gesel	Qe:s@l $alt
+gesel		Qe:s@l $alt
 giebel		$alt
 giechel		$alt
 gijzel		$alt
 gispel		$alt
 gniffel		$alt
 goochel		$alt
+googel		$alt
 gorgel		$alt
 grabbel		$alt
 grendel		$alt
@@ -1063,7 +1192,7 @@ kwartel		$alt
 kwebbel		$alt
 kwezel		$alt
 kwispel		$alt
-label	le:b@l $alt
+label		le:b@l $alt
 lepel		$alt
 lispel		$alt
 lummel		$alt
@@ -1089,7 +1218,7 @@ neuzel		$alt
 nevel		$alt
 nikkel		$alt
 orakel		$alt
-paddel	pEd@l $alt
+paddel		pEd@l $alt
 pantoffel	$alt
 parel		$alt
 pegel		$alt
@@ -1116,6 +1245,7 @@ rammel		$alt
 ransel		$alt
 ratel		$alt
 rebbel		$alt
+redekavel	$alt $1
 regel		$alt
 reutel		$alt
 reuzel		$alt
@@ -1263,31 +1393,50 @@ zwengel		$alt
 zwiebel		$alt
 zwijmel		$alt
 
-
-// -s is not plural
-chaos		xa:Os
+// names with unstressed -el
+amstel		$alt
+brussel		$alt
+ijssel		$alt
+meppel		$alt
+moesel		muz@l
+vondel		$alt
 
 // all words on _aard are treated as suffix in the rules.
 
 
 // pronunciation exceptions
-accessoire      aksEsv#'ar@
-accessoires     aksEsv#'ar@s
+accessoire      aksEsw'ar@
+accessoires     aksEsw'ar@s
 actiepunt	Aksip8nt
+actieve		Akt'iv@
+adhesie		Ath'e:zi
 agenda		$2
+aldus		Ald'8s
 alles		Al@s
 amino		$1
 amnestie	$3
 april		a:pr'Il
 armand		_^_FR
 augustus	VUQ'8st8s
-be		$abbrev   // used as domain abbrev for Belgium and in a lot of other names
+bacterie	bAkt'I:ri
+banengids	$alt3
 beha            be:_h'a:
+beige		bEZ@
+benard		b@nArt
+beker		be:k@r
+bendes		bEnd@s
+benig		be:n@Q
+benige		be:n@Q@
+berig		bI:r@Q
+berige		bI:r@Q@
+berin		bI:r'In
+beste		bEst@
+bevend		be:v@nd
 bijziend	$2	// bijziendheid
 blitzkrieg	blItskri:g
-boudoir		budv#'a:r
+boudoir		budw'a:r
 bourgondier	burx'o:ndi:@r
-braille		brAj@
+cafe		ka:f'e:
 circuit		sIrku'i
 chalet		Sa:lE
 champagne	SAmp'An^@
@@ -1299,21 +1448,30 @@ chassis		SAs'i
 chat		tSEt
 check		tSEk
 chiffon		Sif'On
-crèches		krES@s
+cohesie		$2
 contour		ko:nt'ur
+controle	$2
 coureur		ku:r'Y:r
+crèches		krES@s
 damascering     damA;s'e:rIN
 december	$2
+desillusie	dEsIlyzi
 dieet		$2
+diesel		diz@l
+diner		din'e:
+//discussie	$2
 divers		div'Ers
 diftongering    dIft,ON'e:rIN
 doordat		$2
 dynastie	$3
 eensgelijks	e:nsQ@l'EIks
 elfstedentocht	,Elf'ste:d@ntoQt
-emaille		,e:m'Aij@
+embouchuur	A~buS'yr   // embouchure
 enorm		$2
+enquête		A~k'Et@ $alt2
+erosie		e:r'o:zi
 eucharistie	$4
+explosie	$2
 februari	fe:bry'a:ri
 fiche		fiS@
 franchise	frA'Si:z@
@@ -1321,6 +1479,7 @@ gamasche	Qa:m'AS
 gazet		$2
 gouache		Qu'AS
 gefrituurd	$3
+hysterie	hIstI:r'i
 impregnering    Impr,EQn'e:IN
 inductie	$2
 ingewikkeld	$3
@@ -1330,61 +1489,117 @@ ingevolge	$3
 ingrediënt	$4
 ingenieur	Inzj@nj'Y:r
 informatie	$3
+invasie		$2
 januari		$3
-journaal	Surn'a:l
+kadaster	$2
+leesregel	le:sre:Q@l
+lunch		l8nS
+lunches		l8nS@s
+mangat		$alt3
+materie		ma:t'e:ri
+maatregel	ma:tre:Q@l $alt2
 maxima		$1
 meteen		mEt'e:n
 metro		me:tro:
 minima		$1
+(mise-en)	mizA~
+ministerie	minIst'I:ri
+misbaksel	$1
+misbruik	$1
+misdruk		$1
+miskoop		$1
+mskraam		$1
+misoogst	$1
+mispel		mIsp@l
+misse		mIs@       // misselijk
+missen		mIs@n
+misten		mIst@n
+misser		mIs@r
+missie		$1
+mississipi	$3
+misslag		$1
+misstand	$1
+misstap		$1
+mistral		mistr'Al
+misvatting	$1
+miszit		$1
+mysterie	mIst'I:ri
 nabij		nab'EI
+new		nyU
 november	$2
 oktober		$2
+oliesel		o:lis@l
+omver		o:mv'Er
 onderhandelingsnota	,ond@r'hAnd@lINs,no:ta:
-ongastvrij	OnQAstv@-*'EI
+ongastvrij	OnQAstvr'EI
 ongelooflijk	$3
 ongemakkelijk	$3
-ongelukkig	$3
+//ongelukkig	$3
 ongerieflijk	$3
-ongrondwettig	$3
+//ongrondwettig	$3
 partijvoorzitters $2
+periferie	pI:rifI:r'i
 pistache	pist'AS
+privilege	privil'e:Z@ $alt2
 proces		$2
 projectielen    $3
 renaissance	rEne:s'A~s@
-reservoir	re:zErvv#'a:r
+reservoir	re:zErvw'a:r
 revanche	r@vA~nS
 regime		$2
 roman		$2
+rubriek		rybr'ik
 sacristie	$3
 saint		_^_FR
 salomo		$1
+selderie	$1
 september	$2
+serie		sI:ri
 sms'jes		EsEm'Es_j@s
 spektakel	$2
 tegennatuur	$4
+tralie		$1
 travestie	$3
 verderop	$3
+vergezicht	vErQ@zIxt
+verre		vEr@
+verrekijker	vEr@kEIk@r
+verste		vErst@
+verte		vErt@
 volledig	$2
+voordeel	$1
+vrouwengek	$alt3
 waarschijnlijk	$2
+wanen		v#a:n@n
+wangen		v#AN@n
+wanluidend	$2
+wanschapen	$2
+wantrouwend	$2
+weliswaar	v#ElIsw'a:r
 ziekenhuisbevalling   zi:k@nhWysb@vAlIN
-zover           zo:v'Er
 
 
 
 // names
 (al-qaeda)      Al_:k'AjdA
-Beckham         bEk@m
+Beilen		bEIl@n
 Betty           bE:ti
 charlotte	$2
+Danica		dan'itsa
 Dewever		d@'v#e:v@r
+Herman		$1
 Henin		_^_FR
 Inge		IN@
 Ingeborg	INe:bOrx
 Ingmar		INmAr
 Ingrid		IN@-*It
-Justine		_^_FR
+Joe		dZo:
+Joey		dZo:wi
+Justine		Zyst'in
 kennedy		kEn@dE
 Laurent		lo:r'An^
+Lisette		_^_FR
+Naomi		$2
 Nys		nEIsd'WyzEnt
 
 //Trademarks
@@ -1396,11 +1611,27 @@ google          gu:g@l
 
 // places
 alexandrië	$3
-canada		$1
+Benin		be:n'in
+canada		kAna:da:
 Kinshasa	kInS'a:sa:
-new york        _^_EN
+Nairobi		nAjr'o:bi
+Napel		$alt
 Rochefort	roS'for
-Vlaanderen      vla:nd@r@n
 Zelzate		zelzat@
 
-(vond dat de) vOn_tA_t@
+(vond dat de)	vOn_tA_t@
+
+
+nadelig		$2		// nadelig(e)
+nadelige	$2
+naderhand	$3
+nadien		$2 $only
+nadrukke	$2		// nadrukkelijk
+nafta		nAfta:
+nalatig		$2		// nalatig(e)
+nalatige	$2
+nasaal		$2
+nasi		nAsi
+navoel		$2		// navoelbaar(/bare)
+navulbaar	$2
+

@@ -7,7 +7,7 @@ BINDIR=$(PREFIX)/bin
 INCDIR=$(PREFIX)/include/espeak
 LIBDIR=$(PREFIX)/lib
 
-RELEASE = 1.45
+RELEASE = 1.47
 BIN_NAME = speak
 BIN2_NAME = espeak
 LIB_NAME = libespeak.so
@@ -25,11 +25,20 @@ INSTALL = install
 LN_SF = /bin/ln -sf
 MKDIR = mkdir -p
 
+# 'runtime' uses pulseaudio if it is running, else uses portaudio
+#AUDIO = runtime
 #AUDIO = portaudio
+#AUDIO = portaudio0
+#AUDIO = portaudio2
 #AUDIO = pulseaudio
 #AUDIO = sada
 AUDIO = none
 
+ifeq ($(AUDIO),runtime)
+WAVE=wave.cpp wave_pulse.cpp
+LIB_AUDIO=-lpulse -lpulse-simple -lportaudio
+USE_AUDIO=-DUSE_PULSEAUDIO -DUSE_PORTAUDIO
+else
 ifeq ($(AUDIO),pulseaudio)
 WAVE=wave_pulse.cpp
 LIB_AUDIO=-lpulse
@@ -40,11 +49,24 @@ WAVE=wave.cpp
 LIB_AUDIO=-lportaudio
 USE_AUDIO=-DUSE_PORTAUDIO
 else
+ifeq ($(AUDIO),portaudio0)
+WAVE=wave.cpp
+LIB_AUDIO=/usr/lib/libportaudio.so.0
+USE_AUDIO=-DUSE_PORTAUDIO
+else
+ifeq ($(AUDIO),portaudio2)
+WAVE=wave.cpp
+LIB_AUDIO=/usr/lib/libportaudio.so.2
+USE_AUDIO=-DUSE_PORTAUDIO
+else
 ifeq ($(AUDIO),sada)
 WAVE=wave_sada.cpp
 USE_AUDIO=-DUSE_SADA
 else
 WAVE=wave.cpp
+endif
+endif
+endif
 endif
 endif
 endif
@@ -62,7 +84,7 @@ libespeak_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp 
 
 SRCS1=$(speak_SOURCES)
 OBJS1=$(patsubst %.cpp,%.o,$(SRCS1))
-LIBS1=-lstdc++ $(LIB_AUDIO) -lpthread $(EXTRA_LIBS)
+LIBS1=-lstdc++ $(LIB_AUDIO) -lpthread $(EXTRA_LIBS) 
 
 SRCS2=$(libespeak_SOURCES)
 OBJS2=$(patsubst %.cpp,x_%.o,$(SRCS2))
@@ -71,9 +93,6 @@ LIBS2=-lstdc++ $(LIB_AUDIO) -lpthread
 SRCS3 = espeak.cpp
 OBJS3=$(patsubst %.cpp,%.o,$(SRCS3))
 LIBS3=-lstdc++ -L . -lespeak
-
-CXXFLAGS=-g -DNEED_WCHAR_FUNCTIONS
-
 
 all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)
 
