@@ -1,6 +1,7 @@
 var speakWorker;
 try {
-  speakWorker = new Worker('speakWorker.js');
+  // https://github.com/yoshi6jp/speak.js/commit/b85d385024f1e20818aa9e3b272c86aa9fc2ebe6
+  speakWorker = new Worker(document.querySelector('script[src$="speakClient.js"]').getAttribute('src').replace(/speakClient.js$/,'speakWorker.js'));
 } catch(e) {
   console.log('speak.js warning: no worker support');
 }
@@ -30,29 +31,15 @@ function speak(text, args) {
   }
 
   function playHTMLAudioElement(wav) {
-    function encode64(data) {
-      var BASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-      var PAD = '=';
-      var ret = '';
-      var leftchar = 0;
-      var leftbits = 0;
-      for (var i = 0; i < data.length; i++) {
-        leftchar = (leftchar << 8) | data[i];
-        leftbits += 8;
-        while (leftbits >= 6) {
-          var curr = (leftchar >> (leftbits-6)) & 0x3f;
-          leftbits -= 6;
-          ret += BASE[curr];
-        }
+    function encode64(buffer) {
+      var binary = '',
+        bytes = new Uint8Array( buffer ),
+        len = bytes.byteLength;
+
+      for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] )
       }
-      if (leftbits == 2) {
-        ret += BASE[(leftchar&3) << 4];
-        ret += PAD + PAD;
-      } else if (leftbits == 4) {
-        ret += BASE[(leftchar&0xf) << 2];
-        ret += PAD;
-      }
-      return ret;
+      return window.btoa( binary );
     }
 
     document.getElementById("audio").innerHTML=("<audio id=\"player\" src=\"data:audio/x-wav;base64,"+encode64(wav)+"\">");

@@ -1,4 +1,5 @@
 
+  shouldRunNow = false;
   FS.ignorePermissions = true;
 
   FS.createPath('/', 'espeak/espeak-data', true, false);
