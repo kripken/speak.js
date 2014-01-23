@@ -1,5 +1,5 @@
 
-  shouldRunNow = false;
+  shouldRunNow = true;
   FS.ignorePermissions = true;
 
   FS.createPath('/', 'espeak/espeak-data', true, false);
@@ -19,6 +19,12 @@
 
   FS.ignorePermissions = false;
 
+  function unsignedStream(wav) {
+    var i, l= wav.length; out=new Array(l);
+    for (i = 0; i < l; i++) out[i] = unSign(wav[i], 8);
+    return out;
+  }
+
   var args = this['args'] || {};
   Module.arguments = [
     '-w', 'wav.wav',
@@ -35,5 +41,5 @@
 
   run();
 
-  this['ret'] = new Uint8Array(FS.root.contents['wav.wav'].contents);
+  this['ret'] = unsignedStream(FS.root.contents['wav.wav'].contents);
 
