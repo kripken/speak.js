@@ -1,39 +1,74 @@
+<!DOCTYPE html>
 <html>
-<title>speak.js: Text-to-Speech on the Web</title>
 <head>
-  <script>
-    // This demo is licensed under the GNU GPL.
-  </script>
-  <script src="speakClient.js"></script>
+<title>Demo</title>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css" rel="stylesheet" />
 </head>
 <body>
-  <h1>speak.js</h1>
-  <h2>Text-To-Speech on the Web</h2>
-  <form onsubmit="speak(text.value, { amplitude: amplitude.value, wordgap: workdgap.value, pitch: pitch.value, speed: speed.value }); return false">
-    Text: <input type="text" name="text" size=50 value="Never gonna give, you, up.">
-    Amplitude: <input type="text" name="amplitude" size=5 value="100">
-    Pitch: <input type="text" name="pitch" size=5 value="50">
-    Speed: <input type="text" name="speed" size=5 value="175">
-    Word gap: <input type="text" name="workdgap" size=5 value="0">
-    <input type="submit" value="Go!">
-  </form>
-  <hr>
-  <p>
-    This demo is 100% clientside JavaScript. It uses <a href="http://espeak.sourceforge.net/">eSpeak</a>, an open source
-    speech synthesizer, which was compiled from C++ to JavaScript using <a href="http://emscripten.org">Emscripten</a>.
-    The project page and source code for this demo can be found <a href="https://github.com/kripken/speak.js">here</a>.
-  </p>
+	<a href="https://github.com/logue/speak.js"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 2000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"/></a>
+	<nav class="navbar navbar-inverse" role="navigation">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">speak.js</a>
+		</div>
+	</nav>
+	<div class="container">
+		<h1>Demo</h1>
+		<form id="demo-form">
+			<div class="form-group">
+				<label for="text" class="control-label">Text:</label>
+				<textarea id="textarea" type="text" rows="5" class="form-control">Text-to-Speech is awesome. Feel free to play around!</textarea>
+			</div>
+			<div class="form-group">
+				<label for="amplitude" class="control-label">Amplitude:</label>
+				<input id="amplitude" type="text" value="100" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label for="pitch" class="control-label">Pitch:</label>
+				<input id="pitch" type="text" value="50" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label for="speed" class="control-label">Speed:</label>
+				<input id="speed" type="text" value="175" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label for="wordgap" class="control-label">Word gap:</label>
+				<input id="wordgap" type="text" value="0" class="form-control"/>
+			</div>
+			<button id="play-btn" class="btn btn-primary">Play</button>
+		</form>
+		<p>This demo is 100% clientside JavaScript. It users <a href="http://espeak.sourceforge.net/" target="_blank">eSpeak</a>,
+		an open source speech synthesizer, which was compiled from C++ to JavaScript using <a href="http://emscripten.org" target="_blank">Emscripten</a>.
+		The project page source code for this demo can be found <a href="https://github.com/katsuyan/speak.js" target="_blank">here</a>.</p>
+		<p>Browser requirement:
+		<ul>
+			<li><b>Typed arrays</b>. The eSpeak code is not portable to the extent that would be necessary to avoid using typed arrays.
+			Browser support information for typed arrays can be found <a href="http://caniuse.com/typedarrays" target="_blank">here</a>.</li>
+		</ul>
+	</div>
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="speakClient.js"></script>
+	<script>/*<![CDATA[*/
+(function() {
 
-  <p>
-    Browser requirements:
-    <ul>
-      <li><b>Typed arrays</b>. The eSpeak code is not portable to the extent that would be necessary to avoid using typed arrays.
-          (It should however be possible to rewrite small bits of eSpeak to fix that.)
-          Typed arrays are present in Firefox and Chrome, and hopefully by the time you read this in IE, Safari and Opera.</li>
-    </ul>
-  </p>
+  $(function() {
+    $('#play-btn').click(function() {
+      var options;
+      console.log('Speech started');
+      options = {
+        amplitude: amplitude.value,
+        wordgap: wordgap.value,
+        pitch: pitch.value,
+        speed: speed.value
+      };
+      speak.play(textarea.value, options, function() {
+        return console.log('Speech finished');
+      });
+      return false;
+    });
+  });
 
-  <div id="audio"></div>
+}).call(this);
+/*]]>*/</script>
 </body>
 </html>
-
