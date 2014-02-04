@@ -2530,6 +2530,16 @@ f_input = f_in;  // for GetC etc
 
 		linelength++;
 
+		if((j = lookupwchar2(tr->chars_ignore,c1)) != 0)
+		{
+			if(j == 1)
+			{
+				// ignore this character (eg. zero-width-non-joiner U+200C)
+				continue;
+			}
+			c1 = j;   // replace the character
+		}
+
 		if(iswalnum(c1))
 			any_alnum = 1;
 		else

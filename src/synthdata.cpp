@@ -35,8 +35,8 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.47.11  03.May.13";
-const int version_phdata  = 0x014709;
+const char *version_string = "1.48.02  02.Feb.14";
+const int version_phdata  = 0x014801;
 
 int option_device_number = -1;
 FILE *f_logespeak = NULL;
@@ -67,7 +67,7 @@ int vowel_transition[4];
 int vowel_transition0;
 int vowel_transition1;
 
-int FormantTransition2(frameref_t *seq, int &n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which);
+int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which);
 
 
 
@@ -277,7 +277,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 	// do we need to modify a frame for blending with a consonant?
 	if((this_ph->type == phVOWEL) && (fmt_params->fmt2_addr == 0) && (fmt_params->use_vowelin))
 	{
-		seq_len_adjust += FormantTransition2(frames,nf,fmt_params->transition0,fmt_params->transition1,NULL,which);
+		seq_len_adjust += FormantTransition2(frames,&nf,fmt_params->transition0,fmt_params->transition1,NULL,which);
 	}
 
 	length1 = 0;

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -39,6 +39,7 @@
 #define L_qa   0x716100
 #define L_grc  0x677263   // grc  Ancient Greek
 #define L_jbo  0x6a626f   // jbo  Lojban
+#define L_mni  0x6d6e69   // mni  Manipuri
 #define L_pap  0x706170   // pap  Papiamento]
 #define L_qvi  0x717669   // qvi  Kichwa
 #define L_shs  0x736873   // shs  Shuswap / Secwepemctsin
@@ -81,7 +82,7 @@ ALPHABET alphabets [] = {
     {"_hi",    OFFSET_DEVANAGARI, 0x900, 0x97f,L('h','i'), AL_WORDS},
     {"_bn",    OFFSET_BENGALI,  0x0980, 0x9ff, L('b','n'), AL_WORDS},
     {"_gur",   OFFSET_GURMUKHI, 0xa00, 0xa7f,  L('p','a'), AL_WORDS},
-    {"_gu",    OFFSET_GUJARATI, 0xa80, 0xaff,  0, 0},
+    {"_gu",    OFFSET_GUJARATI, 0xa80, 0xaff,  L('g','u'), AL_WORDS},
     {"_or",    OFFSET_ORIYA,    0xb00, 0xb7f,  0, 0},
     {"_ta",    OFFSET_TAMIL,    0xb80, 0xbff,  L('t','a'), AL_WORDS},
     {"_te",    OFFSET_TELUGU,   0xc00, 0xc7f,  L('t','e'), 0},
@@ -192,9 +193,12 @@ static const unsigned short chars_ignore_default[] = {
 // alternatively, ignore characters but allow zero-width-non-joiner (lang-fa)
 static const unsigned short chars_ignore_zwnj_hyphen[] = {
 	0xad,    1, // soft hyphen
+	0x640,   1, // igniore Arabic Tatweel (lang=FA)
 	0x200c,  '-', // zero width non-joiner, replace with hyphen
 	0x200d,  1, // zero width joiner
 	0, 0 };
+
+const char string_ordinal[] = {0xc2,0xba,0};  // masculine ordinal character, UTF-8
 
 
 static Translator* NewTranslator(void)
@@ -237,6 +241,7 @@ static const char transpose_map_latin[] = {
 
 	tr->charset_a0 = charsets[1];   // ISO-8859-1, this is for when the input is not utf8
 	dictionary_name[0] = 0;
+	tr->dictionary_name[0] = 0;
 	tr->dict_condition=0;
 	tr->dict_min_size = 0;
 	tr->data_dictrules = NULL;     // language_1   translation rules file
@@ -291,6 +296,7 @@ static const char transpose_map_latin[] = {
 	tr->langopts.replace_chars = NULL;
 	tr->langopts.ascii_language[0] = 0;    // Non-Latin alphabet languages, use this language to speak Latin words, default is English
 	tr->langopts.alt_alphabet_lang = L('e','n');
+	tr->langopts.roman_suffix = "";
 
 	SetLengthMods(tr,201);
 //	tr->langopts.length_mods = length_mods_en;
@@ -459,7 +465,7 @@ Translator *SelectTranslator(const char *name)
 	Translator *tr;
 
 	static const short stress_lengths_equal[8] = {230, 230,  230, 230,  0, 0,  230, 230};
-	static const unsigned char stress_amps_equal[8] = {18,18, 18,18, 18,18, 18,18 };
+	static const unsigned char stress_amps_equal[8] = {19,19, 19,19, 19,19, 19,19 };
 
 	static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  190, 240};
 	static const unsigned char stress_amps_fr[8] = {18,16, 18,18, 18,18, 18,18 };
@@ -471,11 +477,12 @@ Translator *SelectTranslator(const char *name)
 	static const short stress_lengths_ta2[8] = {230, 230,  240, 240,  0, 0,  260, 260};
 	static const unsigned char stress_amps_ta[8] = {18,18, 18,18, 20,20, 22,22 };
 
+	tr = NewTranslator();
+	strcpy(tr->dictionary_name, name);
+
 	// convert name string into a word of up to 4 characters, for the switch()
 	while(*name != 0)
 		name2 = (name2 << 8) + *name++;
-
-	tr = NewTranslator();
 
 	switch(name2)
 	{
@@ -529,6 +536,8 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 	case L('b','n'):  // Bengali
+	case L('a','s'):  // Assamese
+	case L_mni:  // Manipuri  (temporary placement - it's not indo-european)
 		{
 			static const short stress_lengths_bn[8] = {180, 180,  210, 210,  0, 0,  230, 240};
 			static const unsigned char stress_amps_bn[8] = {18,18, 18,18, 20,20, 22,22 };
@@ -747,7 +756,9 @@ Translator *SelectTranslator(const char *name)
 			if(name2 == L('a','n'))
 			{
 				tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
+				tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_ORDINAL;
 				tr->langopts.numbers2 = NUM2_ORDINAL_NO_AND;
+				tr->langopts.roman_suffix = string_ordinal;
 			}
 			else
 			if(name2 == L_pap)
@@ -840,16 +851,20 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 	case L('g','a'):   // irish
+	case L('g','d'):   // scots gaelic
 		{
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.numbers = 1;
+			tr->langopts.stress_flags = S_NO_AUTO_2;  // don't use secondary stress
+			tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND;
 			tr->langopts.accents = 2;  // 'capital' after letter name
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 3;  // don't count apostrophe
+			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove [:] phoneme from non-stressed syllables (Lang=gd)
 		}
 		break;
 
 	case L('h','i'):    // Hindi
 	case L('n','e'):    // Nepali
+	case L('o','r'):    // Oriya
 	case L('p','a'):    // Punjabi
 	case L('g','u'):    // Gujarati
 		{
@@ -885,6 +900,11 @@ SetupTranslator(tr,stress_lengths_equal,stress_amps_equal);
 				tr->langopts.max_digits = 22;
 				tr->langopts.numbers2 |= NUM2_ENGLISH_NUMERALS;
 			}
+			else
+			if(name2 == L('o','r'))
+			{
+				tr->letter_bits_offset = OFFSET_ORIYA;
+			}
 			SetIndicLetters(tr);
 		}
 		break;
@@ -897,6 +917,8 @@ SetupTranslator(tr,stress_lengths_equal,stress_amps_equal);
 			static const unsigned char stress_amps_hr[8] = {17,17, 20,20, 20,22, 22,21 };
 			static const short stress_lengths_hr[8] = {180,160, 200,200, 0,0, 220,230};
 			static const short stress_lengths_sr[8] = {160,150, 200,200, 0,0, 250,260};
+
+			strcpy(tr->dictionary_name, "hbs");
 
 			if(name2 == L('s','r'))
 				SetupTranslator(tr,stress_lengths_sr,stress_amps_hr);
@@ -961,7 +983,8 @@ SetLengthMods(tr,3);  // all equal
 			static const short stress_lengths_hy[8] = {250, 200,  250, 250,  0, 0,  250, 250};
 			static const char hy_vowels[] = {0x31, 0x35, 0x37, 0x38, 0x3b, 0x48, 0x55, 0};
 			static const char hy_consonants[] = {0x32,0x33,0x34,0x36,0x39,0x3a,0x3c,0x3d,0x3e,0x3f,
-				0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0x50,0x51,0x52,0x53,0x54,0x56,0};
+				0x40,0x41,0x42,0x43,0x44,   0x46,0x47,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0x50,0x51,0x52,0x53,0x54,0x56,0};
+			static const char hy_consonants2[] = {0x45,0};
 
 			SetupTranslator(tr,stress_lengths_hy,NULL);
 			tr->langopts.stress_rule = STRESSPOSN_1R;  // default stress on final syllable
@@ -970,7 +993,9 @@ SetLengthMods(tr,3);  // all equal
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 			SetLetterBits(tr,LETTERGP_A,hy_vowels);
 			SetLetterBits(tr,LETTERGP_VOWEL2,hy_vowels);
+			SetLetterBits(tr,LETTERGP_B,hy_consonants);    // not including 'j'
 			SetLetterBits(tr,LETTERGP_C,hy_consonants);
+			SetLetterBits(tr,LETTERGP_C,hy_consonants2);   // add 'j'
 			tr->langopts.max_initial_consonants = 6;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED;
 		//	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
@@ -1026,11 +1051,11 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 2;    // remove lengthen indicator from unstressed or non-penultimate syllables
-			tr->langopts.param[LOPT_IT_DOUBLING] = 2;    // double the first consonant if the previous word ends in a stressed vowel
+			tr->langopts.param[LOPT_IT_DOUBLING] = 1;    // double the first consonant if the previous word ends in a stressed vowel (changed to =1, 23.01.2014 - only use if prev.word has $double)
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 			tr->langopts.param[LOPT_REDUCE] = 1;        // reduce vowels even if phonemes are specified in it_list
 			tr->langopts.param[LOPT_ALT] = 2;      // call ApplySpecialAttributes2() if a word has $alt or $alt2
-			tr->langopts.numbers = NUM_SINGLE_VOWEL | NUM_OMIT_1_HUNDRED |NUM_DECIMAL_COMMA | NUM_ROMAN | NUM_DFRACTION_1;
+			tr->langopts.numbers = NUM_SINGLE_VOWEL | NUM_OMIT_1_HUNDRED |NUM_DECIMAL_COMMA | NUM_ROMAN | NUM_DFRACTION_1 | NUM_ROMAN_CAPITALS | NUM_ROMAN_AFTER;
 			tr->langopts.accents = 2;   // Say "Capital" after the letter.
 			SetLetterVowel(tr,'y');
 		}
@@ -1284,8 +1309,9 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = STRESSPOSN_1R;        // stress on final syllable
 			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_INITIAL_2 | S_PRIORITY_STRESS;
-			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_DFRACTION_2 | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_ROMAN;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_DFRACTION_2 | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_ROMAN_CAPITALS;
 			tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL | NUM2_NO_TEEN_ORDINALS | NUM2_ORDINAL_NO_AND;
+			tr->langopts.max_roman = 5000;
 			SetLetterVowel(tr,'y');
 			ResetLetterBits(tr,0x2);
 			SetLetterBits(tr,1,"bcdfgjkmnpqstvxz");      // B  hard consonants, excluding h,l,r,w,y
@@ -1395,6 +1421,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.numbers =  NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ORDINAL_DOT | NUM_ROMAN;
 			tr->langopts.numbers2 = 0x100;   // plural forms of millions etc
 			tr->langopts.thousands_sep = ' ';   // don't allow dot as thousands separator
+			tr->langopts.replace_chars = replace_cyrillic_latin;
 		break;
 
 	case L('s','q'):  // Albanian
@@ -1447,8 +1474,8 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('t','a'):  // Tamil
-	case L('m','l'):  // Malayalam
 	case L('k','n'):  // Kannada
+	case L('m','l'):  // Malayalam
 	case L('m','r'):  // Marathi
 	case L('t','e'):  // Telugu
 		{
@@ -1456,7 +1483,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY;   // use 'diminished' for unstressed final syllable
+			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2;   // use 'diminished' for unstressed final syllable
 			tr->langopts.spelling_stress = 1;
 			tr->langopts.break_numbers = 0x14a8;  // 1000, 100,000  10,000,000
 
@@ -1465,6 +1492,7 @@ SetLengthMods(tr,3);  // all equal
 				SetupTranslator(tr,stress_lengths_ta, NULL);
 				tr->letter_bits_offset = OFFSET_TAMIL;
 				tr->langopts.numbers =  NUM_OMIT_1_THOUSAND ;
+				tr->langopts.numbers2 = NUM2_ORDINAL_AND_THOUSANDS;
 				tr->langopts.param[LOPT_WORD_MERGE] = 1;   // don't break vowels betwen words
 			}
 			else
@@ -1475,8 +1503,12 @@ SetLengthMods(tr,3);  // all equal
 			else
 			if(name2 == L('m','l'))
 			{
+				static const short stress_lengths_ml[8] = {180, 160,  240, 240,  0, 0,  260, 260};
+				SetupTranslator(tr,stress_lengths_ml, stress_amps_equal);
 				tr->letter_bits_offset = OFFSET_MALAYALAM;
-				tr->langopts.numbers = NUM_OMIT_1_THOUSAND;
+				tr->langopts.numbers = NUM_OMIT_1_THOUSAND | NUM_OMIT_1_HUNDRED;
+				tr->langopts.numbers2 = NUM2_OMIT_1_HUNDRED_ONLY;
+				tr->langopts.stress_rule = 13;   // 1st syllable, unless 1st vowel is short and 2nd is long
 			}
 			else
 			if(name2 == L('k','n'))
@@ -1557,6 +1589,7 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('u','r'):   // Urdu
+	case L('s','d'):   // Sindhi
 		{
 			tr->letter_bits_offset = OFFSET_ARABIC;
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
@@ -1634,21 +1667,24 @@ SetLengthMods(tr,3);  // all equal
 
 	tr->translator_name = name2;
 
-	if(tr->langopts.numbers & NUM_DECIMAL_COMMA)
-	{
-		// use . and ; for thousands and decimal separators
-		tr->langopts.thousands_sep = '.';
-		tr->langopts.decimal_sep = ',';
-	}
-	if(tr->langopts.numbers & NUM_THOUS_SPACE)
-	{
-		tr->langopts.thousands_sep = 0;   // don't allow thousands separator, except space
-	}
-
+	ProcessLanguageOptions(&tr->langopts);
 	return(tr);
 }  // end of SelectTranslator
 
 
+void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts)
+{//=====================================================
+	if(langopts->numbers & NUM_DECIMAL_COMMA)
+	{
+		// use . and ; for thousands and decimal separators
+		langopts->thousands_sep = '.';
+		langopts->decimal_sep = ',';
+	}
+	if(langopts->numbers & NUM_THOUS_SPACE)
+	{
+		langopts->thousands_sep = 0;   // don't allow thousands separator, except space
+	}
+}
 
 //**********************************************************************************************************
 

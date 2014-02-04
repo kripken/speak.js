@@ -7,7 +7,7 @@ BINDIR=$(PREFIX)/bin
 INCDIR=$(PREFIX)/include/espeak
 LIBDIR=$(PREFIX)/lib
 
-RELEASE = 1.47
+RELEASE = 1.48
 BIN_NAME = speak
 BIN2_NAME = espeak
 LIB_NAME = libespeak.so
@@ -84,7 +84,7 @@ libespeak_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp 
 
 SRCS1=$(speak_SOURCES)
 OBJS1=$(patsubst %.cpp,%.o,$(SRCS1))
-LIBS1=-lstdc++ $(LIB_AUDIO) -lpthread $(EXTRA_LIBS) 
+LIBS1=-lstdc++ $(LIB_AUDIO) -lpthread $(EXTRA_LIBS)
 
 SRCS2=$(libespeak_SOURCES)
 OBJS2=$(patsubst %.cpp,x_%.o,$(SRCS2))
@@ -93,6 +93,9 @@ LIBS2=-lstdc++ $(LIB_AUDIO) -lpthread
 SRCS3 = espeak.cpp
 OBJS3=$(patsubst %.cpp,%.o,$(SRCS3))
 LIBS3=-lstdc++ -L . -lespeak
+
+CXXFLAGS=-g -DNEED_WCHAR_FUNCTIONS
+
 
 all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)
 
