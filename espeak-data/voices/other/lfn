@@ -1,6 +1,6 @@
-name lingua franca nova
+name lingua_franca_nova
 language lfn
 gender male
 
 phonemes base2
-numbers 2 3
+l_unpronouncable 0
