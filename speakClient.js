@@ -45,7 +45,7 @@
     var source = audioContext.createBufferSource();
     var PROFILE = 1;
 
-    function playSound(streamBuffer, callback) {
+    function playSound(streamBuffer) {
       source.connect(audioContext.destination);
       // since the ended-event isn't generally implemented,
       // we need to use the decodeAudioData()-method in order
@@ -57,13 +57,13 @@
         // so let's exclude it.
         if (!isChrome && source.onended !== undefined) {
           // we could also use "source.addEventListener('ended', callback, false)" here
-          source.onended = callback;
+          source.onended = onended;
         } else {
           var duration = audioData.duration;
           // convert to msecs
           // use a default of 1 sec, if we lack a valid duration
           var delay = (duration)? Math.ceil(duration * 1000) : 1000;
-            setTimeout(callback, delay);
+            setTimeout(onended, delay);
         }
         // finally assign the buffer
         source.buffer = audioData;
