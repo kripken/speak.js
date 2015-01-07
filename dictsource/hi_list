@@ -2,156 +2,156 @@
 
 // Numbers
 // devanagari numbers are changed to latin characters before translation
-_0        S'u:n.j@3
+_0        S'u:nj@-
 _1        'e:k
 _2        d'o:
 _3        t'i:n
-_4        c'a:r:
-_5        p'a:nc
-_6        ch'@2
+_4        c'a:r
+_5        'pa~c
+_6        c#'VH
 _7        s'a:t
-_8        'a:th.
+_8        'a:t.#
 _9        n'O:
 ?3  _9    n'aU
 
 _10       d'Vs
-_11       gj'a:r@2
-_12       b'a:r@2
-_13       t'E:r@2
-_14       ch'O:d@2
-_15       p'Vndr@2
-_16       s'o:l@2
-_17       s'Vt:r@2
-_18       Vth.:'a:r@2
+_11       gj'a:*VH
+_12       b'a:rVH
+_13       t'e:rVH
+_14       c'O:dVH
+_15       p'VndrVH
+_16       s'o:lVH
+_17       sVtrVh
+_18       Vt.#'a:rVH
 _19       Unn'Is
 
 _20       b'i:s
-_21       Ik:'Is
-_22       b'a:Is
-_23       t'e:Is
-_24       c'O:bIs
-_25       p@c:'Is
-_26       ch@bb'i:rs
-_27       s@t:'a:Is
-_28       ath:'a:Is
-_29       Unt'Is
+_21       Ik:'is
+_22       b'a:is
+_23       t'e:is
+_24       c'O:bis
+_25       p'Vc:is
+_26       c#Vbb'is
+_27       s@t:'a:is
+_28       at#:'a:is
+_29       'Untis
 _30       t'i:s
 
-_31       Ik@t:'Is
-_32       bat:'Is
-_33       tE~t'Is      // E~ ?
-_34       cO~t'Is
-_35       pE~t'Is
-_36       chaT'tIs
-_37       sE~t'Is
-_38       art'Is
-_39       Unta:l'Is
+_31       Ik@t'is
+_32       b'at:is
+_33       t'E~tis      // E~ ?
+_34       c'O~tis
+_35       p'E~tis
+_36       c#'Vt:is
+_37       s'E~tis
+_38       'Vrtis
+_39       Unt'a:lis
 
-_40       ca:l'Is
-_41       Ikta:l'Is
-_42       baIa:l'Is
-_43       tE~ta:l'Is
-_44       cO:wa:l'Is
-_45       paI'nta:l'Is
-_46       chhIja:l'Is
-_47       sE~ta:l'Is
-_48       arta:l'Is
-_49       'Un^ca:s
+_40       c'a:lis
+_41       Ikt'a:lis
+_42       baI'a:lis
+_43       tE~t'a:lis
+_44       cO:v'a:lis
+_45       paInt'a:lis
+_46       c#Ij'a:lis
+_47       sE~t'a:lis
+_48       Vrt'a:lis
+_49       'Unca:s
 
-_50       p@c'a:s
+_50       pVc'a:s
 _51       Ikj'a:wVn
 _52       b'a:wVn
-_53       t'IrpVn
-_54       c'Ou:wVn
-_55       p'achpVn
-_56       chh@p:'Vn
-_57       sVt:'a:w@n
-_58       ath:'a:w@n
-_59       Uns'Vth
+_53       t'Ire:pVn
+_54       c'O:wVn
+_55       p'VcpVn
+_56       c#'Vp:Vn
+_57       sVt'a:w@n
+_58       at.#:'a:w@n
+_59       'UnsVt.#
 
-_60       s'a:th.
-_61       'Iks@th.
-_62       b'a:s@th.
-_63       t'Irs@th.
-_64       c'O~s@th.
-_65       paIns@th.
-_66       ch'Ija:s@th.
-_67       s'Vrs@th.
-_68       ars@th.
-_69       Un@h,at:'Vr:
+_60       s'a:t.#
+_61       'IksVt.#
+_62       b'a:sVt.#
+_63       t'Ire:sVt.#
+_64       c'O~sVt.#
+_65       p'E~sVt.#
+_66       c#Ij'a:sVt.#
+_67       s'Vr.sVt.#
+_68       Vr.sVt.#
+_69       'UnVht:Vr
 
-_70       sat:'Vr:
-_71       Ikhat:'Vr:
-_72       b@hat:'Vr:
-_73       tIhat:'Vr:
-_74       cO:hat:'Vr:
-_75       pach,at:'Vr:
-_76       chIhat:'Vr:
-_77       s@t@hat:'Vr:
-_78       athhat:'Vr:
-_79       ,Un^Ia:s'i:
+_70       s'Vt:Vr
+_71       'IkHVt:Vr
+_72       'bVhVt:Vr
+_73       t'IhVt:Vr
+_74       cO:H'Vt:Vr
+_75       pVcH'Vt:Vr
+_76       c#IH'Vt:Vr
+_77       sVtH'Vt:Vr
+_78       VtH'Vt:Vr
+_79       Un'a:si
 
-_80       ,Vss'i:
-_81       Ikja:s'i:
-_82       baIa:s'i:
-_83       tIra:s'i:
-_84       cO:ra:s'i:
-_85       pI'ca:s'i:
-_86       chIja:s'i:
-_87       sVt:a:s'i:
-_88       ath:a:s'i:
-_89       nVwa:s'i:
+_80       'Vssi:
+_81       Ikj'a:si
+_82       bVj'a:si
+_83       tIr'a:si
+_84       cO:r'a:si
+_85       pVc'a:si
+_86       c#Ij'a:si
+_87       sVt:'a:si
+_88       at#:'a:si
+_89       nVw'a:si
 
-_90       nVb:'e:
-_91       Ikj'a:n@we:
-_92       b'a:n@we:
-_93       tIr'a:n@we:
-_94       cO:r'a:m@we:
-_95       p@c'a:n@we:
-_96       chIj'a:n@we:
-_97       s@t:'a:n@we:
-_98       ath:'a:n@we:
-_99       nIn^j'a:n@we:
+_90       n'Vb:e:
+_91       Ik:j'a:n@be:
+_92       b'a:n@be:
+_93       tIr'a:n@be:
+_94       cO:r'a:m@be:
+_95       pVnc'a:n@be:
+_96       c#Ij'a:n@be:
+_97       sVt:'a:n@be:
+_98       Vt#:'a:n@be:
+_99       nIn^j'a:n@be:
 
 _0C	s'O:
-_0M1	h@z'a:r
-_0M2	l'a:kh
-_0M3	cr'ore
-_0M4	'Vr@b
-_0M5	kh'Vr@b
-_dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
+_0M1	h'VJa:r
+_0M2	l'a:k#
+_0M3	k@r'o:r.V
+_0M4	'VrVb
+_0M5	k#'VrVb
+_dpt      _d@s@ml'o:_   
 
 // Single consonants
 क      k@
 क़      q@
-ख      kh@
+ख      k#@
 ख़      x@
 ग      g@
 ग़      Q@
-घ      gh@
+घ      g#@
 ङ      N@
 च      c@
-छ      ch@
+छ      c#@
 ज      J@
 ज़      z@
-झ      Jh@
+झ      J#@
 ञ      n^@
 ट      t.@
-ठ      th.@
+ठ      t.#@
 ड      d.@
 ड़      r.@
-ढ      dh.@
+ढ      d.#@
 ण      n.@   // retroflex n.@
 त      t@
-थ      th@
+थ      t#@
 द      d@
-ध      dh@
+ध      d#@
 न      n@
 प      p@
-फ      ph@
+फ      p#@
 फ़      f@
 ब      b@
-भ      bh@
+भ      b#@
 म      m@
 य      j@
 र      r@
@@ -194,19 +194,32 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 ॣ	#X2l-:
 ॐ	#X1o~m
 
+_??	Vks.@r
+
+// Alphabet names
+_ar	'Vrbi
+_cyr	sIrIk'Ik
+_zh	c'i@ni
 
 // Punctuation
 ।	dVn.d.V
 
+$	dOl@r
+%	pVt'IS@t
++	plVs
+=	bVr'a:b@r
+*	ta:r'a:Nk@n
+* 
+
 // Pronouns
-मैं 	$u	// main: I
+मैं 	$u	// main: IrI
 मुझे 	$u
 मेरा 	$u
 मेरी 	$u
 मेरे 	$u
 
 हम 	$u	// we
-हमें 	$u
+हमे 	$u
 हमारा 	$u
 हमारी 	$u
 हमारे 	$u
@@ -234,7 +247,7 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 इसका 	$u
 
 ये 	$u	// they
-इन्हें 	$u
+इन्हें	$u
 इनका 	$u
 
 वह	$u	// he/she/it
@@ -246,7 +259,7 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 
 वे	$u	// they
 वो 	$u
-उन्हें	$u	// unheṃ: them 
+उन्हे	$u	// unheṃ: them 
 उनका	$u
 उनकी	$u
 उनके	$u
@@ -260,7 +273,7 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 को 	$u	// ko: to
 तक 	$u	// tak: until, for(time)
 बिना	$u $pause	// without (preposition)
-में 	$u	// me: in
+में 	me~: $u+	// me: in
 से 	$u	// se: from, with, by
 
 
@@ -270,7 +283,7 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 
 // Conjunctions
 
-और	$u $pause	// aur: and
+और	$u $brk	// aur: and
 य	j@ $u $pause	// ja: or
 अगर	$u $pause	// agar: if
 यदि	$u $pause	// yadi: if, whether
@@ -297,5 +310,73 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 
 
 // Exceptions
-क्रिकेट        krIk'Et
+क्रिकेट        kr'IkIt
 सायबर        s'aIb@r
+राष्ट्रपति	ra:Stra'pati
+प्रघानमंत्री	pradha:n'man'tri
+कुलपति	kul'pati
+कुलदेवी	kul'devi
+भाईचारा	bha:i'cha:ra:
+महाराज	maha:ra:J
+महारानी	maha:ra:ni
+महादेव	maha:'dev
+रामराज्य़	ra:m:ra:J'Jja
+अक्षरमाला	ak'shar'ma:la:
+प्रजापति	praJa:pati
+पूँजीपति	pu~Ji'pati
+पँजीकरऩ	pan'Ji'karan
+पालनहारा	pa:lan'ha:ra:
+मूलमंत्र	mul'man'tra
+झोलझाल	Jho'lJha:l
+सुखदाता	su'kh'da:ta:
+नेत्रहीन	netr:a'hIn
+नेत्रदान	net'ra'da:n
+गजपति	gaJ'pati
+य़ुघ्दविराम	j:u'dh:'vi'ra:m
+महासंग्राम	maha:san'gra:m
+महापति	maha:'pati
+पतीदेव	pati'dev
+सीताराम	sIta:ra:m
+अंजनीपुत्र	anjan'Iput:'ra
+महाबलि	maha:bali
+श्रमदान	Sram'da:n
+रक्तदान	rak'tda:n
+रेलगाड़ी	rel'ga:rI
+बैलगाड़ी	bE:el'ga:rI
+नौकरशाही nau'kar'Sa:hI	
+नौकरशाह	nau'kar'Sa:h
+प्रतिपल	pra'ti'pal
+हलचल	hal'cal
+कालचक्र	ka:l'cak'ra
+हरदम	har'dam
+नीलकंठ	nIl'ka'nt.#
+इन्द्रजीत	In'dra'JIt
+कुलदेवता	kUl'de:v'ta:
+अत्ममंथन	atm'aman'than
+थलसेना	thal'sena:
+वाय़ुसेना	wa:u:'sena:
+सेनापति	sena:pati
+वरमाला	va'Rma:la:
+जय़माला	Jaj'ma:la:
+भूतप्रेत	bhut'pret
+भूतकाल	bhUt'ka:l
+मदीरापान	madira:pa:n
+रिश्तेनाते	ris'te'na:te
+राजमाता	Ra:J'ma:ta:
+भाग्य़शाली	bha:gja'Sa:lI
+खुशकिस्मत khUSki'smat
+गुरुनानक	guru'na:nak
+दीपमाला	dIp'ma:la:
+दीपशिखा	dIp'Sikha
+बलशाली	val'Sa:lI
+चन्द्रशेखर	can'dra'Sekhar
+चद्रकान्ता	can'dra'ka:nta:
+महाभारत	maha:bha:rat
+महासागर	maha:sa:gar
+प्राचीनकाल pra:cIn'ka:l
+राशीफल	ra:Si'fal
+परमवीर	param'vIr
+बुध्दिमति	bud'dhi'mati
+सुमति	suma'ti
+मतदान	mat'da:n
+मतदाता	mat'da:ta:

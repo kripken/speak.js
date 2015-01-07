@@ -1,0 +1,262 @@
+
+// Translation rules for Assamese
+// input  by .
+// This file is UTF8 encoded
+
+// Numbers
+// Numbers are changed to latin characters before translation
+_0	X'unjO
+_1	'ek
+_2	d'uj
+_3	t'ini
+_4	tS#'ar'i
+_5	p'a~tS
+_6	tS#'Oj
+_7	X'at
+_8	a~t.#
+_9	n'Oj
+
+_2a	d'u     // with hundreds etc.
+_6a	tS#'O
+_9a	n'O
+
+
+_10	d@h
+_11	Ig#'a:ro
+_12	b'arO
+_13	t'erO
+_14	tS#au'ddO
+_15	p'OnerO
+_16	X'olO
+_17	X'OterO
+_18	'at.#arO 
+_19	'un'niS
+
+_20	b'iS
+_21	ek'uS
+_22	b'ajS
+_23	t'ejS
+_24	tS'ObbiS
+_25	p'O~tSiS
+_26	tSh'abbiS
+_27	X'at'aS
+_28	'at.#aS
+_29	'unOtr'iS
+
+_30	tr'iS
+_31	'ek'Otr'iS
+_32	b'Otr'iS
+_33	t'etr'iS
+_34	tS'owtr'iS
+_35	p'O~jtr'iS
+_36	tS#'Otr'iS
+_37	X'a~i'tr'iS
+_38	'a~t.tr'iS
+_39	'unOtSOll'iS
+
+_40	tSOll'iS
+_41	'ektSOll'iS
+_42	b'iall'iS
+_43	t'etall'iS
+_44	tS'oall'iS
+_45	p'O~jtall'iS
+_46	tS'etSO'll'iS
+_47	X'atSOll'is
+_48	'a~'tSOll'iS
+_49	'unOpO~tSaS
+
+_50	p'O~tS'aS
+_51	I'kann'o
+_52	b'ajann'o
+_53	t'epann'o
+_54	tS'ujann'o
+_55	p'ontSann'o
+_56	tS#'apann'o
+_57	X'atann'o
+_58	'at.ann'o
+_59	'unO'Xa:t.
+
+
+_60	sa:t.
+_61	'ek'XO't.t.'i
+_62	b'aXO't.t.'i
+_63	t'eXO't.t.'i
+_64	tS'ow'XO't.t.'i
+_65	p'oj'XO't.t.'i
+_66	S'eSOt.t.'i
+_67	Sa:tSOt'ti
+_68	'a~t.SOt.t.'i
+_6X	s'at.t.'i
+_69	'unO'X'Ott'Or
+
+_70	X'Ott'Or
+_71	I'k#'Ott'Or
+_72	b'ahatt'Or
+_73	t'iatt'Or
+_74	tS'uhatt'Or
+_75	p'OX'at.t'Or
+_76	tS#'ijatt'Or
+_77	S'atatt'Or
+_78	'a~t.att'Or
+_79	'unOa'X'i
+
+_80	a:X'i
+_81	I'ka'X'i
+_82	b'ira'X'i
+_83	t'ira'X'i
+_84	tS'ura'X'i
+_85	p'o~tSa'X'i
+_86	tS#'ija'X'i
+_87	S'ataS'i
+_88	X'ata'S'i
+_89	'unOnObb'oj
+
+_90	nObb'oj
+_91	I'kanObb'oj
+_92	b'ira'nObb'oj
+_93	t'ira:nObb'oj
+_94	tS'uranObb'oj
+_95	p'OtSanObb'oj
+_96	tS#'ijanObb'oj
+_97	X'atanObb'oj
+_98	'a~t.anObb'oj
+_99	n'iranObb'oj
+
+_0C	e'X'o
+_0M1	h'ajar
+_0M2	l'ak#
+_0M3	k'ot.i
+_0M4	'Orbud
+_dpt	_d'OX'omik_
+
+
+// Single consonants
+ক	kO
+খ	k#O
+গ	gO
+ঘ	g#O
+ঙ	'uNgO~
+চ	tSO
+ছ	tShO    // [h] to distinguish from [tS]
+জ	JO
+ঝ	J#O
+ঞ	'iNO~
+ট	t.O
+ঠ	t.#O
+ড	d.O
+ঢ	d.#O
+ণ	m,odd#en.n.'O
+ত	tO
+থ	t#O
+দ	dO
+ধ	d#O
+ন	d,ontenn'O
+প	pO
+ফ	fO      // or [p#O] ?
+ব	bO
+ভ	b#O
+ম	mO
+য	,ontostedZ'O
+ৰ	rO
+ল	lO
+ৱ	wO
+শ	t,aleboS:'O
+ষ	m,ud#en:oS:'O
+স	d,onte'X:'O
+হ	hO
+ক্ষ	k,ojmud#en:oS:'O
+ড়	dOerO     // (d. + nukta)
+ঢ়	d#e hr.O    // (d#. + nukta)
+য়	,ontosteOj
+ৎ	kh,Ond.ot'O
+
+
+
+// full vowels
+অ	O
+আ	a
+ই	hrOS:o'i
+ঈ	d'i:rg#o'i
+উ	hrOS:o'u
+ঊ	d'i:rg#o'u
+ঋ	ri
+ও	o
+ঔ	ow
+এ	e  $u+   // word 'it'
+ঐ	oj $u+   // word 'that'
+ও	o  $u+ $brk  // 'and'
+_এ	e
+_ঐ	oj
+
+
+
+// combining vowel signs
+া	'akar
+ি	hrOS:o'ikar
+ী	d'i:rg#ikar
+ূ	hrOS:o'ukar
+ু	d'i:rg#ukar
+ৃ	r'ikar
+ে	'ekar
+ৈ	'ojkar
+ো	'okar
+ৌ	'owkar
+
+// signs
+্	h'OSonto
+ং	'OnuSSOr
+ঃ	b'iSOrgo
+ঁ	tS'Ondrobindu
+়	b'indu
+
+$	d.Olar
+%	X'Otk'Ora
++	jOg
+=	X'Oman
+
+
+
+// Punctuation
+।	dVn.ri
+_,	koma
+_?	pr'oSnOtSihnO
+
+// Pronouns
+
+ময	$u	// I, me 
+আমি 	$u	// us 
+আমার 	$u	// our
+
+আপনি	$u	// you(formal)
+আপনাক	$u
+
+তুমি	$u	// you (informal)
+তোমাক 	$u
+তয়	$u	// you (informal)
+তোক 	$u
+তোর 	$u
+
+সি	$u	// he
+তাই	$u	// she
+
+
+কিয়	$u $pause	// kio  why  interrogative particle
+কি	$u $pause	// ki   what
+কোত	$u $pause	// kot  where
+কেতিয়া	$u $pause	// ketia    when
+কোন	$u $pause	// kon        who
+
+// Conjunctions
+
+এরং	$u $pause	// ebong: and
+আরু	$u $pause	// aaru : and
+অথরা	$u $pause	// athoba: or
+কিন্তু	$u $pause	// kintu: but
+যদি	$pause	// jodi: if
+তেতিয়া	$pause	// then
+অথচ	$u	// athacho: yet
+
+
+
+// Exceptions
+এটা	&ta 	// one piece, one 

@@ -44,6 +44,11 @@
 typedef unsigned short USHORT;
 typedef unsigned char  UCHAR;
 typedef double DOUBLEX;
+#ifdef __WIN64__
+typedef uint64_t long64;  // use this for conversion between pointers and integers
+#else
+typedef unsigned long long64;
+#endif
 
 
 
@@ -56,7 +61,7 @@ int LookupMnem(MNEM_TAB *table, const char *string);
 
 
 
-#define N_PATH_HOME  120
+#define N_PATH_HOME  230
 extern char path_home[N_PATH_HOME];    // this is the espeak-data directory
 
 extern void strncpy0(char *to,const char *from, int size);

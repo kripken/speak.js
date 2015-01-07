@@ -30,6 +30,7 @@
 // conditional compilation options
 #define INCLUDE_KLATT
 #define INCLUDE_MBROLA
+#define INCLUDE_SONIC
 
 #if defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN
 #define ARCH_BIG
@@ -47,7 +48,7 @@
 //#define USE_PORTAUDIO
 //#define USE_PULSEAUDIO
 #define USE_NANOSLEEP
-#define __cdecl 
+#define __cdecl
 //#define ESPEAK_API  extern "C"
 
 #ifdef LIBRARY
@@ -68,7 +69,7 @@
 typedef unsigned short USHORT;
 typedef unsigned char  UCHAR;
 typedef double DOUBLEX;
-
+typedef unsigned long long64;   // use this for conversion between pointers and integers
 
 
 
@@ -80,9 +81,9 @@ int LookupMnem(MNEM_TAB *table, const char *string);
 
 
 #ifdef PLATFORM_WINDOWS
-#define N_PATH_HOME  220
+#define N_PATH_HOME  230
 #else
-#define N_PATH_HOME  150
+#define N_PATH_HOME  160
 #endif
 
 extern char path_home[N_PATH_HOME];    // this is the espeak-data directory

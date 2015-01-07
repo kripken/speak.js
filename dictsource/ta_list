@@ -49,7 +49,7 @@ U+bcd	ot.RU
 
 
 // speak Latin letters as English
-a	e:j
+a	e:j $atend
 b	bi:
 c	si:
 d	di:
@@ -57,7 +57,7 @@ e	i:
 f	Ef
 g	dZi:
 h	e:tS
-i	a:j
+i	a:j $atend
 j	dZe:j
 k	ke:j
 l	El
@@ -68,7 +68,7 @@ p	pi:
 q	kju:
 r	a:R
 s	Es
-t	thi:
+t	t#i:
 u	ju:
 v	vi:
 w	dVbVlju:
@@ -85,10 +85,12 @@ _;	a:raIb||pul.l.i	// ஆரைப் புள்ளி
 _:	mukka:l||pul.l.i	// முக்கால் புள்ளி
 _(	id.V||piRaI	// இட பிறை
 _)	vVlV||piRaI       // வல பிறை
-_[	id.V||sadUrVm	// இட சதுரம்
-_]	vVlV||sadUrVm	// வல சதுரம்
+_[	id.VppVgVrVm	// இடப்பகரம்  
+_]	vVlVppVgVrVm	// வலப்பகரம். 
 _{	id.V||gVn.Vm	// இட கணம்
 _}	vVlV||gVn.Vm	// வல கணம்
+<	kuRaIvU		// குறைவு
+>	migUdi		// மிகுதி
 _"	me:Rgo:l.	// மேற்கோள்
 _'	ot.RaI||m'e:Rgo:l.	// ொற்றை மேற்கோள்
 __	ad.ig||ko:d.U	// அடிக் கோடு
@@ -97,20 +99,73 @@ _-	in.aIppUg	// இணைப்புக்
 \	p'in||s,a:jvU	// பின் சாய்வு
 !	vijVppU		// வியப்பு
 _?	ke:l.vi		// கேள்வி
-#	;en.		$max3	// எண் குறி
-=	samVnpa:d.U	$max3	// சமன்பாடு
-+	ku:t.t.Vl	$max3	// கூட்டல்
-*	perUkkVl	$max3	// பெருக்கல்
+#	;en.		// எண் குறி
+=	sVmVm		// சமம்.
++	ku:t.t.Vl	// கூட்டல்
+*	perUkkVl	// பெருக்கல்
 /	sa:jvU		// சாய்வு
 ÷	vVgUttVl	// வகுத்தல்
-%	viz.Ukka:d.U	$max3	// விழுக்காடு
+%	viz.Ukka:d.U	// விழுக்காடு
+&	mVt.RUm
+|	seNgUttU
 U+bf9	ru:ba:j
 ¼	ka:l
 ½	araI
 ¾	mukka:l
+®	pVdivU
+©	p'VdippUrimaI
+•	t'o:t.t.a:
+_…	v'id.UnilaI
+¡	t'VlaIki:z.||v'ijVppU
+¿	t'VlaIki:z.||k'e:l.vi
+×	d'Vd.VvaI
+±	k'u:t.t.Vl||k'Vz.ittVl
+™	v'Vn.igVm
+§	p'irivU
+➔	v'VlVdVmbU
+→	v'VlVdVmbU
+←	'id.VdVmbU
+■	k'VrUn^dZVdU*Vm
+●	v'Vt.t.Vm
+†	kuttUva:l.
+‡	'i*Vt.t.aIk||k'uttUva:l.
+
+௰	pVttU
+௱	nu:RU
+௲	a:jirVm
+௳	na:l.
+௴	ma:dVm
+௵	a:n.d.U
+௶	pVt.RU
+௷	vVrVvU
+௸	m'e:lirUppVdU||p'o:l
+௺	;en.n.UrU
+ௐ 	o:m
+
+_sup	m'e:lez.UttU
+
+// alphabet names
+_ar	arVbU
+_cyr	sirillik
+_he	;ebire:jVm
+_zh	tS'i:nV
+
 
 // abbreviations
 ரூ	ru:ba:j  $dot $only
+(பி . ஏ)	bije: $dot
+(கி . மீ)	kilo:mi:t.t.Vr $dot
+aud	ostr'eIlIVn||d'olVz
+cny	tS'aIni:z||j'uVn
+eur	ju:ro:z
+gbp	br'itiS||p'aUndz
+inr	'IndIVn||r'u:pi:z
+jpy	dZ'a:pVni:z||j'en
+rub	r'VSVn||r'u:bVlz
+usd     j'ues||d'olVz
+
+
+
 
 // numbers
 _0	suz.ijVm    // சுழியம்
@@ -120,7 +175,7 @@ _3	mu:nRU
 _4	na:ngU
 _5	aIndU
 _6	a:RU
-_7	;e:lU
+_7	;e:z.U
 _8	;et.t.U
 _9	onbVd.U
 _10	pattU
@@ -182,7 +237,69 @@ _1M3	orUko:d.ie:
 
 _dpt	_pul.l.i
 
+// drop final [U] when followed by an ordinal suffix or thousands
+_1o	onR
+_2o	irVn.d.
+_3o	mu:nR
+_4o	na:ng
+_5o	aInd
+_6o	a:R
+_7o	;e:z.
+_8o	;et.t.
+_9o	onbVd
+_10o	patt
+_11o	patinonR
+_12o	pVnnirVn.d.
+_19o	pattonbVd
 
+_20o	irUbVd
+_30o	muppVd	// முப்பது
+_40o	na:RpVd
+_50o	aImbVd
+_60o	aRUbVd
+_70o	;ez.UbVd
+_80o	;en.bVd
+_90o	ton.n.u:R
+
+_1Co	nu:R
+_2Co	irUnu:R
+_3Co	munnu:R
+_4Co	na:nu:R
+_5Co	aInu:R
+_6Co	aRUnu:R
+_7Co	;ez.Unu:R
+_8Co	;en.n.u:R
+
+
+
+_#ம்	a:m  // ordinal suffix
+_#ல்	il
+_#இல்	il
+_#வது	a:vVdU
+_#வதும்	a:vVdUm
+_#வதுமாக a:vVdUma:gV
+
+_#ஆம்	a:m  // including ஆ
+_#ஆவது	a:vVdU
+_#ஆவதும்	a:vVdUm
+_#ஆவதுமாக a:vVdUma:gV
+
+_#-ம்	a:m  // ordinal suffix with hyphen
+_#-ல்	il
+_#-இல்	il
+_#-வது	a:vVdU
+_#-வதும்	a:vVdUm
+_#-வதுமாக a:vVdUma:gV
+
+_#-ஆம்	a:m  // including ஆ
+_#-ஆவது	a:vVdU
+_#-ஆவதும்	a:vVdUm
+_#-ஆவதுமாக a:vVdUma:gV
+
+// The உ sound at the end of a number should sound as இ,
+// if it is followed by லும் or -லும்.
+_#லும்	ilUm
+_#-லும்	ilUm
 
 
 // English words
@@ -191,7 +308,6 @@ tamil	தமிழ்	$text
 
 // exceptions
 பாபு	$alt	// initial ப as [b]
-பானம்	$alt
 பாணம்	$alt
 பாறம்	$alt
 பாரதம்	$alt
@@ -201,14 +317,8 @@ tamil	தமிழ்	$text
 பண்தம்	$alt
 பவனி	$alt
 பாபா	$alt
-போண்டா	$alt
-பஜ்ஜி	$alt
-பாதாம்	$alt
-போகம்	$alt
 போதனை	$alt
 பூகம்பம்	$alt
-பாகவதம்	$alt
-பகவத்	$alt
 பங்கம்	$alt
 பேகம்	$alt
 பார்லி	$alt
@@ -231,7 +341,6 @@ tamil	தமிழ்	$text
 பால்ய	$alt
 பில்	$alt
 பந்த்	$alt
-பில்லி	$alt
 பம்பளிமாஸ்	$alt
 பைக்கை	$alt
 பெட்டின்	$alt
@@ -251,7 +360,6 @@ tamil	தமிழ்	$text
 பீச்சில்	$alt
 பீல்	fi:l
 புக்	$alt
-பீர்	$alt
 போயிங்	$alt
 பலத்தாலான	$alt
 பார	$alt
@@ -260,7 +368,6 @@ tamil	தமிழ்	$text
 பாலிய	$alt
 புக்கு	$alt
 படுவா	$alt
-பீரும்	$alt
 பல்ப்	$alt
 பிரேக்	bre:k
 ப்ரேக் 	bre:k
@@ -272,7 +379,6 @@ tamil	தமிழ்	$text
 பலிக்குத்தான்	$alt
 பவ	$alt
 புஸ்	$alt
-போஸின்	$alt
 போனி	$alt
 பிஸி	$alt
 பேஷ்	$alt
@@ -295,7 +401,44 @@ tamil	தமிழ்	$text
 பிகு	$alt
 பூத்துக்கு	$alt
 பீரின்	$alt
-(பி . ஏ)	bije:
+போரடிக்காம	$alt
+பரத்	$alt
+பாஷா	$alt
+பூட்	$alt
+படுக	$alt
+படுகா	$alt
+பந்தா	$alt
+பிரா	bra:
+ப்ரா	$alt
+பலம்	$alt
+பலமாக	$alt
+பலமா	$alt
+பாதிப்பு	$alt
+பீடா	$alt
+பைக்க	$alt
+பாதிக்குமா	$alt
+பாய்ஸ்	$alt
+புக்கர்	$alt
+பாதிக்க	$alt
+பலக்க	$alt
+பூமா	$alt
+பூம்பா	$alt
+பலத்து	$alt
+பலத்தும்	$alt
+பூந்தி 	$alt
+பாவிக்க	$alt
+பார்ல	$alt
+பாட்டனி	$alt
+பலமே	$alt
+பாதிக்கக்	$alt
+புசு 	$alt
+புஸு	$alt
+பாதிக்காம	$alt
+பனியா	$alt
+பாம்	$alt
+போத 	$alt
+பொம்ம	$alt
+புகாரி	$alt
 
 
 	// initial த as [d]
@@ -310,15 +453,12 @@ tamil	தமிழ்	$text
 தடக்	$alt
 தீக்ஷை	$alt
 தடியன் 	$alt
-தரிசனம்		$alt
 தட்சணை	$alt
 தைவதம்		$alt
 தாட்சண்யம்	$alt
 தனம்	$alt
-திக்கற்ற	$alt
 தானு	$alt
 திட	$alt
-தேவ	$alt
 தோ	$alt
 தரும	$alt
 தொப்	$alt
@@ -331,7 +471,6 @@ tamil	தமிழ்	$text
 தீரமுள்ள	$alt
 தீரமற்ற	$alt
 தலாய்	$alt
-தானம்	$alt
 தீரமும்	$alt
 தீரத்தோடு	$alt
 தவத்தில்	$alt
@@ -355,6 +494,18 @@ tamil	தமிழ்	$text
 தடிக்க	$alt
 தின	$alt
 தில்	$alt
+தன	$alt
+தடியா	$alt
+தட	$alt
+தடியாய்	$alt
+தொள	$alt
+தான	$alt
+தம்மம்	$alt
+தம்ம	$alt
+தாயம்	$alt
+திமு	$alt
+தாவா	$alt
+துருவா	$alt
 
 
 	// initial ட
@@ -365,6 +516,7 @@ tamil	தமிழ்	$text
 	// initial ச as [tS]
 சீ		$alt
 சே		$alt
+சே	s'e:	$hasdot
 சீசீ	tSi:tSi: 
 சீச்சீ 		$alt
 சிட்டாய் 		$alt
@@ -379,6 +531,9 @@ tamil	தமிழ்	$text
 சிக்கன்		$alt
 சாரு		$alt
 பிரசார்		prVsa:r
+சாயா		$alt
+சோ 		$alt
+
 
 கக	$alt	// initial க as [g]
 கனம்	$alt
@@ -387,9 +542,7 @@ tamil	தமிழ்	$text
 காந்தி	$alt
 கிரி	$alt
 கயா	$alt
-காயத்ரி	$alt
 கட	$alt
-கோ	$alt
 கதி	$alt
 கோபி 	$alt
 கச்சாமி	$alt
@@ -406,7 +559,6 @@ tamil	தமிழ்	$text
 கம்னு	$alt
 கம்மென்று	$alt
 குதி	$alt
-கம்	$alt
 காந்தம்	$alt
 கான	$alt
 கோத்திர	$alt
@@ -427,34 +579,48 @@ tamil	தமிழ்	$text
 களிலும்	$alt
 கடம்	$alt
 காட்	$alt
+கிடு	$alt
+களிலேயே	$alt
+கோபிக்கு	$alt
+கிரே	gre:
+க்ரே	$alt
+கவுன்	$alt
+கௌன்	$alt
+கிண்	$alt
+கிர்	$alt
+கங்க	$alt
+காந்த	$alt
+கேம்	$alt
 
 
 
 // p as [f]
 போன்	fo:n
 போனில்	fo:nil
-பைல்	faIl
-பைலை 	faIlaI
-பாதர்	fa:dVr
+//பைலை 	faIlaI
 பாதரிடம்	fa:dVrid.Vm
 பாதருடன்	fa:dVrUd.Vn
 பாதரில்லாமல்	fa:dVrilla:mVl
-காபி	ka:fi
 பேனில்	fe:nil
 பேன்ல	fe:nlV
 போன்ல	fo:nlV
+ஆப்	a:f
 
 
 பப	pVpV
-தீப் 	di:p
 டிரேயின்	t.re:jn
 பைக்	baIk
 பைக்கில் 	baIkkIl
 தாங்ஸ்	Ta:Nks		// thanks
 டிபுடி	d.EpjUt.i	// deputy
-டிபன்	t.ifVn
 ஆகா	a:Ha:
 ஓகோ	o:Ho:
 கப்	kVp
 செட்	set.
 திக்	dik
+பிட்	bit.
+புட்	fud.
+உப்ப	ubbV
+ஜென்	zen
+சோப்ரா	tSo:pra:
+

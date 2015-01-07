@@ -3,15 +3,12 @@ speak.js
 
 A port of the eSpeak speech synthesizer from C++ to JavaScript using Emscripten.
 
-Enables text-to-speech on the web using only JavaScript and HTML5.
+Enables text-to-speech on the web using only JavaScript and HTML5. or within Node.js as a module.
 
-**Online demo**: http://syntensity.com/static/espeak.html
+Note: This is an official active fork of a following original project
 
-Note: An active fork of this project is at
+  https://github.com/kripken/speak.js
 
-  https://github.com/katsuyan/speak.js
-  
-  Check it out!
 
 Usage
 -----
@@ -25,13 +22,9 @@ Very simple! Do this:
    (and make sure you have speakClient.js available, as well as
    speakWorker.js and speakGenerator.js)
 
- * Add a div with an audio element called 'audio' in your html body,
+ * Call speak.play() to say stuff in JavaScript
 
-      `<div id="audio"></div>`
-
- * Call speak() to say stuff in JavaScript
-
-      `speak('hello world!')`
+      `speak.play('hello world!');`
 
 See helloworld.html for a simple 'hello world', and demo.html for
 a more detailed example.
@@ -42,7 +35,7 @@ Options
 
 You can also specify some options with calling speak(), by doing
 
-      `speak('hello world', { option1: value1, option2: value2 .. })`
+      `speak.play('hello world', { option1: value1, option2: value2 .. }, onended)`
 
 available options are:
 
@@ -55,12 +48,13 @@ available options are:
  * wordgap: Additional gap between words in 10 ms units (default: 0)
  * noWorker: Do not use a web worker (see below in 'Architecture')
 
+In addition, you can pass a callback function which will be called at the end of speech.
+
 For example
 
-      `speak('hello world', { pitch: 100 })`
+      `speak.play('hello world', { pitch: 100 }, function(){console.log('completed!');});`
 
-will talk in a very high-pitched voice.
-
+will talk in a very high-pitched voice and output 'completed!' on the console at the completion.
 
 Architecture
 ------------
@@ -102,5 +96,5 @@ need to build a custom version of speak.js:
 You then need to call speak() with the `voice` option that tells it to use the
 right voice for your language. For example, for French this should work:
 
-      `speak('boulanger', { voice: 'fr' })`
+      `speak.play('boulanger', { voice: 'fr' });`
 

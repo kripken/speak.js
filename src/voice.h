@@ -21,11 +21,12 @@
 
 typedef struct {
 	char v_name[40];
+	char language_name[20];
 
 	int phoneme_tab_ix;  // phoneme table number
 	int pitch_base;    // Hz<<12
 	int pitch_range;   // standard = 0x1000
-	
+
 	int speedf1;
 	int speedf2;
 	int speedf3;
@@ -69,6 +70,7 @@ typedef struct {
 // percentages shown to user, ix=N_PEAKS means ALL peaks
 extern USHORT voice_pcnt[N_PEAKS+1][3];
 
+extern espeak_VOICE current_voice_selected;
 
 extern voice_t *voice;
 extern int tone_points[12];

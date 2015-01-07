@@ -1,0 +1,398 @@
+
+// Translation rules for Bengali
+// Improvement input  by Him Prasad gautam (Nepal).
+// This file is UTF8 encoded
+
+// Numbers
+// Bengali numbers are changed to latin characters before translation
+_0	S'unjO
+_1	'&k
+_2	d'uj
+_3	t'in
+_4	tS#'ar
+_5	p'a~tS
+_6	tS#'Oj
+_7	S'at
+_8	'at.#
+_9	n'Oj
+
+_2a	d'u     // with hundreds etc.
+_6a	tS#'O
+_9a	n'O
+
+
+_10	d'OS
+_11	'&garo
+_12	b'arO
+_13	t'erO
+_14	tS#'oddO
+_15	p'OnerO
+_16	S'olO
+_17	S'OterO
+_18	'at.#arO 
+_19	'uniS
+
+_20	k'uri    // or b'iS   ??
+_21	ek'uS
+_22	b'ajS
+_23	t'ejS
+_24	tS'ObbiS
+_25	p'O~tSiS
+_26	tSh'abbiS
+_27	Sat'aS
+_28	'at.#aS
+_29	'unOtr'iS
+
+_30	tr'iS
+_31	'ekOtr'iS
+_32	b'Otr'iS
+_33	t'etr'iS
+_34	tS'owtr'iS
+_35	p'O~jtr'iS
+_36	tS#'Otr'iS
+_37	S'a~itr'iS
+_38	'at.tr'iS
+_39	'unOtSOll'iS
+
+_40	tSOll'iS
+_41	'ektSOll'iS
+_42	b'iall'iS
+_43	t'etall'iS
+_44	tS'oall'iS
+_45	p'O~jtall'iS
+_46	tS'etSOll'iS
+_47	S'atSOll'is
+_48	'atSOll'iS
+_49	'unOpO~tSaS
+
+_50	p'O~tS'aS
+_51	'&kann'o
+_52	b'ajann'o
+_53	t'epann'o
+_54	tS'ujann'o
+_55	p'ontSann'o
+_56	tS#'apann'o
+_57	S'atann'o
+_58	'at.ann'o
+_59	'unOS'at.
+
+
+_60	s'at.
+_61	'ekSOt.t.'i
+_62	b'aSOt.t.'i
+_63	t'eSOt.t.'i
+_64	tS'owSOt.t.'i
+_65	p'ojSOt.t.'i
+_66	S'eSOt.t.'i
+_67	S'atSOt.t.'i
+_68	'at.SOt.t.'i
+_6X	s'at.t.'i
+_69	'unOSOtt'Or
+
+_70	S'Ott'Or
+_71	'ekatt'Or
+_72	b'ahatt'Or
+_73	t'iatt'Or
+_74	tS'uhatt'Or
+_75	p'OtSatt'Or
+_76	tS#'ijatt'Or
+_77	S'atatt'Or
+_78	'at.att'Or
+_79	'unOaS'i
+
+_80	aS'i
+_81	'&kaS'i
+_82	b'eraS'i
+_83	t'eraS'i
+_84	tS'uraS'i
+_85	p'o~tSaS'i
+_86	tS#'ijaS'i
+_87	S'ataS'i
+_88	'at.aS'i
+_89	'unOnObb'oj
+
+_90	nObb'oj
+_91	'&kanObb'oj
+_92	b'eranObb'oj
+_93	t'eranObb'oj
+_94	tS'uranObb'oj
+_95	p'OtSanObb'oj
+_96	tS#'ijanObb'oj
+_97	S'atanObb'oj
+_98	'at.anObb'oj
+_99	n'iranObb'oj
+
+_0C	S'o
+_0M1	h'ajar
+_0M2	l'ak#
+_0M3	k'ot.i
+_0M4	'Orbud
+_dpt	_d'Osomik_
+
+
+// Single consonants
+ক	kO
+খ	k#O
+গ	gO
+ঘ	g#O
+ঙ	'uNgO~
+চ	tSO
+ছ	tShO    // [h] to distinguish from [tS]
+জ	JO
+ঝ	J#O
+ঞ	'iNO~
+ট	t.O
+ঠ	t.#O
+ড	d.O
+ঢ	d.#O
+ণ	m,odd#en.n.'O
+ত	tO
+থ	t#O
+দ	dO
+ধ	d#O
+ন	d,ontenn'O
+প	pO
+ফ	fO      // or [p#O] ?
+ব	bO
+ভ	b#O
+ম	mO
+য়	Oj
+য	,ontostedZ'O
+র	rO
+ড়       r.O
+ড়	r.O     // (d. + nukta)
+ঢ়	hr.O
+ঢ়	hr.O    // (d#. + nukta)
+ল	lO
+শ	t,aleboS:'O
+ষ	m,ud#en:oS:'O
+স	d,onteS:'O
+হ	hO
+ৎ	kh,Ond.ot'O
+ক্ষ	k,ojmud#en:oS:'O
+
+
+// full vowels
+অ	O
+আ	a
+ই	hrOS:o'i
+ঈ	d'i:rg#o'i
+উ	hrOS:o'u
+ঊ	d'i:rg#o'u
+ঋ	ri
+ঔ	ow
+
+এ	e  $u+   // word 'it'
+ঐ	oj $u+   // word 'that'
+ও	o  $u+ $brk  // 'and'
+_এ	e
+_ঐ	oj
+_ও	o
+
+
+// combining vowel signs
+া	'akar
+ি	hrOS:o'ikar
+ী	d'i:rg#ikar
+ূ	hrOS:o'ukar
+ু	d'i:rg#ukar
+ৃ	r'ikar
+ে	'ekar
+ৈ	'ojkar
+ো	'okar
+ৌ	'owkar
+
+// signs
+্	h'OSonto
+ং	'OnuSSOr
+ঃ	b'iSOrgo
+ঁ	tS'Ondrobindu
+়	b'indu
+
+$	d.Olar
+%	SOtk'Ora
++	jOg
+=	SOman
+
+
+
+// Punctuation
+।	dVn.d.V
+_,	koma
+_?	pr'oSnOtSihnO
+
+// Pronouns
+আমি 	$u	// main: I
+আমায়	$u
+আমার 	$u
+
+আমরা 	$u	// we
+আমাদের	$u
+
+আপনি	$u	// you(formal)
+আপনাকে	$u
+আপনার 	$u
+
+তুমি	$u	// you (informal)
+তোমায় 	$u
+তোমার 	$u
+তোমাদের 	$u
+
+তুই	$u	// you (informal)
+তোকে 	$u
+তোর 	$u
+
+এ	$u	// he/she/it
+আপনি	$u
+এটার 	$u
+এর 	$u
+
+ইনি	$u	// they
+এনাকে	$u
+এনার 	$u
+
+ও	$u	// he/she/it
+সে 	$u
+ওর 	$u
+তার 	$u
+
+ওরা	$u	// they
+তারা	$u
+ওদের	$u	// unheṃ: them 
+তাদের	$u
+
+এই	$u	// e:I this/it
+এটা 	$u	// e:ta: this/it
+এটার 	$u	// e:ta:'r  this/it
+এর 	$u	// e:r  this/it
+
+ওটা	$u	// o:ta: that
+ওটাকে 	$u	// o:ta:ke: to that
+ওটার 	$u	// o:ta:'r  of that
+
+ওগুলো	$u	// o:gu:lo: those
+ওগুলোকে $u	// o:gu:lo:ke: to those
+ওগুলোর 	$u	// o:gu:lo:'r  of those
+
+
+
+// Prepositions/Postpositions
+মধ্যে	$u	// moddhe  in
+উপর	$u	// upor    on, above
+নীচে	$u	// niche   below
+
+পূর্ব্বে	$u	// purbe   before, prior
+পর্য্যন্ত 	$u	// parjonto  till
+অব্দি	$u 	// abdi      till
+বিনা	$u	// bina      without
+
+
+
+// Questions
+কেন	$u $pause	// kano why  interrogative particle
+কি	$u $pause	// ki  what
+কোথায়	$u $pause	// kothaay  where
+কখন	$u $pause	// kakhon   when
+কে	$u $pause	// ke       who
+
+// Conjunctions
+
+এবং	$u $pause	// ebong: and
+আর	$u $pause	// aar: and
+অথবা	$u $pause	// athoba: or
+কিন্তু	$u $pause	// kintu: but
+যদি	$pause	// jodi: if
+তবু	$pause	// tobu: still, yet
+তবে	$pause	// tabe: if...then
+অথচ	$u	// athacho: yet
+
+
+// Verbs
+
+হয়	$u
+
+
+ছিল	$u	// chilo: past aux
+ছিলেন 	$u	// chilen
+
+
+করছি 	$u	// korchi: continuous
+করছিলাম	$u	// korchilam: past indefinite
+করেছি 	$u	// korechi: past
+
+
+// Exceptions
+এত	&to
+// Exceptions - where inherent vowel even being between two consonant is not pronounced as (o) mostly in case of two words pronounced and used as a single word. The list however is not final and contain most commonly used words.
+
+সোমবার		Som,bar
+মঙ্গলবার		mOng'ol,bar
+বুধবার		budh,bar
+অমলকান্তি	amol,kanti
+অন্দরমহল	andor,mahol
+আকাশকুসুম	aka:S,kuSum
+আতসবাজী	atoS,ba:JI
+আদবকায়দা	a:dob,kaj'da:
+আনকোরা		a:n,kora:
+আনচান		an,can
+আপনজন		a:pon,jon
+আমজনতা	a:m'jano'ta:
+আলটপকা	al,tO,pka
+আসকারা		a:s,ka:ra:
+আসনতলে	a:son,tole
+ইমনকল্যান	imon,kal'la:n
+ঈগলপাখী	igol,pa:khi
+ইঁদুরছানা		i~dur'cha:na:
+একজন		&k'JOn
+উত্তরদাতা		utt'or,data
+উত্তরদায়ী		utt;or,da:I
+কচকচি		kO,c'kOci
+কবরখানা		kObOr,kha:na
+করদাতা		kOr,data:
+কয়েদখানা		kO'edkhana
+কয়েকজন		kOekJOn
+কলকাতা		kOlkata
+কনকচাঁপা		kOnOk,c~a:pa
+কাজললতা	kaJol,lOta
+কারখানা		kar,khana
+কারবার		kar,bar
+কালকেতু		kal,ketu
+কালপুরুষ		kal,puruS
+খরখরে		khOr,khOre
+খাপছাড়া		khap,chara:
+খানখান		khan,khan
+খানসামা		khan,Sama
+খাশমহল		khaS,mOhOl
+খিড়কি		khir.ki
+খুনসুটি		khun,Suti
+খুরপি		khu,rpi
+গজগজ		gOJgOJ
+গরমিল		gOr,mil
+ঘটকালী		g#Ot'kali
+চটপট		cOt,pOt
+চালবাজ		cal'baJ
+চালবাজি		cal'baJi
+ছটপট		c#Ot'pOt
+জলখাবার		JOl,khabar
+টনটনে		tOn,tOne
+টানটান		ta:n,tan
+ঠগবাজ		t.#Og'baJ
+ঠিকঠাক		t.#ik,t.#ak
+নাড়কোল		nar,kol
+প্রধানমন্ত্রী		prOd.#an,mOn'tri
+বাসনকোসন	ba:son'koson
+গালগল্প		gal'gOlpo
+ঘাসপাতা		gha:s'pa:ta
+চালচুলো		ca:lculo
+ছালবাকল		c#al'ba:kol
+কানপাতলা	ka:n'patla:
+খানখান		kha:n'khan
+আরামবাগ	ara:m'bag
+হারামজাদা	hara:m'Jada:
+নামডাক		na:m'da:k
+নাকছাবি		na:kcha:bi
+পাশবালিশ	pash'baliS
+ফুলশয্যা		ful'SaJJa:
+খালবিল		kha:l'bil
+জালসাজি		Jal'Sa:Ji
+পোষ্টমাস্টার	post'ma:sta:r

@@ -8,8 +8,8 @@
 U+d02	'a#m
 U+d03	visarg@m
 U+d3d   avagraha
-U+d4d	chandraka:r@m
-U+d4e	chil.acharam  // ??
+U+d4d	c#andraka:r@m
+U+d4e	c#il.ac#aram  // ??
 
 ൺ	_'yn.  // chillu consonants
 ൻ	_in
@@ -63,7 +63,7 @@ p	pi:
 q	kju:
 r	a:R
 s	Es
-t	ti:
+t	t#i:
 u	ju:
 v	vi:
 w	dVbVlju:
@@ -79,7 +79,7 @@ z	zEd
 &	samuccaj@m
 _.	bindu
 _,	aNkuS;@m
-_;	ro:dhini
+_;	ro:d#ini
 _?	co:dj@cihn@m
 _!	a:S;c@rjacihn@m
 
@@ -87,33 +87,110 @@ _!	a:S;c@rjacihn@m
 // numbers
 _0	p'u:Jj@m
 _1	'onny
-_2	r'an.t.y
-_3	m'unny
-_4	n'a:ly
+_2	r@n.dy
+_3	mu:nny
+_4	na:ly
 _5	'an^cy
-_6	'aR2y
+_6	'a:R2y
 _7	'e:r.y
-_8	'et.t.y
+_8	'et.ty
 _9	'onpaty
-_1X	p'ati
-_10	p'atty
-_11	p'atinonny
-_12	p'antran.t.y
-_15	p'atinan^cy
-_16	p'atinaR2y
-_17	p'atine:R2y
-_18	p'atine:t.t.y
-_19	p'attompatu
-_2X	'irupat
-_3X	m'uppat
-_4X	n'a:lppat
-_5X	'anpat
-_6X	'aR2upat
-_7X	'er.upat
-_8X	'en.pat
-_9X	t'on.n.u:R2
-_0C	n'u:R
-_0M1	'a:jiRam
-_0M2	l'aks.am
+_10	patty
+_1X	pati
+
+_11	patinonny
+_12	pantran.ty
+_15	patin'an^cy
+_16	patin'a:R2y
+_17	patin'e:r.y
+_18	patin'et.ty
+_19	pattompaty
+_20	iryvaty
+_2X	iruvatti
+_30	m'uppaty
+_3X	m'uppatti
+_40	n'a:ppaty
+_4X	na:ppatti
+_50	anpaty
+_5X	anpatti
+_60	aR2uvaty
+_6X	aR2uvatti
+_70	er.'uvaty
+_7X	er.'uvatti
+_80	en.paty
+_8X	en.patt
+_83	en.pattim'u:nny
+_84	en.pattina:ly
+_90	t'on.n.u:r:y
+_9X	t'on.n.u:t.t.i
+
+_0C0	n'u:r:y
+_0C	nu:t.t.i
+_1C0	orynu:ry
+_1C	orynu:t.t.i
+_2C0	iRynn'u:ry
+_2C	irunnu:t.t.i
+_3C0	munn'u:ry
+_3C	munnu:t.t.i
+_4C0	n'a:nnu:ry
+_4C	n'a:nnu:t.t.i
+_5C0	an^ju:ry
+_5C	an^ju:t.t.i
+_6C0	aR2unu:ry
+_6C	aR2unu:t.t.i
+_7C0	er.'unu:ry
+_7C	er.'unu:t.t.i
+_8C0	en.n.u:ry
+_8C	en.n.u:t.t.i
+_9C0	tol.l.'a:jiRam
+_9C	tol.l.'a:jiRatti
+
+// thousands
+_0M1x	'a:jiRam
+_0M1	'a:jiRatti
+
+_1f	'onn
+_2f	'r@n.d
+_3f	'imu:v
+_3fx	m'u:v  // no tens
+_4f	'ina:l
+_4fx	n'a:l
+_5f	'ai:j
+_6f	'a:R2
+_7f	'e:r.
+_8f	'enn
+_9f	omp'atin
+
+_10f	p'atin
+_1Xf	p'at
+_12f	p'antran.t
+_13f	p'atimu:v
+_14f	p'atina:l
+_15f	patin'ai:j
+_18f	patin'enn
+_19f	p'attomp'atin
+_20f	'iruvatin
+_2Xf	'iruvatt
+_30f	m'uppatin
+_3Xf	m'uppatt
+_40f	n'a:ppatin
+_4Xf	n'a:ppatt
+_50f	'anpatin
+_5Xf	'anpatt
+_60f	'aR2uvatin
+_6Xf	'aR2uvatt
+_70f	'er.uvatin
+_7Xf	'er.uvatt
+_80f	'en.patin
+_8Xf	'en.patt
+_90f	t'on.n.u:r:
+_9Xf	t'on.n.u:t.t.
+
+// higher powers
+_0M2x	l'aks.am
+_0M2	l'aks.at.t.i
 _0M3	k'o:t.i
+
 _dpt	_d'aS;a:mS;@m_
+
+

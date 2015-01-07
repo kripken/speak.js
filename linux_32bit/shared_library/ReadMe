@@ -1,0 +1,8 @@
+This is a shared library version of eSpeak which can be
+used by other programs.
+
+The API is described in the header file:  speak_lib.h 
+
+The eSpeak shared library is used by the "espeak" program,
+but not the stand-alone version, "speak".
+

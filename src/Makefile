@@ -7,7 +7,7 @@ BINDIR=$(PREFIX)/bin
 INCDIR=$(PREFIX)/include/espeak
 LIBDIR=$(PREFIX)/lib
 
-RELEASE = 1.45
+RELEASE = 1.48
 BIN_NAME = speak
 BIN2_NAME = espeak
 LIB_NAME = libespeak.so
@@ -25,11 +25,20 @@ INSTALL = install
 LN_SF = /bin/ln -sf
 MKDIR = mkdir -p
 
+# 'runtime' uses pulseaudio if it is running, else uses portaudio
+#AUDIO = runtime
 #AUDIO = portaudio
+#AUDIO = portaudio0
+#AUDIO = portaudio2
 #AUDIO = pulseaudio
 #AUDIO = sada
 AUDIO = none
 
+ifeq ($(AUDIO),runtime)
+WAVE=wave.cpp wave_pulse.cpp
+LIB_AUDIO=-lpulse -lpulse-simple -lportaudio
+USE_AUDIO=-DUSE_PULSEAUDIO -DUSE_PORTAUDIO
+else
 ifeq ($(AUDIO),pulseaudio)
 WAVE=wave_pulse.cpp
 LIB_AUDIO=-lpulse
@@ -40,11 +49,24 @@ WAVE=wave.cpp
 LIB_AUDIO=-lportaudio
 USE_AUDIO=-DUSE_PORTAUDIO
 else
+ifeq ($(AUDIO),portaudio0)
+WAVE=wave.cpp
+LIB_AUDIO=/usr/lib/libportaudio.so.0
+USE_AUDIO=-DUSE_PORTAUDIO
+else
+ifeq ($(AUDIO),portaudio2)
+WAVE=wave.cpp
+LIB_AUDIO=/usr/lib/libportaudio.so.2
+USE_AUDIO=-DUSE_PORTAUDIO
+else
 ifeq ($(AUDIO),sada)
 WAVE=wave_sada.cpp
 USE_AUDIO=-DUSE_SADA
 else
 WAVE=wave.cpp
+endif
+endif
+endif
 endif
 endif
 endif

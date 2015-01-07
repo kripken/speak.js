@@ -1,0 +1,529 @@
+﻿// Aragon translation rules
+// This file is UTF-8 encoded
+
+// letters
+
+_cap	m'aJ^uskla   // should be after the letter
+_??	simb'Olo
+_#32	Esp'aTjo
+
+
+// accent names
+_lig	liQaD'ura
+_acu	akT'ento aQ'uDo
+_ac2	d'Ople||aQ'uDo	
+_brv	br'eu
+_ced	TeD'il^a
+_cir	Tirkumfl'eSo
+_dia	djEr'esi
+_dac	d'Ople||aQ'uDo	
+_dot	p'unto
+_grv	gr'iEu
+_hac	kar'On
+_mcn	makr'On
+_ogo	kod'eta
+_rng	an'iel^o
+_stk	b'aRR2a	 // ??
+_tld	t'il^a
+
+
+// letter names
+b	be
+c	Te
+ç	Te||TetjEl^a
+d	de
+f	Efe
+g	ge
+h	atSe
+j	,i||l'arga
+k	ka
+l	Ele
+m	Eme
+n	Ene
+ñ	En^e
+p	pe
+q	ku
+r	ERR2e
+s	Ese
+t	te
+u	u
+v	,be||b'aSa
+w	,be||d'Ople
+x	Se
+z	Teta
+
+y	i  $u     // word 'and'
+_y	je
+y	je	$atend
+ch	tSe
+ll	'El^e
+ny	n^e
+á	'a||akTEntw'aDa
+é	'e||akTEntw'aDa
+í	'i||akTEntw'aDa
+ó	'o||akTEntw'aDa
+ú	'u||akTEntw'aDa
+ü	,uDjEr'Esi
+
+
+// numbers
+_0	T'ero
+_1	'un
+_2	d'os
+_3	tr'es
+_4	kw'atro
+_5	T'inko
+_6	s'eIs
+_7	sj'Et
+_8	gw'eIto
+_9	nw'eU
+_1X	d,eT
+_10	dj'eT
+_11	'onTe
+_12	d'oTe
+_13	tr'eTe
+_14	kat'orTe
+_15	k'inTe
+_20	b'inte
+_2X	b,int
+_3X	tr'enta
+_4X	kwar'anta
+_5X	Tinkw'anta
+_6X	siS'anta
+_7X	set'anta
+_8X	gwit'anta
+_9X	noB'anta
+_0C	Tj'Entos
+_1C	Tj'Ento
+_1C0	Tj'En
+_2C	doTj'Entos
+_3C	tresTj'Entos
+_6C	seITj'Entos
+_7C	sjEteTj'Entos
+_8C	gwitoTj'Entos
+_9C	nowTj'Entos
+_0M1	m'il
+_0M2	mil^'ons
+_1M2	un||mil^'on
+_0M4	bil^'ons
+_1M4	un||bil^'on
+
+_0and	%i
+_dpt	kon
+
+
+// ordinal numbers
+_#º	%'eno
+_#ª	%'ena
+_x#º	%o   // for 1º 2º 3º
+_x#ª	%a
+º	orDin'al||maskul'in
+ª	orDin'al||femen'in
+(1 ºc)	un||gr'aU||T'e
+ºc	gr'aUs||Tentigr'aUs
+ºf	gr'aUs||f'arEnxeI
+ºk	gr'aUs||k'elBin
+
+_1ox	prim'Er
+_2ox	seQ'und
+_3ox	tErT'Er
+
+_4o	kwatr
+_5o	Tink
+_7o	sEt
+_8o	gwit
+_9o	nU
+_11o	onT
+_12o	doT
+_13o	tReT
+_14o	katorT
+_15o	kinT
+_16o	sET
+_10o	dET
+_20o	bint
+_30o	trent
+_40o	kwarant
+_50o	Tinkwant
+_60o	siSant
+_70o	sEtant
+_80o	gwitant
+_90o	noBant
+
+_1Xo	deTi
+_2Xo	binti
+_3Xo	trentaI
+_4Xo	kwarantaI
+_5Xo	TinkwantaI
+_6Xo	siSantaI
+_7Xo	sEtantaI
+_8Xo	gwitantaI
+_9Xo	noBantaI
+_0Co	Tent
+_1Co	TEnt
+_2Co	dosTEnt
+_3Co	tresTEnt
+_6Co	seIsTEnt
+_7Co	sjEtTEnt
+_8Co	gw,eItoTEnt
+_9Co	nweUTEnt
+
+_0M1o	mil
+
+
+// characters
+$	d'olar
+€	eUros
+£	liBras
+*	asterisko
+&	ampers'an
+@	aRRoBa
+#	sin^'alDenum'ero
+%	porTj'En
++	mas
+=	iQwal
+/	baRRa
+\	kontraBaRRa
+|	b'aRRaBertik'al
+°	graUs
+(1 °)	un||gr'aU
+
+_-	gj'on
+!	TaRR'ar||eksklamaTj'on
+_¡	uBr'ir||eksklamaTj'on
+_?	TaRR'ar||interroQaTj'on
+_¿	uBr'ir||interroQaTj'on
+_[	uBr'ir||Qaf'et
+_]	TaRR'ar||Qaf'et
+_(	uBr'ir||parent'esi
+_)	TaRR'ar||parent'esi
+_{	uBr'ir||kl'aU
+_}	TaRR'ar||kl'aU
+
+
+// unstressed words
+o	$u+
+a	$u+
+os	$u+
+as	$u+
+
+lo	$u
+la	$u
+los	$u
+las	$u
+ro	$u
+ra	$u
+ros	$u
+ras	$u
+ne	$u
+nes	$u
+
+me	$u
+te	$u
+se	$u
+le	$u
+li	$u
+nos	$u
+mos	$u
+tos	$u
+vos	$u
+os	$u
+les	$u
+lis	$u
+
+con	$u
+de	$u
+en	$u $brk
+mi	$u
+pa	$u
+por	$u $brk
+pues	$u
+pos	$u
+ta	$u $brk
+tu	$u
+sin	$u 
+su	$u
+ye	$u
+el	$u
+es	$u
+els	$u
+ers	$u
+mis	$u
+tus	$u
+sus	$u
+bell	$u
+bel	$u
+bella	$u
+bells	$u
+bels	$u
+bellas	$u
+bellos	$u
+que	$u
+qui	$u
+quien	$u
+como	$u
+quan	$u
+quando	$u
+on	$u
+aon	$u
+porque	$u
+per	$u
+pus	$u
+ni	$u
+ibi	$u
+bi	$u
+i	$u+
+ie	$u
+hu	$u
+sant	$u
+
+
+//abbreviations
+abs $abbrev
+ac $abbrev
+acb $abbrev
+acm $abbrev
+acs $abbrev
+acup $abbrev
+adn $abbrev
+adsl $abbrev
+aea $abbrev
+aeci $abbrev
+aek $abbrev
+aepd $abbrev
+afp $abbrev
+ai $abbrev
+akp $abbrev
+amd $abbrev
+anb $abbrev
+anp $abbrev
+anv $abbrev
+ap $abbrev
+apec $abbrev
+aqu $abbrev
+atp $abbrev
+ats $abbrev
+avl $abbrev
+avs $abbrev
+avt $abbrev
+avv $abbrev
+bbva $abbrev
+bce $abbrev
+bme $abbrev
+bop $abbrev
+bopv $abbrev
+ca $abbrev
+cav $abbrev
+cbuc $abbrev
+ccaa $abbrev
+ccoo $abbrev
+ccuc $abbrev
+cee $abbrev
+ceoe $abbrev
+cepyme $abbrev
+cesid $abbrev
+cicr $abbrev
+cidui $abbrev
+ciemat $abbrev
+cis $abbrev
+cne $abbrev
+cni $abbrev
+csic $abbrev
+csif $abbrev
+dgaia $abbrev
+dlsi $abbrev
+dni $abbrev
+dogc $abbrev
+dogv $abbrev
+dya $abbrev
+eads $abbrev
+eaed $abbrev
+eb $abbrev
+ebb $abbrev
+eees $abbrev
+eei $abbrev
+egb $abbrev
+eln $abbrev
+emt $abbrev
+eoc $abbrev
+epsv $abbrev
+erc $abbrev
+ets $abbrev
+euia $abbrev
+facua $abbrev
+fao $abbrev
+fapae $abbrev
+fbi $abbrev
+fci $abbrev
+feb $abbrev
+fed $abbrev
+fib $abbrev
+finul $abbrev
+fmi $abbrev
+fuoc $abbrev
+gatt $abbrev
+iaaf $abbrev
+ibm $abbrev
+icaa $abbrev
+icde $abbrev
+icv $abbrev
+iec $abbrev
+iee $abbrev
+ieo $abbrev
+imc $abbrev
+ims $abbrev
+in3 $abbrev
+inc $abbrev
+inem $abbrev
+ing $abbrev
+inm $abbrev
+ip $abbrev
+ipc $abbrev
+ipca $abbrev
+iqua $abbrev
+isaf $abbrev
+itcat $abbrev
+itv $abbrev
+iu $abbrev
+iun $abbrev
+ko $abbrev
+lotc $abbrev
+mibor $abbrev
+mit $abbrev
+mnac $abbrev
+nba $abbrev
+nyse $abbrev
+ocde $abbrev
+ocu $abbrev
+oea $abbrev
+oiea $abbrev
+olp $abbrev
+omc $abbrev
+omg $abbrev
+oms $abbrev
+ong $abbrev
+op $abbrev
+pce $abbrev
+pda $abbrev
+pde $abbrev
+pdi $abbrev
+pec $abbrev
+pga $abbrev
+pge $abbrev
+pgou $abbrev
+pib $abbrev
+pid $abbrev
+pse $abbrev
+psoe $abbrev
+psuc $abbrev
+racc $abbrev
+raf $abbrev
+rba $abbrev
+ree $abbrev
+rfec $abbrev
+rne $abbrev
+rsa $abbrev
+rtve $abbrev
+samu $abbrev
+sdat $abbrev
+sec $abbrev
+smi $abbrev
+sod $abbrev
+sos $abbrev
+summa $abbrev
+tor $abbrev
+tpi $abbrev
+tse $abbrev
+tsja $abbrev
+tve $abbrev
+ua $abbrev
+uab $abbrev
+uaw $abbrev
+udc $abbrev
+udg $abbrev
+udl $abbrev
+ue $abbrev
+uem $abbrev
+ugt $abbrev
+uhf $abbrev
+uib $abbrev
+uicn $abbrev
+uimp $abbrev
+uji $abbrev
+um $abbrev
+umd $abbrev
+ump $abbrev
+upc $abbrev
+upd $abbrev
+upf $abbrev
+upn $abbrev
+ups $abbrev
+upv $abbrev
+url $abbrev
+urss $abbrev
+urv $abbrev
+usb $abbrev
+usfp $abbrev
+uss $abbrev
+uv $abbrev
+uveg $abbrev
+uz $abbrev
+vih $abbrev
+vpo $abbrev
+wap $abbrev
+witsa $abbrev
+
+
+// exceptions
+banjo		Banjo
+barça		barsa
+desenyermar	DesenjErmar
+halar		xalar
+halma		xalma
+harcia		xarTja
+hibo		xiBo
+hoder		xoDer
+holgorio	xolg'orio
+holio		x'olio
+hopar		xopar
+huerga		xuerga
+huerza		xuerTa
+jacuzzi		jakusi
+jazz		jas
+jet		jet
+judo		juDo
+
+
+// Foreign words
+android		androId
+apple		'apEl
+at		at
+chat		tSat
+chrome		krome
+espeak		ispik
+(e speak) 	ispik
+facebook 	f'eIsbuk
+firefox		f'aIrfoks
+google		g'ugEl
+hardware 	x'ardwer
+hockey		xokeI
+hotmail		xotmeIl
+(i phone)	'aIfon
+iphone		'aIfon
+(i pod)		'aIpod
+ipod		'aIpod
+junior		j'unior
+linux		$1
+live 		laIB
+messenger 	m'esendZer
+mozilla		moTila
+nvda		ene|be|de|'a
+office		ofis
+skype		eskaIp
+software	s'oftwer
+thunderbird	Tanderbird
+twitter		tw'iter
+unix		j'uniks
+whatsapp	wasap
+windows		w'indows
+
+//mobile _^_EN

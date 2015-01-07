@@ -1,5 +1,5 @@
 
-
+// 20.02.13  Add samplerate 4-bytes at start of phondata
 // 14.09.10  Recognize long and short frames in phondata
 // 02.09.10  Fix: Q sections were omitted from the converted phondata
 // 13.08.10  jonsd: Added Q lines.  Use Address to set the displacement in phondata file.
@@ -167,6 +167,7 @@ int main (int argc, char *argv[])
 #else
     printf ("Host seems to be little-endian ..\n");
 #endif
+    printf ("Reading from: %s\n", indir);
 
     sprintf (f1, "%s/phondata", indir);
     sprintf (f2, "%s/temp_1", outdir);
@@ -211,6 +212,8 @@ void swap_phondata  (const char *infile, const char *outfile,
 {//==========================================================
     FILE *in, *mfest, *out;
     int displ;
+    int displ_out;
+    int errorflag_displ = 0;  // only report the first displ mismatch error
     char line[1024];
     unsigned char buf_4[4];
 
@@ -232,7 +235,9 @@ void swap_phondata  (const char *infile, const char *outfile,
         exit (1);
     }
 
-    xread = fread(buf_4, 4, 1, in);
+    xread = fread(buf_4, 4, 1, in);   // version number
+    fwrite(buf_4, 4, 1, out);
+    xread = fread(buf_4, 4, 1, in);   // sample rate
     fwrite(buf_4, 4, 1, out);
 
     while (fgets (line, sizeof(line), mfest))
@@ -241,6 +246,13 @@ void swap_phondata  (const char *infile, const char *outfile,
 
         sscanf(&line[2],"%x",&displ);
         fseek(in, displ, SEEK_SET);
+        fflush(out);
+        displ_out = ftell(out);
+        if((errorflag_displ==0) && (displ != displ_out))
+        {
+           fprintf(stderr, "Length error at the line before:   %s", line);
+           errorflag_displ = 1;
+        }
 
         if (line[0] == 'S') {
             SPECT_SEQ buf_spect;

@@ -2,24 +2,27 @@
 # available at https://github.com/kripken/emscripten
 # (change the paths here to match where you set that up in your system).
 
-export EMSCRIPTEN=/home/alon/Dev/emscripten
+# notice : Compilation to succeed less than emscripten v1.8.9.
+
+#export EMSCRIPTEN=/usr/bin/emscripten
+export EMSCRIPTEN=/home/logue/emscripten
 
 echo "make"
 make distclean
 make clean
 rm libespeak.*
 rm speak speak.bc speak.o
-CXXFLAGS="-DNEED_WCHAR_FUNCTIONS" $EMSCRIPTEN/emmake make -j 2 speak
+CXXFLAGS="-DNEED_WCHAR_FUNCTIONS" $EMSCRIPTEN/emmake make -j 2 speak 
 mv speak speak.bc
 
 #echo "dis"
-#~/Dev/llvm/cbuild/bin/llvm-dis -show-annotations speak -o=speak.ll
+#$EMSCRIPTEN/bin/llvm-dis -show-annotations speak -o=speak.ll
 #echo "autodebug"
 #mv speak.ll speak.orig.ll
-#python ~/Dev/emscripten/tools/autodebugger.py speak.orig.ll speak.ll
+#python $EMSCRIPTEN/tools/autodebugger.py speak.orig.ll speak.ll
 
 echo "emscripten"
-$EMSCRIPTEN/emcc -O2 --js-transform "python bundle.py" speak.bc -o speak.raw.js
+$EMSCRIPTEN/emcc -O2 -g --ignore-dynamic-linking -s ASM_JS=0 --js-transform "python bundle.py" speak.bc -o speak.raw.js
 cat shell_pre.js > ../speakGenerator.js
 cat speak.raw.js >> ../speakGenerator.js
 cat shell_post.js >> ../speakGenerator.js

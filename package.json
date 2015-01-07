@@ -1,0 +1,18 @@
+{
+  "author": "Alon Zakai <alonzakai@gmail.com>",
+  "name": "node-speak",
+  "description": "TTS (Text to Speech) for Node and the browser",
+  "version": "0.0.3",
+  "keywords": ["TTS", "Audio", "Speech", "Talk", "Text to Speech"]
+  "homepage": "https://github.com/logue/speak.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/logue/speak.js.git"
+  },
+  "main": "speak.js",
+  "engines": {
+    "node": "~0.6.2"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

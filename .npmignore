@@ -1,0 +1,9 @@
+*.exe
+*.html
+dictsource
+docs
+src
+platforms
+espeak-data
+speak.full.js
+
