@@ -3,7 +3,7 @@ speak.js
 
 A port of the eSpeak speech synthesizer from C++ to JavaScript using Emscripten.
 
-Enables text-to-speech on the web using only JavaScript and HTML5.
+Enables text-to-speech on the web using only JavaScript and HTML5. or within Node.js as a module.
 
 **Online demo**: http://syntensity.com/static/espeak.html
 
@@ -12,6 +12,8 @@ Note: An active fork of this project is at
   https://github.com/katsuyan/speak.js
   
   Check it out!
+
+
 
 Usage
 -----
@@ -37,6 +39,20 @@ See helloworld.html for a simple 'hello world', and demo.html for
 a more detailed example.
 
 
+Node.js Installation
+---------------------
+
+
+To install speak.js from NPM, do the following
+      `npm install node-speak` 
+
+Then require it in your app like so
+      `var speak = require("node-speak");`
+
+Using speak,js in Node, will **Require** you to use a callback, see **Custom Callbacks** below for more info.
+
+
+
 Options
 -------
 
@@ -53,13 +69,27 @@ available options are:
           build speak.js to include the proper data. See Language Support
           below) (default: en/en-us)
  * wordgap: Additional gap between words in 10 ms units (default: 0)
+<<<<<<< HEAD
+ * callback: You can define a custom callback that will get passed the outputted base64 encoded audio data uri, see **Custom Callbacks** below.
+=======
  * noWorker: Do not use a web worker (see below in 'Architecture')
+>>>>>>> kripken/master
 
 For example
 
       `speak('hello world', { pitch: 100 })`
 
 will talk in a very high-pitched voice.
+
+**Custom Callbacks**
+
+if you would like to define your own response to the generated audio data, you can define a custom callback, by setting the `callback` in the options, like so:
+
+      `speak('hello world', { callback: function (src) {
+         // do whatever you want with the returned data: "src" 
+      }})`
+
+
 
 
 Architecture

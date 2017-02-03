@@ -1,0 +1,22 @@
+{
+  "author": "Christopher de Beer <christopherdebeer@gmail.com> (https://github.com/christopherdebeer)",
+  "contributors": [
+    "Alon Zakai <alonzakai@gmail.com>",
+    "Christopher de Beer <christopherdebeer@gmail.com>"
+  ],
+  "name": "node-speak",
+  "description": "TTS (Text to Speech) for Node and the browser",
+  "version": "0.0.3",
+  "keywords": ["TTS", "Audio", "Speech", "Talk", "Text to Speech"]
+  "homepage": "https://github.com/christopherdebeer/speak.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/christopherdebeer/speak.js.git"
+  },
+  "main": "speak.js",
+  "engines": {
+    "node": "~0.6.2"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
